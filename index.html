@@ -1,389 +1,580 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Wiring Harness Restoration</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="OEM-standard automotive wiring harness restoration, repair, and custom builds. Nationwide mail-in service.">
+<!-- Wiring Harness Restoration — Parody Single Page (Squarespace Code Block ready) -->
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#1c1f24;
+    --muted:#5c6675;
+    --line:#e6e9ee;
+    --brand:#1a73e8;
+    --brand2:#0b57d0;
+    --card:#f7f9fc;
+    --shadow:0 10px 28px rgba(0,0,0,.12);
+    --radius:16px;
+    --max:1120px;
+    --font: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.4}
+  a{color:inherit;text-decoration:none}
+  .whp{width:100%}
+  .whp-container{max-width:var(--max);margin:0 auto;padding:0 18px}
 
-  <style>
-    :root {
-      --bg: #0b1220;
-      --panel: #0f172a;
-      --surface: #0c1427;
-      --text: #e5eefc;
-      --muted: #9fb0c7;
-      --primary: #3b82f6;
-      --accent: #f59e0b;
-      --radius: 14px;
-      --shadow: 0 10px 30px rgba(3,7,18,.35);
-    }
+  /* Header */
+  .whp-header{
+    position:sticky;top:0;z-index:999;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .whp-header-row{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:12px 0;
+  }
+  .whp-brand{
+    font-weight:800;letter-spacing:.5px;
+    text-transform:uppercase;font-size:13px;
+    color:var(--brand);
+    white-space:nowrap;
+  }
+  .whp-nav{display:flex;gap:18px;align-items:center}
+  .whp-nav a{
+    font-size:13px;color:#1f2a3a;opacity:.95;
+    padding:8px 10px;border-radius:999px;
+  }
+  .whp-nav a:hover{background:#f1f5ff;color:var(--brand2)}
+  .whp-cta{
+    display:flex;gap:10px;align-items:center;white-space:nowrap;
+  }
+  .whp-btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:9px 14px;border-radius:999px;border:1px solid var(--line);
+    font-size:13px;font-weight:700;
+    background:#fff;cursor:pointer;
+  }
+  .whp-btn.primary{
+    border-color:transparent;background:linear-gradient(180deg,var(--brand),var(--brand2));
+    color:#fff;box-shadow:0 10px 18px rgba(26,115,232,.28);
+  }
+  .whp-btn.primary:hover{filter:brightness(.98)}
+  .whp-btn.ghost:hover{border-color:#d8deea;background:#fbfcff}
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
+  /* Mobile nav */
+  .whp-toggle{display:none}
+  @media (max-width: 920px){
+    .whp-nav{display:none}
+    .whp-toggle{display:inline-flex}
+    .whp-nav.whp-open{
+      display:flex;flex-wrap:wrap;gap:10px;
+      padding:10px 0 14px 0;
+      border-top:1px solid var(--line);
     }
-    img { max-width: 100%; border-radius: 12px; display: block; }
+    .whp-header-row{flex-wrap:wrap}
+    .whp-cta{width:100%;justify-content:flex-end}
+  }
 
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+  /* Hero */
+  .whp-hero{
+    position:relative;
+    min-height:360px;
+    display:flex;align-items:center;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(900px 420px at 15% 10%, rgba(26,115,232,.20), transparent 60%),
+      radial-gradient(900px 420px at 85% 30%, rgba(11,87,208,.18), transparent 60%),
+      linear-gradient(180deg,#0b1220 0%, #121a2a 55%, #0b1220 100%);
+    color:#fff;
+  }
+  .whp-hero::before{
+    content:"";
+    position:absolute;inset:-60px -60px -60px -60px;
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 10px, rgba(255,255,255,.00) 10px 22px);
+    opacity:.35;
+    transform:rotate(-2deg);
+  }
+  .whp-hero-inner{
+    position:relative;
+    display:flex;align-items:center;justify-content:space-between;gap:28px;
+    padding:44px 0;
+  }
+  .whp-hero-card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px 26px 22px;
+    max-width:720px;
+  }
+  .whp-kicker{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;
+    opacity:.92;
+  }
+  .whp-pill{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:6px 10px;border-radius:999px;
+    background:rgba(26,115,232,.22);
+    border:1px solid rgba(26,115,232,.40);
+  }
+  .whp-hero h1{
+    margin:10px 0 10px;
+    font-size:40px;line-height:1.05;
+    letter-spacing:-.6px;
+  }
+  .whp-hero p{
+    margin:0 0 18px;
+    color:rgba(255,255,255,.86);
+    font-size:15px;
+  }
+  .whp-hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+  .whp-hero-actions .whp-btn{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#fff}
+  .whp-hero-actions .whp-btn.ghost:hover{background:rgba(255,255,255,.10)}
+  .whp-hero-actions .whp-btn.primary{background:linear-gradient(180deg,var(--brand),var(--brand2));border-color:transparent}
 
-    .container { width: min(1120px, 92%); margin: 0 auto; }
+  .whp-hero-badge{
+    position:relative;
+    min-width:260px;
+    max-width:360px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:var(--radius);
+    padding:18px;
+    box-shadow:var(--shadow);
+  }
+  .whp-logo{
+    height:84px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,.18), transparent 55%),
+      linear-gradient(135deg, rgba(26,115,232,.30), rgba(11,87,208,.12));
+    border:1px solid rgba(255,255,255,.18);
+    font-weight:900;letter-spacing:1.2px;
+    text-transform:uppercase;font-size:14px;
+  }
+  .whp-hero-badge ul{margin:14px 0 0;padding:0;list-style:none}
+  .whp-hero-badge li{
+    padding:8px 0;border-top:1px solid rgba(255,255,255,.14);
+    color:rgba(255,255,255,.86);
+    font-size:13px;
+  }
+  .whp-hero-badge li b{color:#fff}
+  @media (max-width: 920px){
+    .whp-hero-inner{flex-direction:column;align-items:stretch}
+    .whp-hero h1{font-size:34px}
+    .whp-hero-badge{max-width:720px}
+  }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(10,15,28,.8);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(148,163,184,.2);
-    }
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 0;
-    }
-    .brand { font-weight: 800; color: #fff; }
-    nav { display: flex; gap: 20px; align-items: center; }
-    nav a { padding: 8px 10px; border-radius: 8px; color: var(--text); }
-    nav a:hover { background: #0b2558; text-decoration: none; }
-    .cta { background: var(--primary); color: #fff !important; }
+  /* Sections */
+  .whp-section{padding:54px 0}
+  .whp-section h2{
+    margin:0 0 10px;font-size:32px;letter-spacing:-.4px;text-align:center
+  }
+  .whp-sub{
+    margin:0 auto 26px;max-width:760px;text-align:center;color:var(--muted)
+  }
+  .whp-grid{
+    display:grid;gap:16px;
+    grid-template-columns:repeat(12,1fr);
+    align-items:stretch;
+  }
+  .whp-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px;
+  }
+  .whp-card h3{margin:0 0 6px;font-size:16px}
+  .whp-card p{margin:0;color:var(--muted);font-size:14px}
+  .whp-mini{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;color:var(--muted);margin-top:10px
+  }
+  .whp-dot{width:8px;height:8px;border-radius:999px;background:var(--brand)}
+  .span-4{grid-column:span 4}
+  .span-6{grid-column:span 6}
+  .span-8{grid-column:span 8}
+  .span-12{grid-column:span 12}
+  @media (max-width: 920px){
+    .span-4,.span-6,.span-8{grid-column:span 12}
+  }
 
-    .hero {
-      background: radial-gradient(80% 80% at 10% 10%, #122041 0%, #0b1220 60%);
-      padding: 80px 0;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .hero h1 {
-      font-size: clamp(32px, 5vw, 48px);
-      line-height: 1.15;
-      margin: 0 0 12px;
-    }
-    .lead {
-      color: var(--muted);
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-    .buttons { display: flex; gap: 12px; margin-bottom: 16px; }
-    .button {
-      padding: 12px 16px;
-      border-radius: 10px;
-      font-weight: 700;
-      display: inline-block;
-    }
-    .primary { background: var(--primary); color: #fff; }
-    .ghost { border: 1px solid #334155; color: #fff; }
+  /* Quote banner parody */
+  .whp-callout{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#ffffff, #f7fbff);
+    padding:18px 0;
+  }
+  .whp-callout-row{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap
+  }
+  .whp-callout strong{font-size:14px}
+  .whp-small{font-size:13px;color:var(--muted)}
 
-    .bullets { list-style: none; padding: 0; display: flex; gap: 18px; flex-wrap: wrap; color: #cbd5e1; }
+  /* Testimonials */
+  .whp-quote{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;position:relative
+  }
+  .whp-quote::before{
+    content:"“";position:absolute;top:-10px;left:14px;
+    font-size:44px;color:#d7e4ff;font-weight:900
+  }
+  .whp-quote p{margin:10px 0 10px;color:#334155}
+  .whp-quote .who{font-size:13px;color:var(--muted);font-weight:700}
 
-    .trust {
-      background: #0c152b;
-      border-top: 1px solid rgba(148,163,184,.15);
-      border-bottom: 1px solid rgba(148,163,184,.15);
-      padding: 10px 0;
-    }
-    .trust-inner { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .badge {
-      background: #0b2558;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      border: 1px solid rgba(191,219,254,.25);
-    }
+  /* FAQ */
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:14px 16px;
+  }
+  details + details{margin-top:10px}
+  summary{cursor:pointer;font-weight:800}
+  details p{margin:10px 0 0;color:var(--muted);font-size:14px}
 
-    section { padding: 64px 0; }
-    .surface { background: var(--surface); }
-    h2 { font-size: clamp(24px, 3vw, 34px); margin-bottom: 10px; }
+  /* Footer */
+  .whp-footer{
+    border-top:1px solid var(--line);
+    padding:28px 0;color:var(--muted);font-size:13px
+  }
+  .whp-footer a{color:var(--brand)}
+  .whp-foot-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+</style>
 
-    .cards-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .card {
-      background: #0f1b36;
-      border: 1px solid rgba(148,163,184,.18);
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
+<div id="whp" class="whp">
+  <!-- Header -->
+  <header class="whp-header" role="banner" aria-label="Site Header">
+    <div class="whp-container">
+      <div class="whp-header-row">
+        <a class="whp-brand" href="#whp" aria-label="Home">WIRING HARNESS “RESTORATION”</a>
 
-    .steps { list-style: none; padding: 0; display: grid; gap: 10px; }
-    .steps li { padding-left: 36px; position: relative; }
-    .steps li::before {
-      content: counter(step);
-      counter-increment: step;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 26px;
-      height: 26px;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-    }
-    .steps { counter-reset: step; }
+        <button class="whp-btn whp-toggle ghost" type="button" aria-expanded="false" aria-controls="whp-nav" id="whpToggle">
+          Menu
+        </button>
 
-    .quotes { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    blockquote {
-      background: #0f1b36;
-      border-left: 4px solid var(--primary);
-      padding: 16px;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      margin: 0;
-    }
+        <nav id="whp-nav" class="whp-nav" role="navigation" aria-label="Main navigation">
+          <a href="#about">ABOUT</a>
+          <a href="#services">SERVICES</a>
+          <a href="#quote">QUOTE</a>
+          <a href="#faq">FAQ</a>
+          <a href="#gallery">GALLERY</a>
+          <a href="#contact">CONTACT</a>
+        </nav>
 
-    .faq details {
-      background: #0f1b36;
-      border: 1px solid rgba(148,163,184,.18);
-      border-radius: 10px;
-      padding: 12px 16px;
-      margin-bottom: 10px;
-    }
+        <div class="whp-cta">
+          <a class="whp-btn ghost" href="#quote">Get “A Quote”</a>
+          <a class="whp-btn primary" href="#contact">Restore My Life</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
+  <!-- Hero -->
+  <section class="whp-hero" aria-label="Hero">
+    <div class="whp-container">
+      <div class="whp-hero-inner">
+        <div class="whp-hero-card">
+          <div class="whp-kicker">
+            <span class="whp-pill">100% CERTIFIED</span>
+            <span>artisan electrons • boutique zip-ties • vibes-based diagnostics</span>
+          </div>
+          <h1>Wiring Harness Restoration</h1>
+          <p>
+            We are the only company in the world that truly restores wiring harnesses*.
+            We didn’t outsource it. We didn’t copy it. We just stared at it until it worked.
+          </p>
+          <p style="font-size:12px;opacity:.82;margin-top:-6px">
+            *According to a poll of our break-room microwave and one very confident intern.
+          </p>
+          <div class="whp-hero-actions">
+            <a class="whp-btn primary" href="#quote">Request a Miracle</a>
+            <a class="whp-btn ghost" href="#services">See Our “Process”</a>
+            <a class="whp-btn ghost" href="#gallery">View Before/After (Sometimes)</a>
+          </div>
+        </div>
 
-    form {
-      background: #0f1b36;
-      border: 1px solid rgba(148,163,184,.18);
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-    label { display: block; margin-bottom: 10px; }
-    span { display: block; font-weight: 600; margin-bottom: 6px; }
-    input, textarea, select {
-      width: 100%;
-      padding: 12px 14px;
-      background: #0b1220;
-      color: var(--text);
-      border: 1px solid #334155;
-      border-radius: 10px;
-      font: inherit;
-    }
+        <aside class="whp-hero-badge" aria-label="Trust badges">
+          <div class="whp-logo">HARNESS RESCUE UNIT</div>
+          <ul>
+            <li><b>Turnaround:</b> 3–5 business epochs</li>
+            <li><b>Warranty:</b> “It’ll probably be fine”</li>
+            <li><b>Method:</b> Shrink-wrap, prayer, and a playlist</li>
+            <li><b>Quality:</b> Measured in “looks good from here”</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
 
-    footer {
-      border-top: 1px solid rgba(148,163,184,.2);
-      background: #0b1220;
-      padding: 24px 0;
-    }
-    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  <!-- Callout -->
+  <section class="whp-callout" aria-label="Announcement">
+    <div class="whp-container">
+      <div class="whp-callout-row">
+        <div>
+          <strong>Now accepting harnesses, regrets, and unresolved dashboard lights.</strong>
+          <div class="whp-small">If your car is haunted, we charge extra for exorcisms.</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="whp-btn primary" href="#contact">Talk to a Human (Maybe)</a>
+          <a class="whp-btn ghost" href="#faq">Read Fine Print</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    @media (max-width: 900px) {
-      .hero-grid, .cards-3, .quotes, .grid-2 { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="container header-inner">
-    <div class="brand">Wiring Harness Restoration</div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#work">Work</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact" class="cta">Get a Quote</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1>Wiring harness restoration done to OEM standards</h1>
-      <p class="lead">
-        We restore, repair, and build automotive wiring harnesses with factory-correct materials, proper crimps, and verified testing—so your vehicle is reliable, safe, and easy to service.
+  <!-- About -->
+  <section id="about" class="whp-section" aria-label="About">
+    <div class="whp-container">
+      <h2>Wiring Harness Restoration</h2>
+      <p class="whp-sub">
+        We specialize in taking a complicated electrical problem and making it a fascinating mystery.
+        Our approach is simple: look professional, use big words, and blame the previous owner.
       </p>
-      <div class="buttons">
-        <a href="#contact" class="button primary">Start Your Quote</a>
-        <a href="#services" class="button ghost">View Services</a>
-      </div>
-      <ul class="bullets">
-        <li>Continuity + insulation tested</li>
-        <li>OEM-style wire colors, terminals, and loom</li>
-        <li>12-month workmanship warranty</li>
-      </ul>
-    </div>
-    <div>
-      <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1400&auto=format&fit=crop" alt="Wiring harness restoration workbench">
-    </div>
-  </div>
-</section>
 
-<section class="trust">
-  <div class="container trust-inner">
-    <div class="badge">Established 2018</div>
-    <div class="badge">Nationwide mail-in service</div>
-    <div class="badge">OEM-spec loom & connectors</div>
-    <div class="badge">12-month warranty</div>
-  </div>
-</section>
-
-<section id="services" class="surface">
-  <div class="container">
-    <h2>Services</h2>
-    <div class="cards-3">
-      <div class="card">
-        <h3>Harness Restoration</h3>
-        <p>Bring tired, hacked, or brittle harnesses back to factory condition.</p>
-        <ul>
-          <li>Cloth, PVC, and woven loom options</li>
-          <li>OEM-style tape and strain relief</li>
-          <li>Continuity + insulation verification</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Connector & Terminal Repair</h3>
-        <p>De-pin, clean, replace, and re-pin using correct terminals and tooling.</p>
-        <ul>
-          <li>Factory-correct terminals and seals</li>
-          <li>Connector sourcing</li>
-          <li>Labeling and branch mapping</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Custom & Engine Harnesses</h3>
-        <p>Clean, reliable wiring for swaps and custom builds.</p>
-        <ul>
-          <li>Fuse and relay upgrades</li>
-          <li>ECU and sensor integration</li>
-          <li>Bench testing</li>
-        </ul>
+      <div class="whp-grid">
+        <div class="whp-card span-4">
+          <h3>Our Mission</h3>
+          <p>To deliver premium harness restoration results that are 60% craftsmanship, 40% confidence.</p>
+          <div class="whp-mini"><span class="whp-dot"></span><span>Confidence is non-refundable.</span></div>
+        </div>
+        <div class="whp-card span-4">
+          <h3>Our Promise</h3>
+          <p>We’ll keep you updated with real-time status reports (written entirely in suspense).</p>
+          <div class="whp-mini"><span class="whp-dot"></span><span>“Just one more test…”</span></div>
+        </div>
+        <div class="whp-card span-4">
+          <h3>Our Specialty</h3>
+          <p>Turning “a little corrosion” into a full cinematic electrical saga.</p>
+          <div class="whp-mini"><span class="whp-dot"></span><span>Rated PG-13 for language.</span></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="process">
-  <div class="container">
-    <h2>Our Process</h2>
-    <ol class="steps">
-      <li>Quote: Send details and photos.</li>
-      <li>Ship: Pack and send your harness.</li>
-      <li>Restore: Repair, re-loom, and label.</li>
-      <li>Test: Verify continuity and resistance.</li>
-      <li>Support: Install guidance if needed.</li>
-    </ol>
-    <a href="#contact" class="button primary">Start Your Quote</a>
-  </div>
-</section>
-
-<section id="work" class="surface">
-  <div class="container">
-    <h2>Before & After</h2>
-    <p>Real-world results—from brittle looms and corrosion to clean, labeled, factory-style routing.</p>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2>What Builders Say</h2>
-    <div class="quotes">
-      <blockquote>“Factory-correct loom, clean crimps, and the electrical issues disappeared. Worth it.”<br>— Mark T., ’69 Mustang</blockquote>
-      <blockquote>“Labeling was perfect and communication was clear the whole time. Fired up first key.”<br>— Sofia R., LS swap 240SX</blockquote>
-      <blockquote>“They fixed years of ‘mystery’ electrical problems and documented everything.”<br>— Aaron P., Restomod builder</blockquote>
-    </div>
-  </div>
-</section>
-
-<section id="faq" class="surface">
-  <div class="container">
-    <h2>FAQ</h2>
-    <div class="faq">
-      <details>
-        <summary>Do you match OEM wire colors and gauges?</summary>
-        <p>When available, yes. Otherwise we color-code and label to the factory diagram.</p>
-      </details>
-      <details>
-        <summary>What’s typical turnaround time?</summary>
-        <p>Most jobs are 1–3 weeks depending on condition and parts availability.</p>
-      </details>
-      <details>
-        <summary>Can I send only a section of the harness?</summary>
-        <p>Yes. Send the sub-harness with photos and notes.</p>
-      </details>
-      <details>
-        <summary>Do you warranty your work?</summary>
-        <p>Yes. 12-month workmanship warranty.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container grid-2">
-    <div>
-      <h2>Get a quote and next steps</h2>
-      <p>Tell us what you’re working on and what problems you’re seeing. We respond within one business day.</p>
-      <p>
-        Email: <a href="mailto:info@wiringharnessrestoration.net">info@wiringharnessrestoration.net</a><br>
-        Phone: (replace with your real number)<br>
-        Mail-in service nationwide (international by request)
+  <!-- Services -->
+  <section id="services" class="whp-section" aria-label="Services" style="padding-top:10px">
+    <div class="whp-container">
+      <h2>Services</h2>
+      <p class="whp-sub">
+        Everything you expect, plus a few things you absolutely didn’t ask for.
       </p>
-      <h3>Shipping Tips</h3>
-      <ul>
-        <li>Tag branches by location</li>
-        <li>Include year/make/model/engine</li>
-        <li>Protect connectors and pad the box</li>
-      </ul>
-    </div>
-    <form>
-      <label><span>Name</span><input type="text" required></label>
-      <label><span>Email</span><input type="email" required></label>
-      <label><span>Phone</span><input type="tel"></label>
-      <label><span>Year / Make / Model</span><input type="text" required></label>
-      <label><span>Harness Type</span>
-        <select required>
-          <option value="">Select…</option>
-          <option>Main body</option>
-          <option>Engine</option>
-          <option>Dash</option>
-          <option>Lighting</option>
-          <option>Custom / Swap</option>
-          <option>Other</option>
-        </select>
-      </label>
-      <label><span>Describe the issues</span><textarea rows="6" required></textarea></label>
-      <button type="submit" class="button primary">Request Quote</button>
-      <p>Prefer email? <a href="mailto:info@wiringharnessrestoration.net">info@wiringharnessrestoration.net</a></p>
-    </form>
-  </div>
-</section>
 
-<footer>
-  <div class="container footer-inner">
-    <div>© <span id="year"></span> Wiring Harness Restoration. All rights reserved.</div>
-    <div>
-      <a href="#">Instagram</a> |
-      <a href="#">YouTube</a> |
-      <a href="mailto:info@wiringharnessrestoration.net">Email</a>
+      <div class="whp-grid">
+        <div class="whp-card span-6">
+          <h3>“Full Restoration” Package</h3>
+          <p>We refresh the loom, re-wrap the branches, and add that crisp “brand new harness smell” (imaginary).</p>
+          <div class="whp-mini"><span class="whp-dot"></span><span>Includes 1 complimentary dramatic pause.</span></div>
+        </div>
+        <div class="whp-card span-6">
+          <h3>Connector Spa Day</h3>
+          <p>Gentle cleaning, terminal persuasion, and a motivational speech for stubborn pins.</p>
+          <div class="whp-mini"><span class="whp-dot"></span><span>Results may vary based on moon phase.</span></div>
+        </div>
+        <div class="whp-card span-4">
+          <h3>Diagnosis (with Lore)</h3>
+          <p>We don’t just diagnose— we tell a story about why it happened.</p>
+        </div>
+        <div class="whp-card span-4">
+          <h3>Re-Wrap &amp; Re-Tape</h3>
+          <p>OEM-ish tape. Premium-ish routing. Authentic-ish results.</p>
+        </div>
+        <div class="whp-card span-4">
+          <h3>“We Buy Harnesses”</h3>
+          <p>We offer top dollar* for harnesses that look like they fought a lawnmower.</p>
+          <p style="margin-top:8px;font-size:12px;color:var(--muted)">*</p>
+          <p style="margin-top:-10px;font-size:12px;color:var(--muted)">Top dollar = one very enthusiastic dollar.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
+
+  <!-- Quote -->
+  <section id="quote" class="whp-section" aria-label="Quote">
+    <div class="whp-container">
+      <h2>Get a Quote</h2>
+      <p class="whp-sub">
+        Fill this out and we’ll respond with a number, a vibe, and at least one question that makes you doubt reality.
+      </p>
+
+      <div class="whp-grid">
+        <div class="whp-card span-8">
+          <h3>Quote Form (Totally Serious)</h3>
+          <p style="margin-bottom:12px">Paste into a Squarespace Form Block or use this as a visual mockup.</p>
+
+          <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:10px">
+            <label style="grid-column:span 6">
+              <div style="font-size:12px;font-weight:800;margin-bottom:6px">Name</div>
+              <input style="width:100%;padding:10px;border:1px solid var(--line);border-radius:12px" placeholder="Captain Ground Loop" />
+            </label>
+            <label style="grid-column:span 6">
+              <div style="font-size:12px;font-weight:800;margin-bottom:6px">Email</div>
+              <input style="width:100%;padding:10px;border:1px solid var(--line);border-radius:12px" placeholder="you@probablyreal.com" />
+            </label>
+            <label style="grid-column:span 6">
+              <div style="font-size:12px;font-weight:800;margin-bottom:6px">Vehicle</div>
+              <input style="width:100%;padding:10px;border:1px solid var(--line);border-radius:12px" placeholder="Year / Make / Model" />
+            </label>
+            <label style="grid-column:span 6">
+              <div style="font-size:12px;font-weight:800;margin-bottom:6px">Harness Type</div>
+              <input style="width:100%;padding:10px;border:1px solid var(--line);border-radius:12px" placeholder="Engine / Dash / Body / Mystery" />
+            </label>
+            <label style="grid-column:span 12">
+              <div style="font-size:12px;font-weight:800;margin-bottom:6px">Describe the issue</div>
+              <textarea style="width:100%;min-height:110px;padding:10px;border:1px solid var(--line);border-radius:12px" placeholder="Example: It only acts up when I signal left, the radio is on, and I think the car is judging me."></textarea>
+            </label>
+            <div style="grid-column:span 12;display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px">
+              <button class="whp-btn primary" type="button">Submit for Emotional Damage</button>
+              <span style="font-size:12px;color:var(--muted)">Submitting does not guarantee a response, peace, or closure.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="whp-card span-4">
+          <h3>What to Send</h3>
+          <p>Photos, part numbers, and anything that looks like it was chewed by destiny.</p>
+          <div style="margin-top:12px;padding:12px;border-radius:14px;border:1px dashed #cbd5e1;background:#fff">
+            <div style="font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:#334155">Pro Tip</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:6px">
+              If the harness is still installed, do not remove it unless you enjoy puzzles and mild despair.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="whp-section" aria-label="Gallery" style="padding-top:10px">
+    <div class="whp-container">
+      <h2>Gallery</h2>
+      <p class="whp-sub">Placeholder tiles for before/after photos. Replace with real images if you want it to sting less.</p>
+
+      <div class="whp-grid">
+        <div class="whp-card span-4">
+          <h3>Before</h3>
+          <p>Looks like it lived under a saltwater aquarium.</p>
+          <div style="margin-top:12px;height:160px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(135deg,#e2e8f0,#f8fafc)"></div>
+        </div>
+        <div class="whp-card span-4">
+          <h3>During</h3>
+          <p>We call this stage “questioning our choices.”</p>
+          <div style="margin-top:12px;height:160px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(135deg,#dbeafe,#eff6ff)"></div>
+        </div>
+        <div class="whp-card span-4">
+          <h3>After</h3>
+          <p>Now it’s 3% better and 97% shinier.</p>
+          <div style="margin-top:12px;height:160px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(135deg,#dcfce7,#f0fdf4)"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="whp-section" aria-label="Testimonials" style="padding-top:10px">
+    <div class="whp-container">
+      <h2>Reviews</h2>
+      <p class="whp-sub">Realistic? No. Relatable? Unfortunately, yes.</p>
+
+      <div class="whp-grid">
+        <div class="whp-quote span-4">
+          <p>They told me my harness was “basically a time bomb,” then sold me a quote with a plot twist.</p>
+          <div class="who">— Customer #0001, Owner of Many Warning Lights</div>
+        </div>
+        <div class="whp-quote span-4">
+          <p>Communication was excellent. Every update raised new questions I didn’t know existed.</p>
+          <div class="who">— Customer #0002, Philosophical About Electricity</div>
+        </div>
+        <div class="whp-quote span-4">
+          <p>My car runs now, but I’m pretty sure the horn speaks Latin.</p>
+          <div class="who">— Customer #0003, Slightly Concerned</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="whp-section" aria-label="FAQ" style="padding-top:10px">
+    <div class="whp-container">
+      <h2>FAQ</h2>
+      <p class="whp-sub">Answers may contain sarcasm, but the formatting is professional.</p>
+
+      <details>
+        <summary>Are you really the only company in the world that restores harnesses?</summary>
+        <p>Of course not. But saying it confidently makes the header look more “premium.”</p>
+      </details>
+
+      <details>
+        <summary>How long does it take?</summary>
+        <p>Depends on corrosion, complexity, parts availability, and whether the harness has a personal vendetta.</p>
+      </details>
+
+      <details>
+        <summary>Do you guarantee results?</summary>
+        <p>We guarantee we will try. Sometimes very hard. Other times we will stare at it and say “huh.”</p>
+      </details>
+
+      <details>
+        <summary>Should I remove my harness and ship it?</summary>
+        <p>Only if you’re comfortable re-installing it later and explaining to your friends why the car is in pieces.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="whp-section" aria-label="Contact">
+    <div class="whp-container">
+      <h2>Contact</h2>
+      <p class="whp-sub">
+        Reach out for quotes, questions, or to tell us your dashboard light is “just a suggestion.”
+      </p>
+
+      <div class="whp-grid">
+        <div class="whp-card span-6">
+          <h3>Contact Info (Replace This)</h3>
+          <p><b>Email:</b> hello@yourdomain.com</p>
+          <p><b>Phone:</b> (555) 010-0101</p>
+          <p><b>Hours:</b> Mon–Fri, 9am–whenever the last bolt disappears</p>
+          <div class="whp-mini"><span class="whp-dot"></span><span>Serious note: put real info here.</span></div>
+        </div>
+        <div class="whp-card span-6">
+          <h3>Disclaimer</h3>
+          <p>
+            This page is a parody/mockup for comedic effect. Replace the jokes with your real copy if this is going live.
+          </p>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="whp-btn primary" href="#quote">Back to Quote</a>
+            <a class="whp-btn ghost" href="#whp">Top</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="whp-footer" aria-label="Footer">
+    <div class="whp-container">
+      <div class="whp-foot-row">
+        <div>© <span id="whpYear"></span> Wiring Harness “Restoration” — Parody Template</div>
+        <div>Built with: tape, hope, and <a href="#faq">fine print</a>.</div>
+      </div>
+    </div>
+  </footer>
+</div>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  // Mobile nav toggle
+  (function(){
+    var btn = document.getElementById('whpToggle');
+    var nav = document.getElementById('whp-nav');
+    if(btn && nav){
+      btn.addEventListener('click', function(){
+        var isOpen = nav.classList.toggle('whp-open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+    var y = document.getElementById('whpYear');
+    if(y){ y.textContent = new Date().getFullYear(); }
+  })();
 </script>
-
-</body>
-</html>
