@@ -1,230 +1,525 @@
-<!-- Simple Negative-Interaction Landing Page (Squarespace Code Block ready) -->
+<!-- WiringHarnessRestoration.com — Single-page landing (paste into one Code Block) -->
 <style>
   :root{
-    --bg:#fff; --text:#111827; --muted:#6b7280; --line:#e5e7eb;
-    --max:1000px; --radius:14px;
-    --shadow:0 12px 28px rgba(0,0,0,.10);
-    --font: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+    --bg:#0b0f14; --panel:#101722; --panel2:#0e141d;
+    --text:#e9eef5; --muted:#a8b3c2; --line:#213044;
+    --brand:#45c2ff; --brand2:#6ee7b7; --warn:#ffcf5a;
+    --radius:18px; --shadow: 0 16px 40px rgba(0,0,0,.35);
+    --max: 1120px;
   }
   *{box-sizing:border-box}
-  body{margin:0;font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.45}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(255,255,255,.95);
-    border-bottom:1px solid var(--line);
-    backdrop-filter: blur(10px);
+  html{scroll-behavior:smooth}
+  body{margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji"; background: radial-gradient(1200px 600px at 20% -10%, rgba(69,194,255,.18), transparent 55%), radial-gradient(900px 500px at 90% 0%, rgba(110,231,183,.12), transparent 60%), var(--bg); color:var(--text)}
+  a{color:inherit}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+  .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+  .skip:focus{left:18px; top:18px; width:auto; height:auto; padding:10px 12px; background:#000; border:1px solid var(--line); border-radius:10px; z-index:9999}
+
+  /* Header */
+  header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px); background: rgba(11,15,20,.75); border-bottom:1px solid rgba(33,48,68,.6)}
+  .nav{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 0}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+  .logo{
+    width:34px; height:34px; border-radius:10px;
+    background: linear-gradient(135deg, rgba(69,194,255,.9), rgba(110,231,183,.8));
+    box-shadow: 0 12px 24px rgba(69,194,255,.18);
   }
-  .row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;flex-wrap:wrap}
-  .brand{font-weight:800;letter-spacing:.5px;text-transform:uppercase;font-size:13px;color:#2563eb}
-  nav{display:flex;gap:14px;flex-wrap:wrap}
-  nav a{font-size:13px;color:#111827;opacity:.9;padding:8px 10px;border-radius:999px}
-  nav a:hover{background:#f3f4f6}
+  .brand strong{letter-spacing:.2px}
+  .links{display:flex; gap:14px; align-items:center}
+  .links a{font-size:14px; text-decoration:none; color:var(--muted); padding:8px 10px; border-radius:12px}
+  .links a:hover{background:rgba(255,255,255,.04); color:var(--text)}
+  .cta{display:flex; gap:10px; align-items:center}
   .btn{
-    display:inline-flex;align-items:center;justify-content:center;
-    padding:10px 14px;border-radius:999px;border:1px solid var(--line);
-    font-size:13px;font-weight:700;background:#fff;cursor:pointer;
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    border:1px solid rgba(69,194,255,.35);
+    background: rgba(69,194,255,.10);
+    color:var(--text);
+    padding:10px 12px; border-radius:14px; text-decoration:none; font-weight:600; font-size:14px;
   }
-  .btn.primary{background:#111827;color:#fff;border-color:#111827}
-  .hero{
-    border-bottom:1px solid var(--line);
-    background:linear-gradient(180deg,#111827 0%, #0b1220 100%);
-    color:#fff;
-    padding:44px 0;
+  .btn:hover{background: rgba(69,194,255,.16)}
+  .btn.primary{
+    border:1px solid rgba(110,231,183,.45);
+    background: linear-gradient(135deg, rgba(110,231,183,.18), rgba(69,194,255,.14));
   }
-  .hero h1{margin:0 0 10px;font-size:36px;line-height:1.05}
-  .hero p{margin:0 0 16px;color:rgba(255,255,255,.85);max-width:760px}
-  .hero .note{font-size:12px;color:rgba(255,255,255,.72);margin-top:-6px}
-  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-  section{padding:44px 0;border-bottom:1px solid var(--line)}
-  h2{margin:0 0 12px;font-size:26px}
-  .sub{margin:0 0 18px;color:var(--muted);max-width:780px}
-  .grid{display:grid;gap:14px;grid-template-columns:repeat(12,1fr)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.03); color:var(--muted)}
+  .btn.ghost:hover{color:var(--text); background: rgba(255,255,255,.06)}
+
+  /* Hero */
+  .hero{padding:46px 0 20px}
+  .hero-grid{display:grid; grid-template-columns: 1.25fr .75fr; gap:18px; align-items:stretch}
   .card{
-    border:1px solid var(--line);border-radius:var(--radius);
-    padding:16px;background:#fff;box-shadow:none;
+    background: linear-gradient(180deg, rgba(16,23,34,.92), rgba(14,20,29,.92));
+    border:1px solid rgba(33,48,68,.7);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
   }
-  .card strong{display:block;margin-bottom:6px}
-  .card p{margin:0;color:var(--muted);font-size:14px}
-  .span-6{grid-column:span 6}
-  .span-12{grid-column:span 12}
-  @media (max-width: 900px){
-    .span-6{grid-column:span 12}
-    .hero h1{font-size:30px}
+  .hero-main{padding:26px}
+  .kicker{display:inline-flex; gap:10px; align-items:center; font-size:13px; color:var(--muted); padding:8px 10px; border:1px solid rgba(33,48,68,.8); border-radius:999px; background: rgba(255,255,255,.03)}
+  .dot{width:8px; height:8px; border-radius:50%; background: var(--brand)}
+  h1{margin:14px 0 10px; font-size:42px; line-height:1.08; letter-spacing:-.6px}
+  .sub{margin:0 0 16px; font-size:16px; line-height:1.6; color:var(--muted)}
+  .hero-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px}
+  .micro{margin-top:14px; font-size:13px; color:var(--muted)}
+  .micro b{color:var(--text)}
+  .trust{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+  .pill{font-size:12px; color:var(--muted); padding:8px 10px; border-radius:999px; border:1px solid rgba(33,48,68,.7); background: rgba(255,255,255,.03)}
+  .hero-side{padding:18px}
+  .side-title{margin:4px 0 10px; font-size:14px; color:var(--muted)}
+  .side-box{padding:14px; border:1px solid rgba(33,48,68,.7); border-radius:16px; background: rgba(255,255,255,.03); margin-bottom:12px}
+  .side-box strong{display:block; margin-bottom:6px}
+  .side-box p{margin:0; font-size:13px; line-height:1.55; color:var(--muted)}
+  .badge{display:inline-flex; align-items:center; gap:8px; font-size:12px; padding:8px 10px; border-radius:999px; border:1px solid rgba(255,207,90,.35); background: rgba(255,207,90,.08); color: #ffe6a3}
+
+  /* Sections */
+  section{padding:24px 0}
+  .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin-bottom:12px}
+  h2{margin:0; font-size:22px; letter-spacing:-.2px}
+  .lead{margin:0; color:var(--muted); font-size:14px; line-height:1.6}
+  .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px}
+  .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px}
+  .tile{padding:16px}
+  .tile h3{margin:0 0 8px; font-size:16px}
+  .tile p{margin:0; font-size:13px; line-height:1.55; color:var(--muted)}
+  .icon{
+    width:34px; height:34px; border-radius:12px; margin-bottom:10px;
+    border:1px solid rgba(33,48,68,.7);
+    background: radial-gradient(10px 10px at 30% 30%, rgba(69,194,255,.35), transparent 60%), rgba(255,255,255,.03);
+    display:grid; place-items:center; color: var(--brand);
+    font-weight:800;
   }
-  .log{
-    border:1px solid var(--line);border-radius:var(--radius);
-    overflow:hidden;
+
+  /* Process */
+  .steps{counter-reset: step}
+  .step{display:flex; gap:12px; padding:14px; border:1px solid rgba(33,48,68,.7); border-radius:16px; background: rgba(255,255,255,.03)}
+  .step:before{
+    counter-increment: step;
+    content: counter(step);
+    width:30px; height:30px; border-radius:12px;
+    display:grid; place-items:center;
+    background: rgba(69,194,255,.10);
+    border:1px solid rgba(69,194,255,.25);
+    color: var(--text);
+    font-weight:800;
+    flex:0 0 auto;
   }
-  .log-head{
-    background:#f9fafb;border-bottom:1px solid var(--line);
-    padding:10px 14px;font-size:12px;color:#374151;font-weight:800;
-    text-transform:uppercase;letter-spacing:.6px;
+  .step strong{display:block; margin-bottom:4px}
+  .step span{font-size:13px; color:var(--muted); line-height:1.55}
+
+  /* Reviews */
+  .quote{padding:16px}
+  blockquote{margin:0; color:var(--text); font-size:14px; line-height:1.6}
+  .who{margin-top:10px; font-size:12px; color:var(--muted)}
+  .stars{letter-spacing:1px; color: var(--warn); font-size:12px}
+
+  /* FAQ */
+  details{border:1px solid rgba(33,48,68,.7); border-radius:16px; background: rgba(255,255,255,.03); padding:12px 14px}
+  details + details{margin-top:10px}
+  summary{cursor:pointer; font-weight:700; list-style:none}
+  summary::-webkit-details-marker{display:none}
+  details p{margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.6}
+
+  /* Contact */
+  form{display:grid; gap:10px}
+  label{font-size:12px; color:var(--muted)}
+  input, textarea{
+    width:100%;
+    padding:12px 12px;
+    border-radius:14px;
+    border:1px solid rgba(33,48,68,.8);
+    background: rgba(0,0,0,.18);
+    color: var(--text);
+    outline:none;
   }
-  .msg{padding:14px;border-bottom:1px solid var(--line)}
-  .msg:last-child{border-bottom:none}
-  .meta{display:flex;gap:10px;align-items:center;font-size:12px;color:#6b7280;margin-bottom:6px}
-  .tag{font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#374151}
-  .who{font-weight:800;color:#111827}
-  .bubble{margin:0;color:#111827}
-  .bubble.muted{color:#374151}
-  .bubble.bad{color:#111827}
-  footer{padding:24px 0;color:var(--muted);font-size:13px}
+  textarea{min-height:110px; resize:vertical}
+  input:focus, textarea:focus{border-color: rgba(69,194,255,.6)}
+  .fineprint{font-size:12px; color:var(--muted); line-height:1.5}
+  footer{padding:24px 0 40px; border-top:1px solid rgba(33,48,68,.6); color:var(--muted); font-size:12px}
+
+  /* Responsive */
+  @media (max-width: 980px){
+    h1{font-size:34px}
+    .hero-grid{grid-template-columns: 1fr}
+    .grid3{grid-template-columns: 1fr}
+    .grid2{grid-template-columns: 1fr}
+    .links{display:none}
+  }
 </style>
 
-<div id="site">
-  <header>
-    <div class="wrap">
-      <div class="row">
-        <a class="brand" href="#site">Wiring Harness Restoration</a>
-        <nav aria-label="main">
-          <a href="#interactions">Interactions</a>
-          <a href="#timeline">Timeline</a>
-          <a href="#policies">Policies</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <a class="btn primary" href="#interactions">See What Happens</a>
-      </div>
-    </div>
-  </header>
+<a class="skip" href="#main">Skip to content</a>
 
-  <div class="hero">
-    <div class="wrap">
-      <h1>Customer Interactions</h1>
-      <p>
-        This page shows examples of negative customer interactions: delayed timelines, unclear communication,
-        and responses that point back to policies instead of solutions.
-      </p>
-      <div class="note">This is a mock landing page. Replace text with your own content as needed.</div>
-      <div class="actions">
-        <a class="btn primary" href="#interactions">Read the interactions</a>
-        <a class="btn" href="#policies">See policies</a>
+<header>
+  <div class="wrap nav" aria-label="Top navigation">
+    <a class="brand" href="#top">
+      <span class="logo" aria-hidden="true"></span>
+      <strong>Wiring Harness Restoration</strong>
+    </a>
+
+    <nav class="links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#quality">Quality</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="cta">
+      <!-- Replace the phone number and email below -->
+      <a class="btn ghost" href="tel:+1-000-000-0000" aria-label="Call">Call</a>
+      <a class="btn primary" href="#contact" aria-label="Get a quote">Get a Quote</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div id="top" class="wrap hero">
+    <div class="hero-grid">
+      <div class="card hero-main">
+        <div class="kicker"><span class="dot" aria-hidden="true"></span><span>Automotive wiring harness restoration • repair • rework</span></div>
+        <h1>Harness problems fixed with clean workmanship and clear communication.</h1>
+        <p class="sub">
+          We restore, repair, and rework automotive wiring harnesses for custom builds, diagnostics cases, and preservation projects.
+          Documented work, labeled circuits, and practical timelines.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact">Request a Quote</a>
+          <a class="btn" href="#services">See Services</a>
+          <a class="btn ghost" href="#faq">Read FAQ</a>
+        </div>
+
+        <p class="micro">
+          Typical turnaround depends on damage level and availability of connectors/pins. You’ll receive an estimate after intake.
+        </p>
+
+        <div class="trust" aria-label="Highlights">
+          <span class="pill">Continuity + load testing</span>
+          <span class="pill">OEM-style looming available</span>
+          <span class="pill">Labeling + photos</span>
+          <span class="pill">Bench verification</span>
+        </div>
       </div>
+
+      <aside class="card hero-side" aria-label="Quick info">
+        <div class="badge">Fast intake • Clear scope</div>
+
+        <div class="side-box">
+          <strong>What we work on</strong>
+          <p>Engine/standalone harnesses, body harness sections, sub-harnesses, connectors, terminals, splices, and damaged circuits.</p>
+        </div>
+
+        <div class="side-box">
+          <strong>What you’ll get back</strong>
+          <p>Restored harness with documented repairs, labeled points if requested, and recommended follow-up checks for install.</p>
+        </div>
+
+        <div class="side-box">
+          <strong>Shipping</strong>
+          <p>Ship-ins accepted. Pack to prevent crushing. Include your contact details and a short problem description.</p>
+        </div>
+      </aside>
     </div>
   </div>
 
-  <section id="interactions">
+  <section id="services">
     <div class="wrap">
-      <h2>Negative Interactions</h2>
-      <p class="sub">
-        Simple, direct examples of how conversations go when a customer asks for updates, deadlines, or refunds.
+      <div class="section-head">
+        <div>
+          <h2>Services</h2>
+          <p class="lead">Choose a focused service or bring a “mystery issue” harness for structured troubleshooting.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card tile">
+          <div class="icon" aria-hidden="true">R</div>
+          <h3>Repair + rework</h3>
+          <p>Open circuits, shorted wiring, melted insulation, corroded splices, broken terminals, damaged connector bodies.</p>
+        </div>
+
+        <div class="card tile">
+          <div class="icon" aria-hidden="true">L</div>
+          <h3>Re-loom + protection</h3>
+          <p>OEM-style tape/loom, abrasion sleeve, heat protection, strain relief, and improved routing recommendations.</p>
+        </div>
+
+        <div class="card tile">
+          <div class="icon" aria-hidden="true">T</div>
+          <h3>Testing + verification</h3>
+          <p>Continuity testing, circuit mapping, pin-out confirmation, and bench verification for repaired sections.</p>
+        </div>
+      </div>
+
+      <div style="height:12px"></div>
+
+      <div class="grid3">
+        <div class="card tile">
+          <div class="icon" aria-hidden="true">C</div>
+          <h3>Connector service</h3>
+          <p>Terminal replacement, de-pinning, re-pinning, connector rebuilds (when parts are available).</p>
+        </div>
+
+        <div class="card tile">
+          <div class="icon" aria-hidden="true">S</div>
+          <h3>Section replacement</h3>
+          <p>Replace damaged branches with matching gauge, proper splices, sealed joins, and correct strain relief.</p>
+        </div>
+
+        <div class="card tile">
+          <div class="icon" aria-hidden="true">D</div>
+          <h3>Documentation</h3>
+          <p>Before/after photos, notes on repairs, and optional labeling so install is straightforward.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>How it works</h2>
+          <p class="lead">A simple workflow designed to avoid surprises.</p>
+        </div>
+      </div>
+
+      <div class="grid2 steps">
+        <div class="step">
+          <div>
+            <strong>Intake + scope</strong>
+            <span>We review your symptoms, photos, and harness condition. We confirm what will be tested/repaired.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <strong>Estimate</strong>
+            <span>You get a written estimate and realistic timeline based on damage level and parts availability.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <strong>Repair + rework</strong>
+            <span>We fix the faults, restore protection, and keep repairs serviceable and documented.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <strong>Test + return</strong>
+            <span>Circuits are verified, notes compiled, and the harness is shipped back with packing guidance for install.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quality">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Quality standards</h2>
+          <p class="lead">Practical workmanship focused on reliability, not shortcuts.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card tile">
+          <h3>Correct materials</h3>
+          <p>Proper gauge matching, sealed splices where needed, and insulation rated for heat/abrasion exposure.</p>
+        </div>
+        <div class="card tile">
+          <h3>Clean routing</h3>
+          <p>Strain relief, protection at contact points, and loom choices that match the application.</p>
+        </div>
+        <div class="card tile">
+          <h3>Documented work</h3>
+          <p>Notes and photos so you know what changed and what to check during installation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Customer feedback">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>What customers usually care about</h2>
+          <p class="lead">Communication, predictable scope, and harnesses that install without drama.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card quote">
+          <div class="stars" aria-label="Rating">★★★★★</div>
+          <blockquote>“They told me exactly what was damaged, what they repaired, and what I should check on install. No mystery.”</blockquote>
+          <div class="who">— Customer (ship-in repair)</div>
+        </div>
+
+        <div class="card quote">
+          <div class="stars" aria-label="Rating">★★★★★</div>
+          <blockquote>“Labeling and photos saved me hours. Harness went back in clean and the issue was gone.”</blockquote>
+          <div class="who">— Builder (rewire + re-loom)</div>
+        </div>
+
+        <div class="card quote">
+          <div class="stars" aria-label="Rating">★★★★★</div>
+          <blockquote>“Good timeline, solid workmanship, and the repair points were tidy. Exactly what I wanted.”</blockquote>
+          <div class="who">— Shop (connector service)</div>
+        </div>
+      </div>
+      <p class="fineprint" style="margin-top:10px">
+        Replace these with real customer quotes (recommended). Avoid using names without permission.
       </p>
-
-      <div class="log" role="region" aria-label="Conversation log">
-        <div class="log-head">Conversation log (examples)</div>
-
-        <div class="msg">
-          <div class="meta"><span class="tag">Update request</span> <span class="who">Customer</span> <span>Day 180</span></div>
-          <p class="bubble">Can I get a completion date? I’ve been waiting months.</p>
-          <div class="meta" style="margin-top:10px"><span class="tag">Reply</span> <span class="who">Company</span></div>
-          <p class="bubble bad">Please refer to the contract timeline. We do not provide exact completion dates.</p>
-        </div>
-
-        <div class="msg">
-          <div class="meta"><span class="tag">Escalation</span> <span class="who">Customer</span> <span>Day 240</span></div>
-          <p class="bubble">I’ve followed up repeatedly. Why can’t anyone give a clear update?</p>
-          <div class="meta" style="margin-top:10px"><span class="tag">Reply</span> <span class="who">Company</span></div>
-          <p class="bubble bad">Your project is in process. Additional updates will be provided when there is progress.</p>
-        </div>
-
-        <div class="msg">
-          <div class="meta"><span class="tag">Refund request</span> <span class="who">Customer</span> <span>Day 300</span></div>
-          <p class="bubble">I want to cancel. This is taking too long.</p>
-          <div class="meta" style="margin-top:10px"><span class="tag">Reply</span> <span class="who">Company</span></div>
-          <p class="bubble bad">We do not offer refunds after work has started. Please review the policy.</p>
-        </div>
-
-        <div class="msg">
-          <div class="meta"><span class="tag">“Expedite”</span> <span class="who">Customer</span> <span>Day 330</span></div>
-          <p class="bubble">Is there any way to speed this up? I need the vehicle running.</p>
-          <div class="meta" style="margin-top:10px"><span class="tag">Reply</span> <span class="who">Company</span></div>
-          <p class="bubble bad">We have accelerated options available for an additional cost.</p>
-        </div>
-
-        <div class="msg">
-          <div class="meta"><span class="tag">Quality issue</span> <span class="who">Customer</span> <span>After return</span></div>
-          <p class="bubble">The issue is still present after installation. What now?</p>
-          <div class="meta" style="margin-top:10px"><span class="tag">Reply</span> <span class="who">Company</span></div>
-          <p class="bubble bad">Please re-check installation and vehicle-side components. The harness tested on our bench.</p>
-        </div>
-      </div>
     </div>
   </section>
 
-  <section id="timeline">
+  <section id="faq">
     <div class="wrap">
-      <h2>Timeline Pattern</h2>
-      <p class="sub">A simplified view of how customers describe the experience.</p>
-
-      <div class="grid">
-        <div class="card span-6">
-          <strong>1) Payment / shipment</strong>
-          <p>Customer ships the harness and expects a short turnaround.</p>
-        </div>
-        <div class="card span-6">
-          <strong>2) Long period without clear updates</strong>
-          <p>Customer follows up; responses reference policies instead of dates.</p>
-        </div>
-        <div class="card span-6">
-          <strong>3) Escalation</strong>
-          <p>Customer asks for deadline, refund, or supervisor contact.</p>
-        </div>
-        <div class="card span-6">
-          <strong>4) Additional cost offered</strong>
-          <p>Customer is offered “accelerated” options for extra payment.</p>
+      <div class="section-head">
+        <div>
+          <h2>FAQ</h2>
+          <p class="lead">Answers to the questions that cause delays.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="policies">
-    <div class="wrap">
-      <h2>Policies Customers Say They Hit</h2>
-      <p class="sub">Keep this section short and blunt.</p>
+      <details>
+        <summary>What do you need from me to quote accurately?</summary>
+        <p>Photos of the damage area(s), vehicle/year/engine or platform, what symptoms you’re seeing, and whether any prior repairs were attempted.</p>
+      </details>
 
-      <div class="grid">
-        <div class="card span-12">
-          <strong>Completion windows</strong>
-          <p>Customers report being told the timeline is covered by the contract and not guaranteed by date.</p>
-        </div>
-        <div class="card span-12">
-          <strong>Refund limits</strong>
-          <p>Customers report being denied refunds after “work has started.”</p>
-        </div>
-        <div class="card span-12">
-          <strong>Communication limits</strong>
-          <p>Customers report updates only when the company decides there is “progress.”</p>
-        </div>
-      </div>
+      <details>
+        <summary>Do you do full custom harness builds?</summary>
+        <p>This page is set up for restoration/repair/rework. If you do full builds, add it as a service and specify the platforms you support.</p>
+      </details>
+
+      <details>
+        <summary>How long does it take?</summary>
+        <p>Turnaround depends on damage severity and parts availability. After intake, you’ll get a written estimate with a timeline.</p>
+      </details>
+
+      <details>
+        <summary>Can you diagnose my problem without the car?</summary>
+        <p>We can verify harness integrity on the bench (continuity/pin-out checks). Vehicle-side faults still require on-vehicle diagnostics.</p>
+      </details>
+
+      <details>
+        <summary>Do you accept ship-ins?</summary>
+        <p>Yes. Pack the harness to prevent crushing, include your contact details, and a short description of the issue and vehicle info.</p>
+      </details>
     </div>
   </section>
 
   <section id="contact">
     <div class="wrap">
-      <h2>Contact</h2>
-      <p class="sub">Replace with your real details or remove this section.</p>
-
-      <div class="grid">
-        <div class="card span-6">
-          <strong>Email</strong>
-          <p>hello@yourdomain.com</p>
+      <div class="section-head">
+        <div>
+          <h2>Request a quote</h2>
+          <p class="lead">Replace the placeholders below with your real contact info. If you’re using Squarespace, connect this to a Form Block if preferred.</p>
         </div>
-        <div class="card span-6">
-          <strong>Phone</strong>
-          <p>(555) 010-0101</p>
+      </div>
+
+      <div class="grid2">
+        <div class="card tile">
+          <!-- Option A: Mailto form (simple). For serious lead tracking, use a real form backend or Squarespace Form Block. -->
+          <form action="mailto:you@yourdomain.com" method="post" enctype="text/plain">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="Name" autocomplete="name" required />
+            </div>
+
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="Email" type="email" autocomplete="email" required />
+            </div>
+
+            <div>
+              <label for="vehicle">Vehicle / platform</label>
+              <input id="vehicle" name="Vehicle" placeholder="Year, make, model, engine" />
+            </div>
+
+            <div>
+              <label for="message">What’s going on?</label>
+              <textarea id="message" name="Message" placeholder="Symptoms, damage location, prior repairs, deadline"></textarea>
+            </div>
+
+            <button class="btn primary" type="submit">Send</button>
+            <p class="fineprint">Tip: add photos by emailing them directly if your site builder form doesn’t support uploads.</p>
+          </form>
+        </div>
+
+        <div class="card tile">
+          <h3>Direct contact</h3>
+          <p class="lead" style="margin-top:6px">
+            Phone: <a href="tel:+1-000-000-0000">+1 (000) 000-0000</a><br/>
+            Email: <a href="mailto:you@yourdomain.com">you@yourdomain.com</a><br/>
+            Hours: Mon–Fri, 9a–5p (local)
+          </p>
+
+          <div style="height:10px"></div>
+
+          <h3>What to include</h3>
+          <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.7; font-size:13px">
+            <li>Vehicle/platform details (year/make/model/engine or ECU)</li>
+            <li>Symptoms (no-start, intermittent, melted section, etc.)</li>
+            <li>Photos of damage and connector faces if possible</li>
+            <li>Any prior repairs or modifications</li>
+          </ul>
+
+          <div style="height:14px"></div>
+
+          <div class="side-box" style="margin:0">
+            <strong>Shipping note</strong>
+            <p>Coil loosely, bag to keep clean, add padding so connectors aren’t crushed. Include your return address inside the box.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
+</main>
 
-  <footer>
-    <div class="wrap">
-      © <span id="yr"></span> — Simple landing page mockup.
+<footer>
+  <div class="wrap">
+    <div style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap">
+      <div>
+        <strong style="color:var(--text)">Wiring Harness Restoration</strong><br/>
+        <span>Automotive wiring harness restoration, repair, and rework.</span>
+      </div>
+      <div>
+        <a href="#top" style="text-decoration:none; padding:8px 10px; border:1px solid rgba(33,48,68,.7); border-radius:12px; background:rgba(255,255,255,.03)">Back to top</a>
+      </div>
     </div>
-  </footer>
-</div>
+
+    <div style="margin-top:14px; padding-top:14px; border-top:1px solid rgba(33,48,68,.6)">
+      © <span id="yr"></span> WiringHarnessRestoration.com • All rights reserved
+    </div>
+  </div>
+</footer>
 
 <script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
+  // Year
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Optional: smooth highlight when jumping to sections
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach(a => a.addEventListener("click", () => {
+    const id = a.getAttribute("href").slice(1);
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.style.outline = "2px solid rgba(69,194,255,.35)";
+    el.style.outlineOffset = "8px";
+    setTimeout(()=>{ el.style.outline = "none"; }, 900);
+  }));
+</script>
+
+<!-- Basic SEO metadata (Squarespace usually manages these; keep if embedding elsewhere) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"Wiring Harness Restoration",
+  "url":"https://wiringharnessrestoration.com",
+  "description":"Automotive wiring harness restoration, repair, rework, and verification testing.",
+  "telephone":"+1-000-000-0000",
+  "email":"you@yourdomain.com",
+  "areaServed":"US",
+  "sameAs":[]
+}
 </script>
