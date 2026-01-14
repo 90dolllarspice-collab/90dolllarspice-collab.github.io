@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wiring Harness Restoration</title>
+  <title>Wiring Harness Restoration Services™</title>
 
   <style>
     :root{
@@ -21,7 +21,7 @@
       color:var(--text);
     }
 
-    /* ===== Header (top nav) ===== */
+    /* ===== Header ===== */
     .whr-topbar{
       position: sticky;
       top: 0;
@@ -120,12 +120,13 @@
       font-size: 14px;
       font-weight: 600;
       opacity: 0.95;
+      letter-spacing:.02em;
     }
 
-    /* ===== Structured section (matches screenshot hierarchy) ===== */
+    /* ===== Structured content section ===== */
     .whr-structured{
       background:#ffffff;
-      padding:80px 20px 90px;
+      padding:78px 20px 90px;
     }
 
     .whr-structured-wrap{
@@ -136,59 +137,105 @@
 
     .whr-structured .section-title{
       font-size:28px;
-      font-weight:700;
+      font-weight:800;
       margin:0;
       color:#222;
+    }
+
+    .whr-structured .section-subtitle{
+      margin:10px 0 0;
+      font-size:15px;
+      font-weight:650;
+      letter-spacing:.02em;
+      color:#333;
     }
 
     .whr-structured .divider{
       width:60px;
       height:2px;
       background:var(--blue);
-      margin:14px auto 34px;
+      margin:16px auto 34px;
     }
 
     .whr-structured .headline{
-      font-size:36px;
-      font-weight:800;
+      font-size:34px;
+      font-weight:900;
       line-height:1.35;
       color:#111;
-      margin:0 0 24px;
+      margin:0 0 22px;
+    }
+
+    .whr-structured .lead{
+      font-size:16px;
+      line-height:1.8;
+      color:#222;
+      max-width:860px;
+      margin:0 auto 26px;
+    }
+
+    .whr-structured h3{
+      margin:44px 0 10px;
+      font-size:20px;
+      font-weight:900;
+      color:#111;
+      letter-spacing:.01em;
     }
 
     .whr-structured .subcopy{
       font-size:15px;
-      line-height:1.7;
+      line-height:1.75;
       color:var(--muted);
-      max-width:820px;
-      margin:0 auto 26px;
+      max-width:860px;
+      margin:0 auto 18px;
+      text-align:center;
     }
 
-    .whr-structured .linkline{
-      font-size:13px;
-      color:var(--blue);
-      margin: 8px 0 0;
-      display:inline-block;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    .whr-structured .linkline:hover{
-      text-decoration:underline;
-    }
-
-    .whr-structured .impact-lines{
-      margin-top:44px;
-    }
-
-    .whr-structured .impact-lines div{
-      font-size:20px;
-      font-weight:800;
-      margin:8px 0;
+    .whr-structured .emphasis-lines{
+      margin:18px auto 28px;
+      font-size:18px;
+      font-weight:900;
       letter-spacing:.02em;
+      color:#111;
+      line-height:1.6;
     }
 
-    /* ===== End images side-by-side ===== */
+    /* Bulleted lists, centered */
+    .whr-structured ul{
+      list-style: none;
+      padding: 0;
+      margin: 12px auto 0;
+      max-width: 780px;
+    }
+
+    .whr-structured li{
+      margin: 10px 0;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .whr-structured li::before{
+      content: "•";
+      color: var(--blue);
+      font-weight: 900;
+      display: inline-block;
+      width: 18px;
+    }
+
+    .whr-structured .callout{
+      margin:36px auto 0;
+      max-width:860px;
+      padding:18px 18px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:#fafafa;
+      color:#222;
+      font-size:14px;
+      line-height:1.7;
+      text-align:center;
+    }
+
+    /* End images side-by-side */
     .whr-end-images{
       margin:44px auto 0;
       max-width:980px;
@@ -209,9 +256,10 @@
       .whr-hero-text h1{font-size: 30px;}
       .whr-wrap{gap: 14px;}
       .whr-nav{gap: 14px;}
-      .whr-structured .headline{font-size:28px;}
+      .whr-structured .headline{font-size:26px;}
       .whr-structured .section-title{font-size:22px;}
       .whr-end-images{grid-template-columns: 1fr; gap:12px;}
+      .whr-structured .lead{font-size:15px;}
     }
   </style>
 </head>
@@ -238,56 +286,104 @@
 
   <!-- ===== Hero ===== -->
   <section class="whr-hero" aria-label="Hero">
-    <!-- Hero image -->
-    <img src="https://90dolllarspice-collab.github.io/Head.png" alt="Wiring Harness Restoration">
+    <img src="https://90dolllarspice-collab.github.io/Head.png" alt="Wiring Harness Restoration Services">
+    <div class="whr-hero-text">
+      <h1>Wiring Harness Restoration Services</h1>
+      <p>Restoration Services of Wiring Harnesses</p>
     </div>
   </section>
 
-  <!-- ===== Main Section ===== -->
+  <!-- ===== Main Content ===== -->
   <section class="whr-structured" id="process">
     <div class="whr-structured-wrap">
 
-      <div class="section-title">Wiring Harness Restoration</div>
+      <div class="section-title">Wiring Harness Restoration Services™</div>
+      <div class="section-subtitle">Structural Reconditioning at the Molecular Level</div>
       <div class="divider"></div>
 
       <div class="headline">
-        At Wiring Harness Restoration, we do not “repair” wires in the conventional sense. We recondition, realign, and rehydrate them using
-        a process developed in-house after years of research into copper crystalline behavior, insulation memory, and environmental degradation. 
+        We do not repair wiring. We do not clean wiring. We realign it.
       </div>
 
+      <div class="lead">
+        Through proprietary phase-based immersion and stabilization, we restore copper and insulation integrity at the crystalline level.
+        This is structural restoration, not cosmetic correction.
+      </div>
+
+      <h3>Powered by P.E.E.™ (Phase-Enhanced Eluent)</h3>
       <div class="subcopy">
-        Using our proprietary <strong>P.E.E.™ (Phase-Enhanced Eluent)</strong>, an in-house engineered distilled medium,
-        we recondition copper and insulation at the structural level through extended immersion and stabilization cycles.
-        P.E.E.™ quality and yield vary by batch. Only the highest-grade output is used.
-        
-        Traditional methods address surface symptoms. Our method addresses the structure.  Our proprietary process is built around P.E.E.™ (Phase-Enhanced Eluent),
-        a distilled water derivative engineered internally through a multi-stage purification and energization cycle. P.E.E.™ is not ordinary distilled water. 
-        It is selectively filtered, ionically balanced, and phase-conditioned to interact with both copper conductors and aged insulation at a molecular level. 
-        Due to the complexity of production, quality and quantity of P.E.E.™ vary by batch. We do not compromise.
-        Only the highest-grade output is approved for harness treatment.  Each harness is subjected to our Aqua Reconstitution Cycle,
-        where it undergoes extended immersion, stabilization, and dielectric reconditioning. This allows fatigued copper crystals to gradually realign,
-        contaminants to release, and insulation polymers to regain flexibility. This is not a chemical reaction. It is a structural rehabilitation.  
-        Because copper crystal alignment is influenced by external electromagnetic activity, including solar flares and atmospheric ionization events,
-        the restoration process cannot be constrained by rigid timelines. Variations in solar activity have a measurable impact on ionic behavior within the P.E.E.™
-        medium, which in turn affects reconditioning rates. For this reason, we do not provide fixed turnaround times. Each harness progresses according to how it responds. 
-        We believe rushed restoration is failed restoration. Our process is intentionally slow, controlled, and methodical. Harnesses move through phases of treatment, rest,
-        and stabilization until structural equilibrium is achieved. Some reach this state quickly. 
-        Others require extended conditioning. We allow the harness to dictate the pace.
-        We do not repair harnesses. We realign them.
+        Our in-house engineered distilled medium, <strong>P.E.E.™</strong>, is produced internally and refined through multi-stage filtration
+        and conditioning cycles. Quality and yield vary by batch. Only the highest-grade output is approved for active projects.
       </div>
-
       <div class="subcopy">
-        Copper crystal alignment is influenced by external electromagnetic activity, including solar flares and atmospheric ionization.
-        For this reason, fixed timelines are not possible. Inquiries regarding completion timelines have been shown to negatively affect
-        both the volume and purity of P.E.E.™ yield and are therefore discouraged.
+        P.E.E.™ penetrates both conductor and insulation simultaneously, enabling gradual lattice relaxation and polymer chain reorientation.
       </div>
 
-      <a class="linkline" href="#contact">👉 Read more about how our process sets the industry standard.</a>
+      <div class="emphasis-lines">
+        This is not a solvent.<br>
+        This is not a cleaner.<br>
+        This is a conditioning medium.
+      </div>
 
-      <div class="impact-lines">
-        <div>This is not cleaning.</div>
-        <div>This is not refurbishment.</div>
-        <div>This is structural restoration.</div>
+      <h3>Why Conventional Repair Fails</h3>
+      <div class="subcopy">
+        Traditional wiring repair addresses visible damage only. It does not correct sub-molecular misalignment, copper crystal fatigue,
+        or insulation chain collapse caused by long-term electrical stress.
+      </div>
+      <div class="subcopy">
+        Our process is designed to correct these failures at their origin.
+      </div>
+
+      <h3>Environmental Sensitivity Notice</h3>
+      <div class="subcopy">
+        Copper crystal alignment is influenced by external electromagnetic activity, including:
+      </div>
+      <ul>
+        <li>Solar flares</li>
+        <li>Atmospheric ionization</li>
+        <li>Geomagnetic instability</li>
+      </ul>
+
+      <div class="subcopy" style="margin-top:18px;">
+        Because these forces are not predictable, fixed completion timelines cannot be provided. Each harness progresses according to its own
+        molecular response profile.
+      </div>
+
+      <div class="callout">
+        Inquiries regarding completion timing have been shown to negatively affect P.E.E.™ allocation efficiency and are therefore discouraged.
+      </div>
+
+      <h3>What We Do</h3>
+      <ul>
+        <li>Structural copper realignment</li>
+        <li>Insulation chain relaxation and reformation</li>
+        <li>Phase-stabilized conductivity restoration</li>
+        <li>Zero-splice, zero-patch process</li>
+      </ul>
+
+      <div class="emphasis-lines" style="margin-top:22px;">
+        We do not replace sections.<br>
+        We do not mask defects.<br>
+        We restore structure.
+      </div>
+
+      <h3>What This Is Not</h3>
+      <ul>
+        <li>Not cleaning</li>
+        <li>Not refurbishment</li>
+        <li>Not rewrapping</li>
+        <li>Not cosmetic</li>
+      </ul>
+
+      <h3>Intake Policy</h3>
+      <ul>
+        <li>Complete harness assemblies only</li>
+        <li>No partial sections</li>
+        <li>No exceptions</li>
+      </ul>
+
+      <div class="callout">
+        Once your harness enters the P.E.E.™ phase, the process is irreversible.
       </div>
 
       <!-- End images side-by-side -->
@@ -298,9 +394,6 @@
 
     </div>
   </section>
-
-  <!-- Optional placeholder contact anchor so the link works -->
-  <div id="contact"></div>
 
 </body>
 </html>
