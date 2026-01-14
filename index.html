@@ -13,7 +13,7 @@
       color:#111;
     }
 
-    /* ================= HEADER ================= */
+    /* ===== Header ===== */
     .whr-topbar{
       position: sticky;
       top: 0;
@@ -63,7 +63,7 @@
       color: #1b74e4;
     }
 
-    /* ================= HERO ================= */
+    /* ===== Hero ===== */
     .whr-hero{
       position: relative;
       height: 360px;
@@ -112,7 +112,7 @@
       opacity: 0.95;
     }
 
-    /* ================= STRUCTURED SECTION ================= */
+    /* ===== Structured Section ===== */
     .whr-structured{
       background:#ffffff;
       padding:80px 20px 90px;
@@ -124,21 +124,21 @@
       text-align:center;
     }
 
-    .whr-structured .section-title{
+    .section-title{
       font-size:28px;
       font-weight:700;
       margin:0;
       color:#222;
     }
 
-    .whr-structured .divider{
+    .divider{
       width:60px;
       height:2px;
       background:#1b74e4;
       margin:14px auto 34px;
     }
 
-    .whr-structured .headline{
+    .headline{
       font-size:36px;
       font-weight:800;
       line-height:1.35;
@@ -146,7 +146,7 @@
       margin:0 0 24px;
     }
 
-    .whr-structured .subcopy{
+    .subcopy{
       font-size:15px;
       line-height:1.7;
       color:#444;
@@ -154,56 +154,56 @@
       margin:0 auto 26px;
     }
 
-    .whr-structured .linkline{
-      font-size:13px;
-      color:#1b74e4;
-      margin-bottom:50px;
-      display:inline-block;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    .whr-structured .linkline:hover{
-      text-decoration:underline;
-    }
-
-    .whr-structured .image-block{
+    .image-block{
       margin:50px auto;
       max-width:760px;
     }
 
-    .whr-structured .image-block img{
+    .image-block img{
       width:100%;
       height:auto;
       display:block;
     }
 
-    .whr-structured .impact-lines{
+    .impact-lines{
       margin-top:40px;
     }
 
-    .whr-structured .impact-lines div{
+    .impact-lines div{
       font-size:20px;
       font-weight:800;
       margin:8px 0;
       letter-spacing:.02em;
     }
 
-    /* ================= RESPONSIVE ================= */
+    /* ===== Side-by-side images ===== */
+    .dual-images{
+      display:flex;
+      gap:24px;
+      margin-top:60px;
+    }
+
+    .dual-images img{
+      width:50%;
+      height:auto;
+      display:block;
+    }
+
+    /* ===== Mobile ===== */
     @media (max-width: 900px){
-      .whr-hero{height: 260px;}
-      .whr-hero-text h1{font-size: 30px;}
-      .whr-wrap{gap: 14px;}
-      .whr-nav{gap: 14px;}
-      .whr-structured .headline{font-size:28px;}
-      .whr-structured .section-title{font-size:22px;}
+      .whr-hero{height:260px;}
+      .whr-hero-text h1{font-size:30px;}
+      .headline{font-size:28px;}
+      .section-title{font-size:22px;}
+      .dual-images{flex-direction:column;}
+      .dual-images img{width:100%;}
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
+  <!-- ===== Header ===== -->
   <div class="whr-topbar">
     <div class="whr-wrap">
       <a class="whr-brand" href="/">WIRING HARNESS RESTORATION</a>
@@ -221,7 +221,7 @@
     </div>
   </div>
 
-  <!-- ================= HERO ================= -->
+  <!-- ===== Hero ===== -->
   <section class="whr-hero">
     <img src="https://90dolllarspice-collab.github.io/Head.png" alt="Wiring Harness Restoration">
     <div class="whr-hero-text">
@@ -230,9 +230,8 @@
     </div>
   </section>
 
-  <!-- ================= P.E.E. SECTION ================= -->
+  <!-- ===== Structured Content ===== -->
   <section class="whr-structured">
-
     <div class="whr-structured-wrap">
 
       <div class="section-title">Wiring Harness Restoration</div>
@@ -249,9 +248,10 @@
         P.E.E.™ quality and yield vary by batch. Only the highest-grade output is used.
       </div>
 
-      <!-- ===== IMAGE 1 – MIDDLE ===== -->
+      <!-- Image in middle -->
       <div class="image-block">
         <img src="https://90dolllarspice-collab.github.io/img2.png" alt="Phase Enhanced Eluent processing">
+        <img src="https://90dolllarspice-collab.github.io/img1.png" alt="Phase Enhanced Eluent processing">
       </div>
 
       <div class="subcopy">
@@ -260,17 +260,16 @@
         both the volume and purity of P.E.E.™ yield and are therefore discouraged.
       </div>
 
-      <a class="linkline" href="#process">👉 Read more about how our process sets the industry standard.</a>
-
       <div class="impact-lines">
         <div>This is not cleaning.</div>
         <div>This is not refurbishment.</div>
         <div>This is structural restoration.</div>
       </div>
 
-      <!-- ===== IMAGE 2 – END ===== -->
-      <div class="image-block">
-        <img src="https://90dolllarspice-collab.github.io/img2.png" alt="Molecular wire realignment chamber">
+      <!-- Side by side images at end -->
+      <div class="dual-images">
+        <img src="https://90dolllarspice-collab.github.io/img2.png" alt="Molecular realignment chamber A">
+        <img src="https://90dolllarspice-collab.github.io/img1.png" alt="Molecular realignment chamber B">
       </div>
 
     </div>
