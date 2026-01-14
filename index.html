@@ -2,28 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Wiring Harness Restoration</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wiring Harness Restoration</title>
 
   <style>
+    :root{
+      --blue:#1b74e4;
+      --text:#111;
+      --muted:#444;
+      --line:#e6e6e6;
+      --max:1200px;
+    }
+
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:#ffffff;
-      color:#111;
+      background:#fff;
+      color:var(--text);
     }
 
-    /* ===== Top Navigation Bar ===== */
+    /* ===== Header (top nav) ===== */
     .whr-topbar{
       position: sticky;
       top: 0;
       z-index: 1000;
       background: #ffffff;
-      border-bottom: 1px solid #e6e6e6;
+      border-bottom: 1px solid var(--line);
     }
 
     .whr-wrap{
-      max-width: 1200px;
+      max-width: var(--max);
       margin: 0 auto;
       padding: 14px 20px;
       display: flex;
@@ -38,7 +46,7 @@
       font-weight: 700;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: #1b74e4;
+      color: var(--blue);
       text-decoration: none;
       white-space: nowrap;
     }
@@ -48,6 +56,7 @@
       gap: 22px;
       flex-wrap: wrap;
       justify-content: center;
+      align-items:center;
     }
 
     .whr-nav a{
@@ -61,10 +70,10 @@
     }
 
     .whr-nav a:hover{
-      color: #1b74e4;
+      color: var(--blue);
     }
 
-    /* ===== Hero Section ===== */
+    /* ===== Hero ===== */
     .whr-hero{
       position: relative;
       height: 360px;
@@ -113,7 +122,7 @@
       opacity: 0.95;
     }
 
-    /* ===== Structured Section (matches screenshot hierarchy) ===== */
+    /* ===== Structured section (matches screenshot hierarchy) ===== */
     .whr-structured{
       background:#ffffff;
       padding:80px 20px 90px;
@@ -135,7 +144,7 @@
     .whr-structured .divider{
       width:60px;
       height:2px;
-      background:#1b74e4;
+      background:var(--blue);
       margin:14px auto 34px;
     }
 
@@ -150,15 +159,15 @@
     .whr-structured .subcopy{
       font-size:15px;
       line-height:1.7;
-      color:#444;
+      color:var(--muted);
       max-width:820px;
       margin:0 auto 26px;
     }
 
     .whr-structured .linkline{
       font-size:13px;
-      color:#1b74e4;
-      margin:10px 0 44px;
+      color:var(--blue);
+      margin: 8px 0 0;
       display:inline-block;
       text-decoration:none;
       font-weight:600;
@@ -169,7 +178,7 @@
     }
 
     .whr-structured .impact-lines{
-      margin-top:34px;
+      margin-top:44px;
     }
 
     .whr-structured .impact-lines div{
@@ -179,56 +188,30 @@
       letter-spacing:.02em;
     }
 
-    /* ===== End Images side-by-side ===== */
+    /* ===== End images side-by-side ===== */
     .whr-end-images{
       margin:44px auto 0;
-      max-width:760px;
-      display:flex;
-      gap:16px;
-      justify-content:center;
-      align-items:flex-start;
-      flex-wrap:wrap;
+      max-width:980px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
     }
 
     .whr-end-images img{
-      width:260px;       /* smaller */
-      max-width:44vw;    /* responsive */
+      width:100%;
       height:auto;
       display:block;
     }
 
-    /* ===== Next section placeholder ===== */
-    .whr-next{
-      background:#ffffff;
-      padding:10px 20px 80px;
-    }
-    .whr-next-wrap{
-      max-width:980px;
-      margin:0 auto;
-      text-align:center;
-    }
-    .whr-next h2{
-      margin:0;
-      font-size:34px;
-      font-weight:800;
-      color:#111;
-    }
-    .whr-next p{
-      margin:14px auto 0;
-      max-width:820px;
-      color:#444;
-      line-height:1.7;
-      font-size:15px;
-    }
-
+    /* ===== Responsive ===== */
     @media (max-width: 900px){
       .whr-hero{height: 260px;}
       .whr-hero-text h1{font-size: 30px;}
-      .whr-wrap{gap: 14px; padding: 12px 14px;}
+      .whr-wrap{gap: 14px;}
       .whr-nav{gap: 14px;}
       .whr-structured .headline{font-size:28px;}
       .whr-structured .section-title{font-size:22px;}
-      .whr-end-images img{width:220px;}
+      .whr-end-images{grid-template-columns: 1fr; gap:12px;}
     }
   </style>
 </head>
@@ -255,16 +238,18 @@
 
   <!-- ===== Hero ===== -->
   <section class="whr-hero" aria-label="Hero">
-    <img src="https://90dolllarspice-collab.github.io/Head.png" alt="Wiring Harness Restoration" />
+    <!-- Hero image -->
+    <img src="https://90dolllarspice-collab.github.io/Head.png" alt="Wiring Harness Restoration">
     <div class="whr-hero-text">
       <h1>Wiring Harness Restoration</h1>
       <p>Restoration of Wiring Harnesses</p>
     </div>
   </section>
 
-  <!-- ===== Structured Copy Section ===== -->
-  <section class="whr-structured" aria-label="Molecular Wire Reconditioning">
+  <!-- ===== Main Section ===== -->
+  <section class="whr-structured" id="process">
     <div class="whr-structured-wrap">
+
       <div class="section-title">Wiring Harness Restoration</div>
       <div class="divider"></div>
 
@@ -285,7 +270,7 @@
         both the volume and purity of P.E.E.™ yield and are therefore discouraged.
       </div>
 
-      <a class="linkline" href="#process">👉 Read more about how our process sets the industry standard.</a>
+      <a class="linkline" href="#contact">👉 Read more about how our process sets the industry standard.</a>
 
       <div class="impact-lines">
         <div>This is not cleaning.</div>
@@ -293,24 +278,17 @@
         <div>This is structural restoration.</div>
       </div>
 
-      <!-- ===== End Images (side by side, smaller) ===== -->
-      <div class="whr-end-images" aria-label="Process images">
-        <img src="https://90dolllarspice-collab.github.io/img1.png" alt="P.E.E. chamber image 1" />
-        <img src="https://90dolllarspice-collab.github.io/img2.png" alt="P.E.E. chamber image 2" />
+      <!-- End images side-by-side -->
+      <div class="whr-end-images" aria-label="Supporting images">
+        <img src="https://90dolllarspice-collab.github.io/img1.png" alt="P.E.E. processing visual 1">
+        <img src="https://90dolllarspice-collab.github.io/img2.png" alt="P.E.E. processing visual 2">
       </div>
+
     </div>
   </section>
 
-  <!-- ===== Next Section Placeholder (optional) ===== -->
-  <section class="whr-next" id="process" aria-label="Next section">
-    <div class="whr-next-wrap">
-      <h2>Wiring Harness Restoration &amp; Customization</h2>
-      <p>
-        Replace this placeholder with your next section content. If you paste your current text, I can format it to match the same
-        hierarchy and spacing as the screenshot.
-      </p>
-    </div>
-  </section>
+  <!-- Optional placeholder contact anchor so the link works -->
+  <div id="contact"></div>
 
 </body>
 </html>
