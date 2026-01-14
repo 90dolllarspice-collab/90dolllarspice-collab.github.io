@@ -1,154 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Wiring Harness Restoration</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .whr-structured{
+    background:#ffffff;
+    padding:80px 20px 90px;
+  }
 
-  <style>
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:#ffffff;
-    }
+  .whr-structured-wrap{
+    max-width:980px;
+    margin:0 auto;
+    text-align:center;
+  }
 
-    /* ===== Top Navigation Bar ===== */
-    .whr-topbar{
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #ffffff;
-      border-bottom: 1px solid #e6e6e6;
-    }
+  .whr-structured .section-title{
+    font-size:28px;
+    font-weight:700;
+    margin:0;
+    color:#222;
+  }
 
-    .whr-wrap{
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
+  .whr-structured .divider{
+    width:60px;
+    height:2px;
+    background:#1b74e4;
+    margin:14px auto 34px;
+  }
 
-    .whr-brand{
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: #1b74e4;
-      text-decoration: none;
-      white-space: nowrap;
-    }
+  .whr-structured .headline{
+    font-size:36px;
+    font-weight:800;
+    line-height:1.35;
+    color:#111;
+    margin:0 0 24px;
+  }
 
-    .whr-nav{
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  .whr-structured .subcopy{
+    font-size:15px;
+    line-height:1.7;
+    color:#444;
+    max-width:820px;
+    margin:0 auto 26px;
+  }
 
-    .whr-nav a{
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      color: #111;
-      text-decoration: none;
-    }
+  .whr-structured .linkline{
+    font-size:13px;
+    color:#1b74e4;
+    margin-bottom:50px;
+    display:inline-block;
+    text-decoration:none;
+    font-weight:600;
+  }
 
-    .whr-nav a:hover{
-      color: #1b74e4;
-    }
+  .whr-structured .linkline:hover{
+    text-decoration:underline;
+  }
 
-    /* ===== Hero Section ===== */
-    .whr-hero{
-      position: relative;
-      height: 360px;
-      width: 100%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #000;
-    }
+  .whr-structured .image-block{
+    margin:50px auto;
+    max-width:760px;
+  }
 
-    .whr-hero img{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  .whr-structured .image-block img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
 
-    .whr-hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: rgba(0,0,0,0.35);
-    }
+  .whr-structured .impact-lines{
+    margin-top:40px;
+  }
 
-    .whr-hero-text{
-      position: relative;
-      text-align: center;
-      color: #ffffff;
-      padding: 20px;
-      text-shadow: 0 2px 15px rgba(0,0,0,0.7);
-    }
+  .whr-structured .impact-lines div{
+    font-size:20px;
+    font-weight:800;
+    margin:8px 0;
+    letter-spacing:.02em;
+  }
 
-    .whr-hero-text h1{
-      margin: 0;
-      font-size: 44px;
-      font-weight: 800;
-      line-height: 1.05;
-    }
+  @media (max-width: 800px){
+    .whr-structured .headline{font-size:28px;}
+    .whr-structured .section-title{font-size:22px;}
+  }
+</style>
 
-    .whr-hero-text p{
-      margin: 10px 0 0;
-      font-size: 14px;
-      font-weight: 600;
-      opacity: 0.95;
-    }
+<section class="whr-structured">
 
-    @media (max-width: 900px){
-      .whr-hero{height: 260px;}
-      .whr-hero-text h1{font-size: 30px;}
-      .whr-wrap{gap: 14px;}
-      .whr-nav{gap: 14px;}
-    }
-  </style>
-</head>
+  <div class="whr-structured-wrap">
 
-<body>
+    <div class="section-title">Wiring Harness Restoration</div>
+    <div class="divider"></div>
 
-  <!-- ===== Header ===== -->
-  <div class="whr-topbar">
-    <div class="whr-wrap">
-      <a class="whr-brand" href="/">WIRING HARNESS RESTORATION</a>
-
-      <nav class="whr-nav">
-        <a href="/contact">CONTACT</a>
-        <a href="/about">ABOUT</a>
-        <a href="/quote">QUOTE</a>
-        <a href="/services">SERVICES</a>
-        <a href="/faq">FAQ</a>
-        <a href="/we-buy-harnesses">WE BUY HARNESSES</a>
-        <a href="/restorations">RESTORATIONS</a>
-        <a href="/gallery">GALLERY</a>
-      </nav>
+    <div class="headline">
+      Wiring Harness Restoration is the originator of molecular wire reconditioning.
+      We do not repair harnesses. We realign them.
     </div>
+
+    <div class="subcopy">
+      Using our proprietary <strong>P.E.E.™ (Phase-Enhanced Eluent)</strong>, an in-house engineered distilled medium,
+      we recondition copper and insulation at the structural level through extended immersion and stabilization cycles.
+      P.E.E.™ quality and yield vary by batch. Only the highest-grade output is used.
+    </div>
+
+    <!-- ===== IMAGE 1 – MIDDLE ===== -->
+    <div class="image-block">
+      <img src="https://90dolllarspice-collab.github.io/img2.png" alt="Phase Enhanced Eluent processing">
+    </div>
+
+    <div class="subcopy">
+      Copper crystal alignment is influenced by external electromagnetic activity, including solar flares and atmospheric ionization.
+      For this reason, fixed timelines are not possible. Inquiries regarding completion timelines have been shown to negatively affect
+      both the volume and purity of P.E.E.™ yield and are therefore discouraged.
+    </div>
+
+    <a class="linkline" href="#process">👉 Read more about how our process sets the industry standard.</a>
+
+    <div class="impact-lines">
+      <div>This is not cleaning.</div>
+      <div>This is not refurbishment.</div>
+      <div>This is structural restoration.</div>
+    </div>
+
+    <!-- ===== IMAGE 2 – END ===== -->
+    <div class="image-block">
+      <img src="https://90dolllarspice-collab.github.io/img2.png" alt="Molecular wire realignment chamber">
+    </div>
+
   </div>
-
-  <!-- ===== Hero ===== -->
-  <section class="whr-hero">
-    <img src="https://90dolllarspice-collab.github.io/Head.png" alt="Wiring Harness Restoration">
-
-    <div class="whr-hero-text">
-      <h1>Wiring Harness Restoration</h1>
-      <p>Restoration of Wiring Harnesses</p>
-    </div>
-  </section>
-
-</body>
-</html>
+</section>
