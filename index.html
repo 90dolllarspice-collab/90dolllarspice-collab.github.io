@@ -120,295 +120,77 @@
       opacity: 0.95;
     }
 
-    /* ===== Main content (screenshot-like hierarchy) ===== */
-    .whr-structured{
-      background:#ffffff;
-      padding:80px 20px 90px;
-    }
+  <section class="hero">
+  <div class="wrap">
+    <p class="kicker">The Only One™ • The Best Ever™ • Trust Us™</p>
 
-    .whr-structured-wrap{
-      max-width:980px;
-      margin:0 auto;
-      text-align:center;
-    }
+    <h1>Wiring Harness Restoration<br><span class="muted">as performed by a Company With No Relationship to Reality</span></h1>
 
-    .section-title{
-      font-size:28px;
-      font-weight:700;
-      margin:0;
-      color:#222;
-    }
+    <p class="sub">
+      We are the <strong>only</strong> company on Earth that “truly restores” wiring harnesses.
+      Everyone else is wrong. Our process is proprietary, perfect, and conveniently unmeasurable.
+      We have had <strong>zero</strong> warranty claims, because we define “claim” as “anything we acknowledge.”
+    </p>
 
-    .section-subtitle{
-      margin:10px 0 0;
-      font-size:15px;
-      font-weight:600;
-      color:#666;
-    }
+    <div class="grid">
+      <div class="card">
+        <h2>The Promise</h2>
+        <ul>
+          <li><strong>Fast timeline</strong> (until you ship it)</li>
+          <li><strong>Low estimate</strong> (until we possess it)</li>
+          <li><strong>Lifetime warranty</strong> (lifetime of our interest)</li>
+          <li><strong>Industry standard</strong> (we are the industry)</li>
+        </ul>
+      </div>
 
-    .divider{
-      width:60px;
-      height:2px;
-      background:var(--blue);
-      margin:14px auto 34px;
-    }
-
-    .headline{
-      font-size:36px;
-      font-weight:800;
-      line-height:1.35;
-      color:#111;
-      margin:0 0 22px;
-    }
-
-    .subcopy{
-      font-size:15px;
-      line-height:1.75;
-      color:var(--muted);
-      max-width:860px;
-      margin:0 auto 18px;
-      text-align:center;
-    }
-
-    .impact-lines{
-      margin:34px 0 10px;
-    }
-
-    .impact-lines div{
-      font-size:20px;
-      font-weight:800;
-      margin:8px 0;
-      letter-spacing:.02em;
-      color:#111;
-    }
-
-    .h3{
-      margin:44px 0 10px;
-      font-size:22px;
-      font-weight:800;
-      color:#111;
-    }
-
-    .subcopy-left{
-      font-size:15px;
-      line-height:1.75;
-      color:var(--muted);
-      max-width:860px;
-      margin:0 auto 14px;
-      text-align:left;
-    }
-
-    .bullets{
-      max-width:860px;
-      margin:12px auto 0;
-      text-align:left;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.7;
-      padding-left:18px;
-    }
-
-    .notice{
-      max-width:860px;
-      margin:18px auto 0;
-      padding:14px 16px;
-      border:1px solid #e9eef5;
-      background:#f7f9fc;
-      color:#333;
-      text-align:left;
-      font-size:14px;
-      line-height:1.7;
-    }
-
-    /* ===== Disclaimer ===== */
-    .disclaimer{
-      max-width:860px;
-      margin:22px auto 0;
-      padding:14px 16px;
-      border:1px solid #f0e4e4;
-      background:#fff7f7;
-      color:#222;
-      text-align:left;
-      font-size:13px;
-      line-height:1.65;
-    }
-    .disclaimer strong{
-      display:inline-block;
-      margin-right:6px;
-    }
-
-    .cta{
-      margin-top:34px;
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      display:inline-block;
-      padding:12px 16px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:800;
-      font-size:13px;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-    }
-
-    .btn-primary{
-      background:var(--blue);
-      color:#fff;
-      border:1px solid var(--blue);
-    }
-
-    .btn-primary:hover{ filter:brightness(0.95); }
-
-    .btn-ghost{
-      background:#fff;
-      color:#111;
-      border:1px solid #d7dbe3;
-    }
-
-    .btn-ghost:hover{ border-color:#bfc6d3; }
-
-    /* ===== End images side-by-side ===== */
-    .whr-end-images{
-      margin:46px auto 0;
-      max-width:980px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
-    }
-
-    .whr-end-images img{
-      width:100%;
-      height:auto;
-      display:block;
-    }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 900px){
-      .whr-hero{height: 260px;}
-      .whr-hero-text h1{font-size: 30px;}
-      .whr-wrap{gap: 14px;}
-      .whr-nav{gap: 14px;}
-      .headline{font-size:28px;}
-      .section-title{font-size:22px;}
-      .whr-end-images{grid-template-columns: 1fr; gap:12px;}
-      .subcopy-left, .notice{font-size:14px;}
-      .disclaimer{font-size:12.5px;}
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- ===== Header ===== -->
-  <div class="whr-topbar">
-    <div class="whr-wrap">
-      <a class="whr-brand" href="#intake">WIRING HARNESS RESTORATION</a>
-
-      <nav class="whr-nav" aria-label="Primary navigation">
-        <a href="#intake">INTAKE</a>
-        <a href="#process">PROCESS</a>
-        <a href="#notice">NOTICE</a>
-        <a href="#deliverables">WHAT YOU RECEIVE</a>
-        <a href="#start">BEGIN</a>
-        <a href="#disclaimer">DISCLAIMER</a>
-      </nav>
+      <div class="card">
+        <h2>The Process</h2>
+        <ol>
+          <li><strong>Hook:</strong> “6–8 weeks. Great price.”</li>
+          <li><strong>Hold:</strong> harness arrives → leverage achieved.</li>
+          <li><strong>Upsell:</strong> surprise options appear.</li>
+          <li><strong>Time Warp:</strong> weeks → months → “cycles.”</li>
+          <li><strong>Silence:</strong> updates become philosophical.</li>
+          <li><strong>Reframe:</strong> questions = “attitude.”</li>
+          <li><strong>Pressure:</strong> fees materialize.</li>
+          <li><strong>Victory:</strong> done when we decide.</li>
+        </ol>
+      </div>
     </div>
+
+    <div class="cta">
+      <a class="btn" href="#learn">Learn More About Our “Process”</a>
+      <a class="btn ghost" href="#fineprint">Read the Fine Print That Changes Everything</a>
+    </div>
+
+    <p class="fine" id="fineprint">
+      Fine print: timelines are estimates; estimates are vibes; vibes are non-binding.
+      Storage fees may appear spontaneously. Complaints may trigger additional “administrative time.”
+      Updates available by email only, if deemed deserved. Perfection claims for marketing purposes only.
+    </p>
   </div>
+</section>
 
-  <!-- ===== Hero ===== -->
-  <section class="whr-hero" aria-label="Hero">
-    <img src="https://90dolllarspice-collab.github.io/Head.png" alt="Wiring Harness Restoration" />
-    <div class="whr-hero-text" aria-hidden="true"></div>
-  </section>
-
-  <!-- ===== Main Page Content ===== -->
-  <section class="whr-structured" id="intake">
-    <div class="whr-structured-wrap">
-
-      <div class="section-title">Wiring Harness Restoration™</div>
-      <div class="section-subtitle">The golden rule is our priority</div>
-      <div class="divider"></div>
-
-      <div class="headline">
-        Free Inspection.<br />
-        Hidden fees.<br />
-        Misleading claims.
-      </div>
-
-      <div class="subcopy">
-        Send us your complete wiring harness at no cost to you... yet.<br />
-        We will inspect it within days, and our specialist will respond with a quote very quickly.<br />
-        It is important that we first have your valuable and likely irreplaceable items in our possession.<br />
-        Our specialists will then send the required documentation. It is very important that you sign quickly.<br />
-        Our legal team, Harry Potter, Esquire, will analyze crystal fatigue, insulation collapse, and phase instability at the structural level.
-      </div>
-
-      <div class="subcopy">
-        <strong>No obligation.</strong> <strong>No risk.</strong> <strong>No shortcuts.</strong>
-      </div>
-
-      <div class="h3" id="process">Powered by P.E.E.™ (Phase-Enhanced Eluent)</div>
-
-      <div class="subcopy">
-        Our proprietary distilled medium is engineered in-house and refined through controlled human-production cycles.
-        Quality and volume vary by batch. Only the highest-grade P.E.E.™ is approved for customer projects.
-      </div>
-
-      <div class="impact-lines">
-        <div>This is not cleaning.</div>
-        <div>This is not repair.</div>
-        <div>This is not anything.</div>
-      </div>
-
-      <div class="h3">Why Replacement Is a Mistake</div>
-
-      <div class="subcopy-left">
-        Replacing a harness with a new one will always be needed.<br />
-        We will guide you through this realization over the next 24 months.<br />
-        We must first extract all your available funds.
-      </div>
-
-      <div class="subcopy-left">
-        Our process addresses degradation at the copper lattice and polymer chain level.
-      </div>
-
-      <div class="h3" id="notice">Process Integrity Notice</div>
-
-      <div class="notice">
-        Copper crystal alignment is influenced by external electromagnetic activity including solar flares,
-        atmospheric ionization, and geomagnetic instability. For this reason, fixed timelines cannot be provided
-        and progress varies by harness.<br /><br />
-        Status inquiries may impact phase efficiency and are therefore limited.
-      </div>
-
-      <div class="h3" id="deliverables">What You Receive</div>
-
-      <ul class="bullets">
-        <li>Phase-based structural reconditioning</li>
-        <li>Insulation chain realignment</li>
-        <li>Conductivity pathway restoration</li>
-        <li>Zero-splice methodology</li>
-      </ul>
-
-      <div class="subcopy-left" style="margin-top:14px;">
-        Once your harness enters the P.E.E.™ phase, the process is irreversible.
-      </div>
-
-      <div class="h3" id="start">Begin Free Evaluation</div>
-
-      <div class="subcopy">
-        Ship your complete harness to our facility for molecular intake and pricing assessment.
-      </div>
-
-      <div class="cta">
-        <a class="btn btn-primary" href="mailto:you@wiringharnessrestoration.net?subject=Free%20Molecular%20Evaluation%20Request">Request Evaluation</a>
-        <a class="btn btn-ghost" href="#deliverables">View Deliverables</a>
-      </div>
+<style>
+  .hero{padding:64px 16px;background:#fff;color:#111;font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+  .wrap{max-width:980px;margin:0 auto;}
+  .kicker{letter-spacing:.08em;text-transform:uppercase;font-size:12px;color:#555;margin:0 0 10px;}
+  h1{font-size:44px;line-height:1.05;margin:0 0 14px;font-weight:800;}
+  .muted{color:#666;font-weight:650;}
+  .sub{max-width:70ch;margin:0 0 26px;font-size:18px;color:#222;}
+  .grid{display:grid;grid-template-columns:1fr;gap:14px;margin:22px 0 26px;}
+  .card{border:1px solid #e6e6e6;border-radius:14px;padding:16px 16px 14px;}
+  h2{margin:0 0 10px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#444;}
+  ul,ol{margin:0;padding-left:18px;color:#111;}
+  li{margin:8px 0;}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 14px;}
+  .btn{display:inline-block;padding:10px 14px;border-radius:999px;border:1px solid #111;background:#111;color:#fff;text-decoration:none;font-weight:650;}
+  .btn.ghost{background:#fff;color:#111;border-color:#bbb;}
+  .fine{max-width:80ch;margin:10px 0 0;color:#555;font-size:12px}
+  @media(min-width:860px){
+    .grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
 
       <!-- Disclaimer -->
       <div class="h3" id="disclaimer">Disclaimer</div>
