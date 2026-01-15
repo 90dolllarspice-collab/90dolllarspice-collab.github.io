@@ -209,10 +209,42 @@
       color:#555;
     }
 
+    /* Images */
+    .image-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin:60px 0 0;
+    }
+
+    .image-row img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:14px;
+    }
+
+    /* Disclaimer */
+    .disclaimer{
+      margin:70px 0 0;
+      padding:18px 20px;
+      border:1px solid #f0e4e4;
+      background:#fff7f7;
+      color:#222;
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .disclaimer strong{
+      display:block;
+      margin-bottom:6px;
+    }
+
     @media (max-width: 900px){
       .whr-hero{height: 260px;}
       .headline{font-size:30px;}
       .grid{grid-template-columns:1fr;}
+      .image-row{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -291,6 +323,23 @@
         Storage fees may appear spontaneously. Complaints may trigger additional “administrative time.”
         Updates available by email only, if deemed deserved. Perfection claims for marketing purposes only.
       </p>
+
+      <!-- ===== Images ===== -->
+      <div class="image-row">
+        <img src="https://90dolllarspice-collab.github.io/img1.png" alt="Processing visualization 1">
+        <img src="https://90dolllarspice-collab.github.io/img2.png" alt="Processing visualization 2">
+      </div>
+
+      <!-- ===== Disclaimer ===== -->
+      <div class="disclaimer" id="disclaimer">
+        <strong>Disclaimer</strong>
+        This website, its content, services, descriptions, and processes are works of fiction created for satirical and entertainment purposes only.
+        All companies, methods, technologies, products, and claims described on this site are entirely fabricated and do not represent real services,
+        real scientific processes, or real businesses. Any resemblance to actual persons, companies, or services—living or dead—is purely coincidental.
+        All images, graphics, and artwork displayed on this site are generated using artificial intelligence and are not photographs of real people,
+        facilities, or products. Nothing on this site should be interpreted as technical advice, professional guidance, or a legitimate service offering.
+        By using this site, you acknowledge and agree that all content is fictional and intended solely as parody.
+      </div>
 
     </div>
   </section>
