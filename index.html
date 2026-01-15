@@ -254,6 +254,82 @@
       color:#111;
     }
 
+    /* Downloads */
+    .downloads{
+      margin:60px 0 0;
+      padding-top:26px;
+      border-top:1px solid #eee;
+    }
+
+    .downloads h2{
+      margin:0 0 10px;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#444;
+    }
+
+    .downloads p{
+      margin:0 0 14px;
+      color:#222;
+      line-height:1.6;
+      max-width:80ch;
+      font-size:15px;
+    }
+
+    .dl-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .dl{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 14px;
+      border:1px solid #e6e6e6;
+      border-radius:14px;
+      background:#fff;
+    }
+
+    .dl .meta{
+      min-width:0;
+    }
+
+    .dl .title{
+      font-weight:800;
+      font-size:14px;
+      margin:0 0 4px;
+      color:#111;
+    }
+
+    .dl .desc{
+      margin:0;
+      font-size:12px;
+      color:#666;
+      line-height:1.5;
+    }
+
+    .dl a{
+      flex:0 0 auto;
+      display:inline-block;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid #111;
+      background:#111;
+      color:#fff;
+      text-decoration:none;
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .dl a:hover{ filter:brightness(.95); }
+
     .disclaimer{
       margin:70px 0 0;
       padding:18px 20px;
@@ -275,6 +351,7 @@
       .grid{grid-template-columns:1fr;}
       .image-row{grid-template-columns:1fr;}
       .review-block{grid-template-columns:1fr;}
+      .dl-grid{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -289,6 +366,7 @@
         <a href="#process">PROCESS</a>
         <a href="#notice">NOTICE</a>
         <a href="#deliverables">WHAT YOU RECEIVE</a>
+        <a href="#downloads">DOWNLOADS</a>
         <a href="#start">BEGIN</a>
         <a href="#disclaimer">DISCLAIMER</a>
       </nav>
@@ -406,6 +484,36 @@
             If this is how you speak in public, no rational customer will trust you in private.
           </p>
         </div>
+      </div>
+
+      <!-- Downloads -->
+      <div class="downloads" id="downloads">
+        <h2>Downloads</h2>
+        <p>
+          Two public documents are available for direct download (PDF). These are provided as-source material for parody and commentary.
+        </p>
+
+        <div class="dl-grid">
+          <div class="dl">
+            <div class="meta">
+              <div class="title">Administrative Citation (PDF)</div>
+              <p class="desc">Utah Division of Consumer Protection — Administrative Citation.</p>
+            </div>
+            <a href="https://90dolllarspice-collab.github.io/00003C3F.pdf" download>Download</a>
+          </div>
+
+          <div class="dl">
+            <div class="meta">
+              <div class="title">Settlement Agreement (PDF)</div>
+              <p class="desc">Utah Division of Consumer Protection — Settlement Agreement.</p>
+            </div>
+            <a href="https://90dolllarspice-collab.github.io/00003C3E.pdf" download>Download</a>
+          </div>
+        </div>
+
+        <p class="fine" style="margin-top:12px;">
+          Note: Some browsers may open PDFs in a new tab depending on user settings; the “download” attribute requests a direct download.
+        </p>
       </div>
 
       <div class="disclaimer" id="disclaimer">
