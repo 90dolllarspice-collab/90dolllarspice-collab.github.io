@@ -83,19 +83,24 @@
       background: #000;
     }
 
+    /* FIX: "contain" so the whole image is visible (no cropping) */
     .whr-hero img{
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;      /* was: cover */
+      object-position: center;
+      background: #000;         /* fills any letterbox space */
     }
 
+    /* Keep overlay, but don't darken the letterbox too hard */
     .whr-hero::after{
       content:"";
       position:absolute;
       inset:0;
-      background: rgba(0,0,0,0.35);
+      background: rgba(0,0,0,0.25);
+      pointer-events:none;
     }
 
     .whr-hero-text{
