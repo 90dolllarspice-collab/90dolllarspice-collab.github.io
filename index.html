@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -381,6 +382,60 @@
     .dl a:hover{ filter:brightness(.95); }
 
     /* =========================================================
+       Donate / Meme block (NEW)
+    ========================================================= */
+    .donate{
+      margin:30px 0 0;
+    }
+
+    .donate-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    .donate-grid img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:14px;
+      border:1px solid #e6e6e6;
+    }
+
+    .donate-box{
+      border:1px solid #e6e6e6;
+      border-radius:14px;
+      padding:18px 18px 16px;
+      background:#fff;
+    }
+
+    .donate-box h3{
+      margin:0 0 10px;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#444;
+    }
+
+    .donate-box p{
+      margin:0 0 12px;
+      font-size:15px;
+      line-height:1.75;
+      color:#111;
+    }
+
+    .donate-box p:last-child{ margin-bottom:0; }
+
+    .donate-box a{
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .donate-box a:hover{ text-decoration: underline; }
+
+    /* =========================================================
        Disclaimer
     ========================================================= */
     .disclaimer{
@@ -398,45 +453,44 @@
       margin-bottom:6px;
     }
 
-
     /* Drop-in styling for the section above */
-.warning{
-  max-width: 900px;
-  margin: 28px auto;
-  padding: 22px 22px 18px;
-  border: 1px solid var(--line, #e6e6e6);
-  border-radius: 14px;
-  background: #fff;
-}
+    .warning{
+      max-width: 900px;
+      margin: 28px auto;
+      padding: 22px 22px 18px;
+      border: 1px solid var(--line, #e6e6e6);
+      border-radius: 14px;
+      background: #fff;
+    }
 
-.warning__title{
-  margin: 0 0 14px;
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
+    .warning__title{
+      margin: 0 0 14px;
+      font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
 
-.warning__content p{
-  margin: 0 0 12px;
-  font-size: 1.02rem;
-  line-height: 1.65;
-  color: var(--text, #111);
-}
+    .warning__content p{
+      margin: 0 0 12px;
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: var(--text, #111);
+    }
 
-.warning__content p:last-child{
-  margin-bottom: 0;
-}
+    .warning__content p:last-child{
+      margin-bottom: 0;
+    }
 
-.warning__callout{
-  padding: 12px 14px;
-  border-left: 4px solid var(--blue, #1b74e4);
-  background: rgba(27, 116, 228, 0.06);
-  border-radius: 10px;
-}
+    .warning__callout{
+      padding: 12px 14px;
+      border-left: 4px solid var(--blue, #1b74e4);
+      background: rgba(27, 116, 228, 0.06);
+      border-radius: 10px;
+    }
 
-.warning__content q{
-  quotes: "“" "”" "‘" "’";
-}
+    .warning__content q{
+      quotes: "“" "”" "‘" "’";
+    }
 
     /* =========================================================
        Responsive
@@ -448,6 +502,7 @@
       .image-row{ grid-template-columns:1fr; }
       .review-block{ grid-template-columns:1fr; }
       .dl-grid{ grid-template-columns:1fr; }
+      .donate-grid{ grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -483,39 +538,40 @@
 
       <p class="kicker">Wiring Harness Restoration • When incompetence finds a business model.™</p>
 
-<section class="warning">
-  <h2 class="warning__title">Purpose of this site</h2>
+      <section class="warning">
+        <h2 class="warning__title">Purpose of this site</h2>
 
-  <div class="warning__content">
-    <p>
-      The sole purpose of this site is to warn potential future customers about a scheme crafted by a Utah resident named Darren Flit. He operates a business called <strong>Wiring Harness Restoration</strong>, which is designed around taking possession of one-of-a-kind or rare items, such as automotive wiring harnesses.
-    </p>
+        <div class="warning__content">
+          <p>
+            The sole purpose of this site is to warn potential future customers about a scheme crafted by a Utah resident named Darren Flit. He operates a business called <strong>Wiring Harness Restoration</strong>, which is designed around taking possession of one-of-a-kind or rare items, such as automotive wiring harnesses.
+          </p>
 
-    <p>
-      He claims to restore these harnesses using a process he calls <q>deoxidation</q>, which is supposedly intended to restore wire conductivity and somehow bring the harnesses back to life.
-    </p>
+          <p>
+            He claims to restore these harnesses using a process he calls <q>deoxidation</q>, which is supposedly intended to restore wire conductivity and somehow bring the harnesses back to life.
+          </p>
 
-    <p class="warning__callout">
-      <strong>Key point:</strong> This “deoxidation” process is entirely fabricated. It is not a real or recognized practice. Automotive wiring harnesses are not repaired by “deoxidizing” them, nor does anyone solder pins back onto harnesses in the manner implied.
-    </p>
+          <p class="warning__callout">
+            <strong>Key point:</strong> This “deoxidation” process is entirely fabricated. It is not a real or recognized practice. Automotive wiring harnesses are not repaired by “deoxidizing” them, nor does anyone solder pins back onto harnesses in the manner implied.
+          </p>
 
-    <p>
-      The purpose of inventing this so-called deoxidation process is to introduce an unknown and unverifiable variable into the work. It provides a convenient explanation for excessively long timelines, since no customer can independently verify whether this process is occurring. There is no established standard for it.
-    </p>
+          <p>
+            The purpose of inventing this so-called deoxidation process is to introduce an unknown and unverifiable variable into the work. It provides a convenient explanation for excessively long timelines, since no customer can independently verify whether this process is occurring. There is no established standard for it.
+          </p>
 
-    <p>
-      Because the business is marketed as “restoration,” he can claim that customers are paying specifically for this undefined process and argue that if it takes up to two years to “deoxidize” a harness, it is beyond his control—asserting that this is what the customer agreed to.
-    </p>
+          <p>
+            Because the business is marketed as “restoration,” he can claim that customers are paying specifically for this undefined process and argue that if it takes up to two years to “deoxidize” a harness, it is beyond his control—asserting that this is what the customer agreed to.
+          </p>
 
-    <p>
-      Customers typically enter into this arrangement believing they are paying for a repair. His website strongly implies that this is the service being offered, but that is not the reality. Early on, he suggests the work may take only a few weeks and performs the initial inspection very quickly, often within days.
-    </p>
+          <p>
+            Customers typically enter into this arrangement believing they are paying for a repair. His website strongly implies that this is the service being offered, but that is not the reality. Early on, he suggests the work may take only a few weeks and performs the initial inspection very quickly, often within days.
+          </p>
 
-    <p>
-      However, once the customer signs the contract—containing language buried in the middle that allows the process to take up to two years—they are bound by terms they would not reasonably expect from a company that was able to provide a prompt inspection and estimate.
-    </p>
-  </div>
-</section>
+          <p>
+            However, once the customer signs the contract—containing language buried in the middle that allows the process to take up to two years—they are bound by terms they would not reasonably expect from a company that was able to provide a prompt inspection and estimate.
+          </p>
+        </div>
+      </section>
+
       <!-- ===================================================
            Process
       =================================================== -->
@@ -545,6 +601,7 @@
       </section>
 
       <!-- ===================================================
+           Images
       =================================================== -->
       <section class="image-row" id="deliverables" aria-label="Deliverables images">
         <img src="https://90dolllarspice-collab.github.io/img1.png" alt="Processing visualization 1" />
@@ -589,7 +646,7 @@
       =================================================== -->
       <section class="downloads" id="downloads" aria-label="Downloads">
         <h2>Downloads</h2>
-        <p>
+
         <div class="dl-grid">
           <div class="dl">
             <div class="meta">
@@ -606,7 +663,6 @@
             </div>
             <a href="https://90dolllarspice-collab.github.io/00003C3E.pdf" download>Download</a>
           </div>
-        </div>
 
           <div class="dl">
             <div class="meta">
@@ -619,6 +675,7 @@
           <div class="dl">
             <div class="meta">
               <div class="title">Flint crying like a baby</div>
+              <p class="desc">PDF document.</p>
             </div>
             <a href="Doc2 (3).pdf" download>Download</a>
           </div>
@@ -626,51 +683,31 @@
           <div class="dl">
             <div class="meta">
               <div class="title">Flint impersonating an investegator</div>
+              <p class="desc">PDF document.</p>
             </div>
             <a href="doc3.pdf" download>Download</a>
           </div>
         </div>
 
+        <!-- ===================================================
+             Meme + Donate (NEW) - photo left, donate right
+        =================================================== -->
+        <div class="donate" aria-label="Donate and meme">
+          <div class="donate-grid">
+            <img src="meme1.jpeg" alt="Meme" />
+            <div class="donate-box">
+              <h3>Donate / Support</h3>
+              <p>
+                If you are or were a victim to this company and would like to contribute to the cause 100% will be used towards advertising this page.
+                Email me at <a href="mailto:Sales@wiringharnessrestoration.net">Sales@wiringharnessrestoration.net</a>
+              </p>
+              <p>
+                Thank you to the two anonymous individuals that were so generous in getting this project started.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
-
-    <!-- ===================================================
-     Community Contribution / Meme
-=================================================== -->
-<section class="case-summary" aria-label="Community contribution">
-  <h2>Community Support</h2>
-
-  <img
-    src="meme1.jpeg"
-    alt="Satirical meme related to Wiring Harness Restoration"
-    style="
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:14px;
-      border:1px solid #e6e6e6;
-      margin:18px 0 20px;
-    "
-  />
-
-  <p>
-    If you are or were a victim of this company and would like to contribute to the cause,
-    <strong>100% of contributions will be used toward advertising this page</strong>.
-  </p>
-
-  <p>
-    Email:
-    <strong>
-      <a href="mailto:Sales@wiringharnessrestoration.net">
-        Sales@wiringharnessrestoration.net
-      </a>
-    </strong>
-  </p>
-
-  <p class="fine">
-    Thank you to the two anonymous individuals who were generous enough to get this project started.
-  </p>
-</section>
-
 
       <!-- ===================================================
            Reviews
@@ -742,3 +779,4 @@
   </main>
 </body>
 </html>
+```
