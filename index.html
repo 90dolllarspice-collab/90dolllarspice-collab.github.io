@@ -441,6 +441,82 @@
     }
 
     .donate-box a:hover{ text-decoration: underline; }
+/* =========================================================
+   External Reviews / Complaints
+========================================================= */
+.external-reviews{
+  margin:60px 0 0;
+  padding-top:26px;
+  border-top:1px solid #eee;
+}
+
+.external-reviews h2{
+  margin:0 0 10px;
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#444;
+}
+
+.external-reviews p{
+  margin:0 0 18px;
+  color:#222;
+  line-height:1.6;
+  max-width:80ch;
+  font-size:15px;
+}
+
+.review-links{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+}
+
+.review-link{
+  border:1px solid #e6e6e6;
+  border-radius:14px;
+  padding:16px 16px 14px;
+  background:#fff;
+}
+
+.review-link .source{
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#666;
+  margin:0 0 6px;
+}
+
+.review-link .title{
+  font-size:15px;
+  font-weight:800;
+  margin:0 0 8px;
+  color:#111;
+}
+
+.review-link a{
+  display:inline-block;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  text-decoration:none;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid #111;
+  background:#111;
+  color:#fff;
+}
+
+.review-link a:hover{
+  filter:brightness(.95);
+}
+
+@media (max-width: 900px){
+  .review-links{
+    grid-template-columns:1fr;
+  }
+}
 
     /* =========================================================
        Disclaimer
@@ -618,7 +694,7 @@
       <!-- ===================================================
            Case Summary (Original)
       =================================================== -->
-      <section class="case-summary" id="case" aria-label="Case summary">
+      <section class="case-summary" id="case" aria-label="Public Records">
         <h2>Case Summary (Utah Division of Consumer Protection)</h2>
 
         <p class="meta">
@@ -627,22 +703,11 @@
         </p>
 
         <p>
-          In a consumer transaction involving a wiring-harness restoration, the Utah Division of Consumer Protection alleged that the
-          respondents misrepresented pricing and completion time, failed to deliver the service within the timeframe represented,
-          and did not provide a timely refund/return option after delays.
-        </p>
-
-        <p>
-          The citation further alleged attempts to impose unauthorized charges (including additional “administrative” and storage fees),
+          The citation alleged attempts to impose unauthorized charges (including additional “administrative” and storage fees),
           hostile/threatening communications, a small-claims lawsuit seeking amounts not agreed to, and impersonation of a State of Utah
           investigator in connection with service of legal documents.
         </p>
-
-        <p>
-          The matter was later resolved by a settlement agreement requiring return of the property, dismissal of the lawsuit, cessation of
-          contact with the consumer, cease-and-desist terms, and payment of fines (with a portion suspended contingent on compliance).
-        </p>
-
+        
         <p class="fine">
           Source documents: Utah Division of Consumer Protection Administrative Citation (Dec 2017) and Settlement Agreement (Mar 2018).
         </p>
@@ -769,6 +834,51 @@
           </div>
         </div>
       </section>
+<!-- ===================================================
+     External Reviews / Complaints
+=================================================== -->
+<section class="external-reviews" id="external-reviews" aria-label="External reviews and complaints">
+  <h2>External Reviews & Complaints</h2>
+
+  <p>
+    Below are third-party complaint threads and review platforms documenting customer experiences.
+    These links point to external sites and are provided for reference.
+  </p>
+
+  <div class="review-links">
+    <div class="review-link">
+      <div class="source">Automotive Forum</div>
+      <div class="title">LS1Tech — “Got screwed out of $500, avoid my fate”</div>
+      <a href="https://ls1tech.com/forums/general-lsx-automobile-discussion/782747-got-screwed-out-500-avoid-my-fate.html" target="_blank" rel="noopener noreferrer">
+        View Thread
+      </a>
+    </div>
+
+    <div class="review-link">
+      <div class="source">Consumer Reviews</div>
+      <div class="title">Better Business Bureau — Customer Reviews</div>
+      <a href="https://www.bbb.org/us/ut/west-valley-city/profile/restoration-companies/wiring-harness-restoration-1166-22271773/customer-reviews" target="_blank" rel="noopener noreferrer">
+        View Reviews
+      </a>
+    </div>
+
+    <div class="review-link">
+      <div class="source">Consumer Complaint</div>
+      <div class="title">Ripoff Report — Rush Power Systems / Darren Flint</div>
+      <a href="https://www.ripoffreport.com/reports/rush-power-systems/west-jordan-utah-84081/rush-power-systems-darren-flint-owner-work-not-performed-threatening-emails-after-i-as-1114808" target="_blank" rel="noopener noreferrer">
+        View Report
+      </a>
+    </div>
+
+    <div class="review-link">
+      <div class="source">Consumer Complaint</div>
+      <div class="title">Ripoff Report — Wiring Harness Restoration</div>
+      <a href="https://www.ripoffreport.com/report/wiring-harness-restoration/draper-utah-darren-michael-1514214" target="_blank" rel="noopener noreferrer">
+        View Report
+      </a>
+    </div>
+  </div>
+</section>
 
       <!-- ===================================================
            Disclaimer
