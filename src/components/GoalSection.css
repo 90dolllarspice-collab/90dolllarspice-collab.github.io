@@ -1,0 +1,57 @@
+
+.whr-structured {
+  background: #ffffff;
+  padding: 80px 20px 60px;
+}
+
+.whr-structured-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.kicker {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 14px;
+}
+
+.warning__title {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.05;
+  margin: 0 0 32px;
+  color: #111;
+}
+
+.warning__content p {
+  max-width: 80ch;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #222;
+  margin: 0 0 24px;
+}
+
+.warning__callout {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 20px;
+  margin: 32px 0 !important;
+  font-weight: 600;
+  color: #856404 !important;
+}
+
+@media (max-width: 900px) {
+  .whr-structured {
+    padding: 60px 20px 40px;
+  }
+  
+  .warning__title {
+    font-size: 30px;
+  }
+  
+  .warning__content p {
+    font-size: 15px;
+  }
+}

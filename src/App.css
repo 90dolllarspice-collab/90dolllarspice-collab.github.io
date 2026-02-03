@@ -1,0 +1,22 @@
+
+:root {
+  --blue: #1b74e4;
+  --text: #111;
+  --muted: #444;
+  --line: #e6e6e6;
+  --max: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+}
