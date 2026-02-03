@@ -1,0 +1,1142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wiring Harness Restoration - Consumer Warning</title>
+  <style>
+    :root {
+      --blue: #1b74e4;
+      --text: #111;
+      --muted: #444;
+      --line: #e6e6e6;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      background: #fff;
+      color: var(--text);
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
+
+    /* TopBar Styles */
+    .whr-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .whr-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .whr-brand {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .whr-nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .whr-nav a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #111;
+      text-decoration: none;
+      padding: 6px 2px;
+      transition: color 0.2s ease;
+    }
+
+    .whr-nav a:hover {
+      color: var(--blue);
+    }
+
+    /* Hero Styles */
+    .whr-hero {
+      position: relative;
+      height: 360px;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
+
+    .whr-hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .whr-hero-overlay {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 1;
+    }
+
+    /* Goal Section Styles */
+    .whr-structured {
+      background: #ffffff;
+      padding: 80px 20px 60px;
+    }
+
+    .whr-structured-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .kicker {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: #666;
+      margin: 0 0 14px;
+    }
+
+    .warning__title {
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin: 0 0 32px;
+      color: #111;
+    }
+
+    .warning__content p {
+      max-width: 80ch;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #222;
+      margin: 0 0 24px;
+    }
+
+    .warning__callout {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 20px;
+      margin: 32px 0 !important;
+      font-weight: 600;
+      color: #856404 !important;
+    }
+
+    /* Graph Section Styles */
+    .graph-section {
+      padding: 100px 20px 200px;
+      min-height: 500vh;
+      position: relative;
+      transition: background-color 1s ease;
+    }
+
+    .graph-section--incompetence {
+      background: #f8f9fa;
+    }
+
+    .graph-section--deception {
+      background: linear-gradient(180deg, #f8f9fa 0%, #fff8f0 100%);
+    }
+
+    .graph-section--coercion {
+      background: linear-gradient(180deg, #fff8f0 0%, #fff5f5 100%);
+    }
+
+    .graph-section--fraud {
+      background: linear-gradient(180deg, #fff5f5 0%, #1a0000 100%);
+      color: #ffffff;
+    }
+
+    .graph-section--fraud .graph-subtitle,
+    .graph-section--fraud .graph-point-description,
+    .graph-section--fraud .graph-phase-description {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .graph-section--fraud .graph-title,
+    .graph-section--fraud .graph-point-title {
+      color: #ffffff;
+    }
+
+    .graph-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .graph-header {
+      text-align: center;
+      margin-bottom: 80px;
+      position: sticky;
+      top: 120px;
+      padding: 20px 0 40px;
+      z-index: 10;
+    }
+
+    .graph-title {
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.05;
+      margin: 0 0 16px;
+      color: #111;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    .graph-subtitle {
+      font-size: 19px;
+      color: #666;
+      margin: 0;
+      max-width: 650px;
+      margin: 0 auto;
+      letter-spacing: 0.01em;
+    }
+
+    .graph-canvas-wrapper {
+      position: sticky;
+      top: 280px;
+      height: 520px;
+      margin-bottom: 100px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+      padding: 24px;
+      z-index: 5;
+    }
+
+    .graph-section--fraud .graph-canvas-wrapper {
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .graph-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .graph-phase-indicator {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      text-align: right;
+      transition: color 0.6s ease;
+    }
+
+    .graph-phase-label {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .graph-phase-description {
+      font-size: 13px;
+      font-weight: 500;
+      opacity: 0.8;
+      max-width: 280px;
+      margin-left: auto;
+    }
+
+    .graph-points {
+      position: relative;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 160px;
+      padding-top: 60px;
+    }
+
+    .phase-break {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin: 80px 0;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .phase-break-line {
+      flex: 1;
+      height: 3px;
+      background: currentColor;
+      position: relative;
+    }
+
+    .phase-break-line::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 12px;
+      height: 12px;
+      background: currentColor;
+      border-radius: 50%;
+    }
+
+    .phase-break-content {
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .phase-break-title {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+      white-space: nowrap;
+    }
+
+    .phase-break-description {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    .graph-point {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      border-left: 6px solid var(--blue);
+      max-width: 800px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .graph-point::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.02) 100%);
+      pointer-events: none;
+    }
+
+    .graph-point--deception {
+      box-shadow: 0 8px 32px rgba(255, 140, 0, 0.2);
+    }
+
+    .graph-point--coercion {
+      box-shadow: 0 8px 32px rgba(230, 57, 70, 0.25);
+    }
+
+    .graph-point--fraud {
+      box-shadow: 0 8px 32px rgba(164, 22, 26, 0.35);
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .graph-point-content {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .graph-point-title {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin: 0 0 16px;
+      color: #111;
+      letter-spacing: -0.01em;
+    }
+
+    .graph-point-description {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #444;
+      margin: 0 0 20px;
+    }
+
+    .graph-point-legal {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 12px 18px;
+      background: rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .graph-point-legal-icon {
+      font-size: 18px;
+    }
+
+    /* Footer */
+    .whr-footer {
+      background: #111;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .whr-footer-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .whr-footer h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 0 0 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .whr-footer p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #ccc;
+      margin: 0 0 16px;
+      max-width: 70ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .whr-footer-legal {
+      font-size: 12px;
+      color: #999;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid #333;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .whr-hero {
+        height: 260px;
+      }
+
+      .whr-structured {
+        padding: 60px 20px 40px;
+      }
+
+      .warning__title {
+        font-size: 30px;
+      }
+
+      .warning__content p {
+        font-size: 15px;
+      }
+
+      .graph-section {
+        padding: 60px 20px 150px;
+        min-height: 450vh;
+      }
+
+      .graph-header {
+        top: 80px;
+        margin-bottom: 50px;
+      }
+
+      .graph-title {
+        font-size: 36px;
+      }
+
+      .graph-subtitle {
+        font-size: 16px;
+      }
+
+      .graph-canvas-wrapper {
+        top: 200px;
+        height: 420px;
+        margin-bottom: 60px;
+        padding: 20px;
+      }
+
+      .graph-phase-indicator {
+        position: static;
+        text-align: center;
+        margin-top: 16px;
+      }
+
+      .graph-phase-description {
+        margin: 0 auto;
+      }
+
+      .graph-points {
+        gap: 120px;
+        padding-top: 40px;
+      }
+
+      .phase-break {
+        flex-direction: column;
+        gap: 20px;
+        margin: 60px 0;
+      }
+
+      .phase-break-line {
+        width: 100%;
+        height: 2px;
+      }
+
+      .phase-break-title {
+        font-size: 22px;
+        white-space: normal;
+      }
+
+      .phase-break-description {
+        font-size: 14px;
+      }
+
+      .graph-point {
+        padding: 28px;
+        max-width: 100%;
+      }
+
+      .graph-point-title {
+        font-size: 20px;
+      }
+
+      .graph-point-description {
+        font-size: 15px;
+      }
+
+      .graph-point-legal {
+        font-size: 12px;
+        padding: 10px 14px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .whr-wrap {
+        gap: 16px;
+      }
+
+      .whr-nav {
+        gap: 14px;
+      }
+
+      .whr-nav a {
+        font-size: 11px;
+      }
+
+      .graph-section {
+        padding: 40px 16px 120px;
+      }
+
+      .graph-title {
+        font-size: 28px;
+      }
+
+      .graph-subtitle {
+        font-size: 15px;
+      }
+
+      .graph-canvas-wrapper {
+        height: 360px;
+        padding: 16px;
+      }
+
+      .graph-points {
+        gap: 100px;
+      }
+
+      .phase-break-title {
+        font-size: 18px;
+      }
+
+      .phase-break-description {
+        font-size: 13px;
+      }
+
+      .graph-point {
+        padding: 24px;
+      }
+
+      .graph-point-title {
+        font-size: 18px;
+      }
+
+      .graph-point-description {
+        font-size: 14px;
+      }
+
+      .graph-point-legal {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <header class="whr-topbar" role="banner">
+    <div class="whr-wrap">
+      <a class="whr-brand" href="#intake">Wiring Harness Restoration</a>
+      <nav class="whr-nav" aria-label="Primary navigation">
+        <a href="#case">CASE SUMMARY</a>
+        <a href="#graph">THE GRAPH</a>
+        <a href="#disclaimer">DISCLAIMER</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="whr-hero" aria-label="Hero">
+    <img 
+      src="https://90dolllarspice-collab.github.io/head.png" 
+      alt="Wiring Harness Restoration" 
+    />
+    <div class="whr-hero-overlay"></div>
+  </section>
+
+  <!-- Goal Section -->
+  <main class="whr-structured" id="intake">
+    <div class="whr-structured-wrap">
+      <p class="kicker">Wiring Harness Restoration • When incompetence finds a business model.™</p>
+
+      <section class="warning" id="case">
+        <h2 class="warning__title">Goal Of This Site</h2>
+
+        <div class="warning__content">
+          <p>
+            The sole purpose of this site is to warn potential future customers about a scheme crafted by a Utah resident named Darren Flint. He operates a business called <strong>Wiring Harness Restoration</strong>, which is designed around taking possession of one-of-a-kind or rare items, such as automotive wiring harnesses.
+          </p>
+
+          <p>
+            He claims to restore these harnesses using a process he calls <q>deoxidation</q>, which is supposedly intended to restore wire conductivity and somehow bring the harnesses back to life.
+          </p>
+
+          <p class="warning__callout">
+            This "deoxidation" process is entirely fabricated. It is not a real or recognized practice. Automotive wiring harnesses are not repaired by "deoxidizing" them, nor does anyone solder pins back onto harnesses in the manner implied.
+          </p>
+
+          <p>
+            The purpose of inventing this so-called deoxidation process is to introduce an unknown and unverifiable variable into the work. It provides a convenient explanation for excessively long timelines, since no customer can independently verify whether this process is occurring. There is no established standard for it.
+          </p>
+
+          <p>
+            Because the business is marketed as "restoration," he can claim that customers are paying specifically for this undefined process and argue that if it takes up to two years to "deoxidize" a harness, it is beyond his control—asserting that this is what the customer agreed to.
+          </p>
+
+          <p>
+            Customers typically enter into this arrangement believing they are paying for a repair. His website strongly implies that this is the service being offered, but that is not the reality. Early on, he suggests the work may take only a few weeks and performs the initial inspection very quickly, often within days.
+          </p>
+
+          <p>
+            However, once the customer signs the contract—containing language buried in the middle that allows the process to take up to two years—they are bound by terms they would not reasonably expect from a company that was able to provide a prompt inspection and estimate.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Graph Section -->
+  <section class="graph-section graph-section--incompetence" id="graph">
+    <div class="graph-container">
+      <div class="graph-header">
+        <h2 class="graph-title">The Escalation Pattern</h2>
+        <p class="graph-subtitle">
+          A documented progression from poor business practices to systematic coercion
+        </p>
+      </div>
+
+      <div class="graph-canvas-wrapper">
+        <canvas id="graphCanvas" class="graph-canvas"></canvas>
+        <div class="graph-phase-indicator">
+          <div class="graph-phase-label" id="phaseLabel">PHASE I: INCOMPETENCE</div>
+          <div class="graph-phase-description" id="phaseDescription">Poor practices that create the foundation for abuse</div>
+        </div>
+      </div>
+
+      <div class="graph-points" id="graphPoints">
+        <!-- Points will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="whr-footer" id="disclaimer">
+    <div class="whr-footer-wrap">
+      <h3>Disclaimer</h3>
+      <p>
+        This website presents documented patterns of conduct based on actual correspondence, contracts, and business practices. All statements are made in good faith and supported by available evidence. The purpose is consumer education and public awareness.
+      </p>
+      <p>
+        Nothing on this site should be construed as legal advice. Individuals with concerns about similar practices should consult with a qualified attorney in their jurisdiction.
+      </p>
+      <div class="whr-footer-legal">
+        © 2025 Consumer Awareness Initiative. All rights reserved. This site is maintained for informational purposes only.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Data Points
+    const dataPoints = [
+      {
+        id: 1,
+        title: "Poor business practices and mismanagement",
+        description: "Repeated missed deadlines, vague delivery estimates, and shifting explanations for delays. While not illegal by themselves, these practices create foreseeable harm and set the stage for escalation. Chronic nonperformance without transparency is the baseline failure visible throughout the correspondence.",
+        legalNote: "Negligent business conduct",
+        phase: 'incompetence'
+      },
+      {
+        id: 2,
+        title: "Failure to provide clear, consistent terms",
+        description: "Pricing structures, timelines, and conditions change midstream without clear written agreement. Customers are left uncertain about what they actually agreed to versus what is later demanded. This moves beyond incompetence into deceptive conduct territory.",
+        legalNote: "Breach of good faith and fair dealing",
+        phase: 'incompetence'
+      },
+      {
+        id: 3,
+        title: "After-the-fact justification of charges",
+        description: "Internal memos and retroactive documentation are created to rationalize added costs, canceled discounts, or expedited fees that were not part of the original agreement. This suggests intentional reconstruction of the record rather than contemporaneous consent.",
+        legalNote: "False documentation practices",
+        phase: 'incompetence'
+      },
+      {
+        id: 4,
+        title: "Holding customer property as leverage",
+        description: "Customer-owned property is retained while new conditions or payments are imposed. Continued possession is used to pressure compliance rather than resolve the dispute. This crosses from unethical into legally risky conduct depending on jurisdiction.",
+        legalNote: "Potential conversion or unlawful detention",
+        phase: 'deception'
+      },
+      {
+        id: 5,
+        title: "Unilateral modification of agreements",
+        description: "Discounts are revoked, fees added, or work scope altered without customer authorization. These changes are presented as faits accomplis rather than negotiated amendments. This constitutes deceptive trade behavior in many regulatory frameworks.",
+        legalNote: "Violates Utah Consumer Sales Practices Act",
+        phase: 'deception'
+      },
+      {
+        id: 6,
+        title: "Misrepresentation of dispute status",
+        description: "Statements are made implying disputes are \"resolved,\" \"final,\" or already adjudicated when no judgment or final determination exists. This is designed to create false inevitability and suppress customer resistance.",
+        legalNote: "Fraudulent misrepresentation",
+        phase: 'deception'
+      },
+      {
+        id: 7,
+        title: "Use of false or misleading authority signals",
+        description: "Communications are sent under the banner of a \"legal department\" or purported legal agent without clear disclosure of licensing or authority. When questioned directly, clarification is avoided. This is a classic intimidation tactic and potentially unlawful.",
+        legalNote: "Unauthorized practice of law (UPL)",
+        phase: 'deception'
+      },
+      {
+        id: 8,
+        title: "Harassment after objection or dispute",
+        description: "Once a customer pushes back, communications escalate in frequency, tone, and threat level rather than de-escalating. Continued contact after explicit requests to stop moves this into harassment territory.",
+        legalNote: "Violates FDCPA and harassment statutes",
+        phase: 'coercion'
+      },
+      {
+        id: 9,
+        title: "Retaliatory financial escalation",
+        description: "Additional charges, expedited fees, or threats of increased liability appear only after disputes or chargebacks are initiated. This strongly suggests retaliation rather than legitimate cost recovery.",
+        legalNote: "Retaliatory business practices",
+        phase: 'coercion'
+      },
+      {
+        id: 10,
+        title: "Misrepresentation to third parties",
+        description: "Statements to courts or financial institutions characterize provisional or pending outcomes as definitive wins. This misleads decision-makers and strengthens coercive leverage against the customer.",
+        legalNote: "Fraud upon the court or financial institutions",
+        phase: 'coercion'
+      },
+      {
+        id: 11,
+        title: "Abuse of legal process or threat thereof",
+        description: "Litigation is invoked primarily as a pressure tool rather than a good-faith dispute resolution mechanism. Threats are framed to induce fear rather than to outline lawful remedies. This is a serious ethical and legal breach.",
+        legalNote: "Abuse of process / Vexatious litigation",
+        phase: 'fraud'
+      },
+      {
+        id: 12,
+        title: "Systematic intimidation and coercion",
+        description: "Taken as a whole, the conduct reflects a repeatable pattern: delay, confuse, retain property, escalate costs, invoke dubious authority, and threaten consequences until payment is forced. At this level, the behavior functions less like a business dispute and more like coercive extraction.",
+        legalNote: "Pattern of racketeering / Extortion",
+        phase: 'fraud'
+      }
+    ];
+
+    const phaseConfig = {
+      incompetence: {
+        label: 'PHASE I: INCOMPETENCE',
+        color: '#1b74e4',
+        bgColor: '#f8f9fa',
+        description: 'Poor practices that create the foundation for abuse'
+      },
+      deception: {
+        label: 'PHASE II: DECEPTION',
+        color: '#ff8c00',
+        bgColor: '#fff8f0',
+        description: 'Deliberate misrepresentation and manipulation'
+      },
+      coercion: {
+        label: 'PHASE III: COERCION',
+        color: '#e63946',
+        bgColor: '#fff5f5',
+        description: 'Threats, retaliation, and systematic pressure'
+      },
+      fraud: {
+        label: 'PHASE IV: SYSTEMATIC FRAUD',
+        color: '#a4161a',
+        bgColor: '#1a0000',
+        description: 'Criminal conduct territory'
+      }
+    };
+
+    // State
+    let scrollProgress = 0;
+
+    // Elements
+    const canvas = document.getElementById('graphCanvas');
+    const graphSection = document.querySelector('.graph-section');
+    const phaseLabel = document.getElementById('phaseLabel');
+    const phaseDescription = document.getElementById('phaseDescription');
+    const graphPoints = document.getElementById('graphPoints');
+
+    // Initialize graph points
+    function initializeGraphPoints() {
+      let prevPhase = null;
+      
+      dataPoints.forEach((point, index) => {
+        if (prevPhase !== null && prevPhase !== point.phase) {
+          const phaseBreak = document.createElement('div');
+          phaseBreak.className = `phase-break phase-break--${point.phase}`;
+          phaseBreak.setAttribute('data-index', index);
+          phaseBreak.innerHTML = `
+            <div class="phase-break-line" style="color: ${phaseConfig[point.phase].color}"></div>
+            <div class="phase-break-content">
+              <h3 class="phase-break-title" style="color: ${phaseConfig[point.phase].color}">
+                ${phaseConfig[point.phase].label}
+              </h3>
+              <p class="phase-break-description">${phaseConfig[point.phase].description}</p>
+            </div>
+            <div class="phase-break-line" style="color: ${phaseConfig[point.phase].color}"></div>
+          `;
+          graphPoints.appendChild(phaseBreak);
+        }
+
+        const pointElement = document.createElement('div');
+        pointElement.className = `graph-point graph-point--${point.phase}`;
+        pointElement.setAttribute('data-index', index);
+        pointElement.style.borderLeftColor = phaseConfig[point.phase].color;
+        pointElement.innerHTML = `
+          <div class="graph-point-content">
+            <h3 class="graph-point-title">${point.title}</h3>
+            <p class="graph-point-description">${point.description}</p>
+            <div class="graph-point-legal" style="color: ${phaseConfig[point.phase].color}">
+              <span class="graph-point-legal-icon">⚖</span>
+              ${point.legalNote}
+            </div>
+          </div>
+        `;
+        graphPoints.appendChild(pointElement);
+
+        prevPhase = point.phase;
+      });
+    }
+
+    // Draw canvas
+    function drawCanvas() {
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      
+      ctx.scale(dpr, dpr);
+
+      const width = rect.width;
+      const height = rect.height;
+
+      ctx.clearRect(0, 0, width, height);
+
+      const marginLeft = 80;
+      const marginRight = 40;
+      const marginTop = 40;
+      const marginBottom = 60;
+
+      // Grid lines
+      ctx.strokeStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.lineWidth = 1;
+      
+      for (let i = 0; i <= 5; i++) {
+        const y = marginTop + ((height - marginTop - marginBottom) / 5) * i;
+        ctx.beginPath();
+        ctx.moveTo(marginLeft, y);
+        ctx.lineTo(width - marginRight, y);
+        ctx.stroke();
+      }
+
+      for (let i = 0; i <= 6; i++) {
+        const x = marginLeft + ((width - marginLeft - marginRight) / 6) * i;
+        ctx.beginPath();
+        ctx.moveTo(x, marginTop);
+        ctx.lineTo(x, height - marginBottom);
+        ctx.stroke();
+      }
+
+      // Calculate points
+      const numPoints = dataPoints.length;
+      const points = [];
+      
+      const startX = marginLeft;
+      const endX = width - marginRight;
+      const startY = height - marginBottom;
+      const endY = marginTop;
+
+      for (let i = 0; i < numPoints; i++) {
+        const progress = i / (numPoints - 1);
+        const x = startX + (endX - startX) * progress;
+        
+        const baseY = startY - (startY - endY) * Math.pow(progress, 1.8);
+        
+        const variation = Math.sin(i * 0.7) * 12;
+        const y = baseY + variation;
+        
+        points.push({ x, y, phase: dataPoints[i].phase });
+      }
+
+      const visiblePoints = Math.ceil(scrollProgress * numPoints);
+      
+      // Draw curve
+      if (visiblePoints > 1) {
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+        ctx.shadowBlur = 25;
+        ctx.lineWidth = 8;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        for (let i = 1; i < visiblePoints && i < points.length; i++) {
+          const prevPoint = points[i - 1];
+          const currentPoint = points[i];
+          
+          const phaseColors = {
+            incompetence: '#1b74e4',
+            deception: '#ff8c00',
+            coercion: '#e63946',
+            fraud: '#a4161a'
+          };
+          
+          ctx.strokeStyle = phaseColors[currentPoint.phase];
+          
+          const cpX = (prevPoint.x + currentPoint.x) / 2;
+          const cpY = (prevPoint.y + currentPoint.y) / 2;
+          
+          ctx.beginPath();
+          ctx.moveTo(prevPoint.x, prevPoint.y);
+          ctx.quadraticCurveTo(prevPoint.x, prevPoint.y, cpX, cpY);
+          ctx.stroke();
+        }
+        
+        // Partial line
+        if (visiblePoints < points.length) {
+          const lastFullPoint = points[visiblePoints - 1];
+          const nextPoint = points[visiblePoints];
+          const partialProgress = (scrollProgress * numPoints) - (visiblePoints - 1);
+          
+          const partialX = lastFullPoint.x + (nextPoint.x - lastFullPoint.x) * partialProgress;
+          const partialY = lastFullPoint.y + (nextPoint.y - lastFullPoint.y) * partialProgress;
+          
+          const phaseColors = {
+            incompetence: '#1b74e4',
+            deception: '#ff8c00',
+            coercion: '#e63946',
+            fraud: '#a4161a'
+          };
+          
+          ctx.strokeStyle = phaseColors[nextPoint.phase];
+          ctx.beginPath();
+          ctx.moveTo(lastFullPoint.x, lastFullPoint.y);
+          ctx.lineTo(partialX, partialY);
+          ctx.stroke();
+        }
+
+        ctx.shadowBlur = 0;
+
+        // Draw points
+        for (let i = 0; i < visiblePoints && i < points.length; i++) {
+          const point = points[i];
+          const isLatest = i === visiblePoints - 1;
+          
+          const phaseColors = {
+            incompetence: '#1b74e4',
+            deception: '#ff8c00',
+            coercion: '#e63946',
+            fraud: '#a4161a'
+          };
+          
+          const pointColor = phaseColors[point.phase];
+          
+          if (isLatest) {
+            ctx.shadowColor = pointColor;
+            ctx.shadowBlur = 20;
+          } else {
+            ctx.shadowBlur = 0;
+          }
+          
+          ctx.fillStyle = '#ffffff';
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, isLatest ? 12 : 9, 0, Math.PI * 2);
+          ctx.fill();
+          
+          ctx.shadowBlur = 0;
+          ctx.fillStyle = pointColor;
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, isLatest ? 7 : 5, 0, Math.PI * 2);
+          ctx.fill();
+          
+          if (isLatest) {
+            ctx.strokeStyle = pointColor;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(point.x, point.y, 16, 0, Math.PI * 2);
+            ctx.stroke();
+          }
+        }
+      }
+
+      ctx.shadowBlur = 0;
+
+      // Axis labels
+      ctx.save();
+      ctx.translate(25, height / 2);
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillStyle = '#333';
+      ctx.font = '700 13px system-ui';
+      ctx.textAlign = 'center';
+      ctx.fillText('SEVERITY', 0, 0);
+      ctx.restore();
+
+      ctx.fillStyle = '#333';
+      ctx.font = '700 13px system-ui';
+      ctx.textAlign = 'center';
+      ctx.fillText('PROGRESSION', width / 2, height - 20);
+    }
+
+    // Update scroll progress
+    function handleScroll() {
+      if (!graphSection) return;
+
+      const rect = graphSection.getBoundingClientRect();
+      const graphHeight = graphSection.scrollHeight;
+      const viewportHeight = window.innerHeight;
+      
+      const scrollTop = -rect.top;
+      const scrollableHeight = graphHeight - viewportHeight;
+      
+      if (scrollTop < 0) {
+        scrollProgress = 0;
+      } else if (scrollTop > scrollableHeight) {
+        scrollProgress = 1;
+      } else {
+        scrollProgress = scrollTop / scrollableHeight;
+      }
+
+      // Update canvas
+      drawCanvas();
+
+      // Update phase
+      const currentIndex = Math.floor(scrollProgress * dataPoints.length);
+      const currentPhase = currentIndex >= dataPoints.length ? 
+        dataPoints[dataPoints.length - 1].phase : 
+        (dataPoints[currentIndex]?.phase || 'incompetence');
+      
+      const phaseInfo = phaseConfig[currentPhase];
+      
+      graphSection.className = `graph-section graph-section--${currentPhase}`;
+      phaseLabel.textContent = phaseInfo.label;
+      phaseLabel.style.color = phaseInfo.color;
+      phaseDescription.textContent = phaseInfo.description;
+
+      // Update point visibility
+      const points = document.querySelectorAll('.graph-point, .phase-break');
+      points.forEach((point, index) => {
+        const pointIndex = parseInt(point.getAttribute('data-index'));
+        const pointProgress = pointIndex / (dataPoints.length - 1);
+        
+        if (scrollProgress >= pointProgress) {
+          point.style.opacity = '1';
+          point.style.transform = 'translateY(0)';
+        } else if (scrollProgress >= pointProgress - 0.05) {
+          const localProgress = (scrollProgress - (pointProgress - 0.05)) / 0.05;
+          point.style.opacity = localProgress;
+          point.style.transform = `translateY(${(1 - localProgress) * 30}px)`;
+        } else {
+          point.style.opacity = '0';
+          point.style.transform = 'translateY(30px)';
+        }
+      });
+    }
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Initialize
+    initializeGraphPoints();
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', () => {
+      drawCanvas();
+    });
+
+    // Initial render
+    handleScroll();
+  </script>
+</body>
+</html>
