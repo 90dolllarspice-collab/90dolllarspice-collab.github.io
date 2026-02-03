@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +27,13 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       line-height: 1.6;
+    }
+
+    .fine{
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+      max-width: 80ch;
     }
 
     /* TopBar Styles */
@@ -155,7 +161,7 @@
       color: #856404 !important;
     }
 
-    /* Graph Section Styles */
+    /* =========================================================
        Layout Blocks
     ========================================================= */
     .grid{
@@ -266,37 +272,36 @@
        Case Summary
     ========================================================= */
     .case-summary.split{
-  display:flex;
-  gap:24px;
-  align-items:flex-start;
-}
+      display:flex;
+      gap:24px;
+      align-items:flex-start;
+    }
 
-.case-summary.split .case-text{
-  flex:1 1 60%;
-}
+    .case-summary.split .case-text{
+      flex:1 1 60%;
+    }
 
-.case-summary.split .case-image{
-  flex:1 1 40%;
-  text-align:right;
-}
+    .case-summary.split .case-image{
+      flex:1 1 40%;
+      text-align:right;
+    }
 
-.case-summary.split .case-image img{
-  max-width:100%;
-  height:auto;
-  border:1px solid var(--line);
-  border-radius:4px;
-}
+    .case-summary.split .case-image img{
+      max-width:100%;
+      height:auto;
+      border:1px solid var(--line);
+      border-radius:4px;
+    }
 
-/* Responsive: stack on small screens */
-@media (max-width: 768px){
-  .case-summary.split{
-    flex-direction:column;
-  }
+    @media (max-width: 768px){
+      .case-summary.split{
+        flex-direction:column;
+      }
 
-  .case-summary.split .case-image{
-    text-align:left;
-  }
-}
+      .case-summary.split .case-image{
+        text-align:left;
+      }
+    }
 
     .case-summary{
       margin:60px 0 0;
@@ -404,7 +409,7 @@
     .dl a:hover{ filter:brightness(.95); }
 
     /* =========================================================
-       Donate / Meme block (NEW)
+       Donate / Meme block
     ========================================================= */
     .donate{
       margin:30px 0 0;
@@ -464,18 +469,9 @@
       transition: background-color 1s ease;
     }
 
-    .graph-section--incompetence {
-      background: #f8f9fa;
-    }
-
-    .graph-section--deception {
-      background: linear-gradient(180deg, #f8f9fa 0%, #fff8f0 100%);
-    }
-
-    .graph-section--coercion {
-      background: linear-gradient(180deg, #fff8f0 0%, #fff5f5 100%);
-    }
-
+    .graph-section--incompetence { background: #f8f9fa; }
+    .graph-section--deception { background: linear-gradient(180deg, #f8f9fa 0%, #fff8f0 100%); }
+    .graph-section--coercion { background: linear-gradient(180deg, #fff8f0 0%, #fff5f5 100%); }
     .graph-section--fraud {
       background: linear-gradient(180deg, #fff5f5 0%, #1a0000 100%);
       color: #ffffff;
@@ -488,14 +484,9 @@
     }
 
     .graph-section--fraud .graph-title,
-    .graph-section--fraud .graph-point-title {
-      color: #ffffff;
-    }
+    .graph-section--fraud .graph-point-title { color: #ffffff; }
 
-    .graph-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .graph-container { max-width: 1200px; margin: 0 auto; }
 
     .graph-header {
       text-align: center;
@@ -542,11 +533,7 @@
       box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8);
     }
 
-    .graph-canvas {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
+    .graph-canvas { width: 100%; height: 100%; display: block; }
 
     .graph-phase-indicator {
       position: absolute;
@@ -611,10 +598,7 @@
       border-radius: 50%;
     }
 
-    .phase-break-content {
-      text-align: center;
-      padding: 0 20px;
-    }
+    .phase-break-content { text-align: center; padding: 0 20px; }
 
     .phase-break-title {
       font-size: 28px;
@@ -625,12 +609,7 @@
       white-space: nowrap;
     }
 
-    .phase-break-description {
-      font-size: 15px;
-      font-weight: 600;
-      margin: 0;
-      opacity: 0.9;
-    }
+    .phase-break-description { font-size: 15px; font-weight: 600; margin: 0; opacity: 0.9; }
 
     .graph-point {
       display: flex;
@@ -651,32 +630,19 @@
     .graph-point::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.02) 100%);
       pointer-events: none;
     }
 
-    .graph-point--deception {
-      box-shadow: 0 8px 32px rgba(255, 140, 0, 0.2);
-    }
-
-    .graph-point--coercion {
-      box-shadow: 0 8px 32px rgba(230, 57, 70, 0.25);
-    }
-
+    .graph-point--deception { box-shadow: 0 8px 32px rgba(255, 140, 0, 0.2); }
+    .graph-point--coercion { box-shadow: 0 8px 32px rgba(230, 57, 70, 0.25); }
     .graph-point--fraud {
       box-shadow: 0 8px 32px rgba(164, 22, 26, 0.35);
       background: rgba(255, 255, 255, 0.98);
     }
 
-    .graph-point-content {
-      flex: 1;
-      position: relative;
-      z-index: 1;
-    }
+    .graph-point-content { flex: 1; position: relative; z-index: 1; }
 
     .graph-point-title {
       font-size: 24px;
@@ -708,9 +674,7 @@
       margin-top: 20px;
     }
 
-    .graph-point-legal-icon {
-      font-size: 18px;
-    }
+    .graph-point-legal-icon { font-size: 18px; }
 
     /* Footer */
     .whr-footer {
@@ -720,10 +684,7 @@
       text-align: center;
     }
 
-    .whr-footer-wrap {
-      max-width: 980px;
-      margin: 0 auto;
-    }
+    .whr-footer-wrap { max-width: 980px; margin: 0 auto; }
 
     .whr-footer h3 {
       font-size: 22px;
@@ -753,189 +714,73 @@
 
     /* Responsive Design */
     @media (max-width: 900px) {
-      .whr-hero {
-        height: 260px;
-      }
+      .whr-hero { height: 260px; }
+      .whr-structured { padding: 60px 20px 40px; }
+      .warning__title { font-size: 30px; }
+      .warning__content p { font-size: 15px; }
 
-      .whr-structured {
-        padding: 60px 20px 40px;
-      }
-
-      .warning__title {
-        font-size: 30px;
-      }
-
-      .warning__content p {
-        font-size: 15px;
-      }
-
-      .graph-section {
-        padding: 60px 20px 150px;
-        min-height: 450vh;
-      }
-
-      .graph-header {
-        top: 80px;
-        margin-bottom: 50px;
-      }
-
-      .graph-title {
-        font-size: 36px;
-      }
-
-      .graph-subtitle {
-        font-size: 16px;
-      }
-
-      .graph-canvas-wrapper {
-        top: 200px;
-        height: 420px;
-        margin-bottom: 60px;
-        padding: 20px;
-      }
-
-      .graph-phase-indicator {
-        position: static;
-        text-align: center;
-        margin-top: 16px;
-      }
-
-      .graph-phase-description {
-        margin: 0 auto;
-      }
-
-      .graph-points {
-        gap: 120px;
-        padding-top: 40px;
-      }
-
-      .phase-break {
-        flex-direction: column;
-        gap: 20px;
-        margin: 60px 0;
-      }
-
-      .phase-break-line {
-        width: 100%;
-        height: 2px;
-      }
-
-      .phase-break-title {
-        font-size: 22px;
-        white-space: normal;
-      }
-
-      .phase-break-description {
-        font-size: 14px;
-      }
-
-      .graph-point {
-        padding: 28px;
-        max-width: 100%;
-      }
-
-      .graph-point-title {
-        font-size: 20px;
-      }
-
-      .graph-point-description {
-        font-size: 15px;
-      }
-
-      .graph-point-legal {
-        font-size: 12px;
-        padding: 10px 14px;
-      }
+      .graph-section { padding: 60px 20px 150px; min-height: 450vh; }
+      .graph-header { top: 80px; margin-bottom: 50px; }
+      .graph-title { font-size: 36px; }
+      .graph-subtitle { font-size: 16px; }
+      .graph-canvas-wrapper { top: 200px; height: 420px; margin-bottom: 60px; padding: 20px; }
+      .graph-phase-indicator { position: static; text-align: center; margin-top: 16px; }
+      .graph-phase-description { margin: 0 auto; }
+      .graph-points { gap: 120px; padding-top: 40px; }
+      .phase-break { flex-direction: column; gap: 20px; margin: 60px 0; }
+      .phase-break-line { width: 100%; height: 2px; }
+      .phase-break-title { font-size: 22px; white-space: normal; }
+      .phase-break-description { font-size: 14px; }
+      .graph-point { padding: 28px; max-width: 100%; }
+      .graph-point-title { font-size: 20px; }
+      .graph-point-description { font-size: 15px; }
+      .graph-point-legal { font-size: 12px; padding: 10px 14px; }
     }
 
     @media (max-width: 600px) {
-      .whr-wrap {
-        gap: 16px;
-      }
+      .whr-wrap { gap: 16px; }
+      .whr-nav { gap: 14px; }
+      .whr-nav a { font-size: 11px; }
 
-      .whr-nav {
-        gap: 14px;
-      }
-
-      .whr-nav a {
-        font-size: 11px;
-      }
-
-      .graph-section {
-        padding: 40px 16px 120px;
-      }
-
-      .graph-title {
-        font-size: 28px;
-      }
-
-      .graph-subtitle {
-        font-size: 15px;
-      }
-
-      .graph-canvas-wrapper {
-        height: 360px;
-        padding: 16px;
-      }
-
-      .graph-points {
-        gap: 100px;
-      }
-
-      .phase-break-title {
-        font-size: 18px;
-      }
-
-      .phase-break-description {
-        font-size: 13px;
-      }
-
-      .graph-point {
-        padding: 24px;
-      }
-
-      .graph-point-title {
-        font-size: 18px;
-      }
-
-      .graph-point-description {
-        font-size: 14px;
-      }
-
-      .graph-point-legal {
-        font-size: 11px;
-      }
+      .graph-section { padding: 40px 16px 120px; }
+      .graph-title { font-size: 28px; }
+      .graph-subtitle { font-size: 15px; }
+      .graph-canvas-wrapper { height: 360px; padding: 16px; }
+      .graph-points { gap: 100px; }
+      .phase-break-title { font-size: 18px; }
+      .phase-break-description { font-size: 13px; }
+      .graph-point { padding: 24px; }
+      .graph-point-title { font-size: 18px; }
+      .graph-point-description { font-size: 14px; }
+      .graph-point-legal { font-size: 11px; }
     }
   </style>
 </head>
 <body>
-  <!-- Top Navigation Bar -->
   <header class="whr-topbar" role="banner">
     <div class="whr-wrap">
       <a class="whr-brand" href="#intake">Wiring Harness Restoration</a>
       <nav class="whr-nav" aria-label="Primary navigation">
-        <a href="#case">CASE SUMMARY</a>
+        <a href="#case-summary">CASE SUMMARY</a>
         <a href="#graph">THE GRAPH</a>
         <a href="#disclaimer">DISCLAIMER</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="whr-hero" aria-label="Hero">
-    <img 
-      src="https://90dolllarspice-collab.github.io/head.png" 
-      alt="Wiring Harness Restoration" 
+    <img
+      src="https://90dolllarspice-collab.github.io/head.png"
+      alt="Wiring Harness Restoration"
     />
     <div class="whr-hero-overlay"></div>
   </section>
 
-  <!-- Goal Section -->
   <main class="whr-structured" id="intake">
     <div class="whr-structured-wrap">
       <p class="kicker">Wiring Harness Restoration • When incompetence finds a business model.™</p>
 
-      <section class="warning" id="case">
+      <section class="warning" aria-label="Goal">
         <h2 class="warning__title">Goal Of This Site</h2>
 
         <div class="warning__content">
@@ -968,11 +813,7 @@
           </p>
         </div>
       </section>
-    </div>
-  </main>
-      <!-- ===================================================
-           Images
-      =================================================== -->
+
       <p class="fine" style="margin-top:18px;">
         At one point, Darren claimed that high school students were helping after school. He would offer discounts, but said it would take longer because of this.
         This was a completely fabricated lie.
@@ -983,43 +824,37 @@
         <img src="https://90dolllarspice-collab.github.io/img2.png" alt="Processing visualization 2" />
       </section>
 
-      <!-- ===================================================
-           Case Summary (Original)
-      =================================================== -->
- <section class="case-summary split" id="case" aria-label="Public Records">
-  <div class="case-text">
-    <h2>Case Summary (Utah Division of Consumer Protection)</h2>
+      <section class="case-summary split" id="case-summary" aria-label="Public Records">
+        <div class="case-text">
+          <h2>Case Summary (Utah Division of Consumer Protection)</h2>
 
-    <p class="meta">
-      Subject: Doofus Squint, LLC (dba Wiring Harness Retardation); Harry Potter Esquire, LLC.<br />
-      DCP Legal File No. CP-2017-093.
-    </p>
+          <p class="meta">
+            Subject: Doofus Squint, LLC (dba Wiring Harness Retardation); Harry Potter Esquire, LLC.<br />
+            DCP Legal File No. CP-2017-093.
+          </p>
 
-    <p>
-      The citation alleged attempts to impose unauthorized charges (including additional “administrative” and storage fees),
-      hostile or threatening communications, a small-claims lawsuit seeking amounts not agreed to, and impersonation of a
-      State of Utah investigator in connection with service of legal documents.
-    </p>
+          <p>
+            The citation alleged attempts to impose unauthorized charges (including additional “administrative” and storage fees),
+            hostile or threatening communications, a small-claims lawsuit seeking amounts not agreed to, and impersonation of a
+            State of Utah investigator in connection with service of legal documents.
+          </p>
 
-    <p class="fine">
-      Source documents: Utah Division of Consumer Protection Administrative Citation (Dec 2017) and
-      Settlement Agreement (Mar 2018).
-    </p>
+          <p class="fine">
+            Source documents: Utah Division of Consumer Protection Administrative Citation (Dec 2017) and
+            Settlement Agreement (Mar 2018).
+          </p>
 
-    <p class="fine" style="margin-top:18px;">
-      At one point, Darren claimed that high school students were helping after school. He would offer discounts,
-      but said it would take longer because of this. This was a completely fabricated lie.
-    </p>
-  </div>
+          <p class="fine" style="margin-top:18px;">
+            At one point, Darren claimed that high school students were helping after school. He would offer discounts,
+            but said it would take longer because of this. This was a completely fabricated lie.
+          </p>
+        </div>
 
-  <div class="case-image">
-    <img src="Scumbag Darren.jpeg" alt="Scumbag Darren" />
-  </div>
-</section>
+        <div class="case-image">
+          <img src="Scumbag Darren.jpeg" alt="Scumbag Darren" />
+        </div>
+      </section>
 
-      <!-- ===================================================
-           Downloads (Original)
-      =================================================== -->
       <section class="downloads" id="downloads" aria-label="Downloads">
         <h2>Downloads</h2>
 
@@ -1065,9 +900,6 @@
           </div>
         </div>
 
-        <!-- ===================================================
-             Meme + Donate (NEW) - photo left, donate right
-        =================================================== -->
         <div class="donate" aria-label="Donate and meme">
           <div class="donate-grid">
             <img src="meme1.jpeg" alt="Meme" />
@@ -1078,18 +910,12 @@
                 If you are or were a victim to this company and would like to contribute to the cause 100% will be used towards advertising this page.
                 Email me at <a href="mailto:Sales@wiringharnessrestoration.net">Sales@wiringharnessrestoration.net</a>
               </p>
-              <p>
-              All donations will be anonymous, obviously. 
-              
-              </p>
+              <p>All donations will be anonymous, obviously.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ===================================================
-           Reviews
-      =================================================== -->
       <section id="reviews" aria-label="Reviews">
         <div class="review-block" id="notice">
           <img src="https://90dolllarspice-collab.github.io/flint3.PNG" alt="Screenshot of review / owner response" />
@@ -1097,9 +923,9 @@
             <h3>Response to his threats</h3>
             <p>
               Darren, it looks like a toy. It looks like you max-upgraded a gun in a video game. It’s like a fifth grader’s version of “a cool gun.”
-              You’re a sad, pathetic loser who has probably never even shot that gun. You get off on taking advantage of people and trying to intimidate them. 
-              Sure, I get the extended magazine the small amount of use that gun gets, you’re going to need to run as many rounds as possible. You won't. you're a pussy. 
-              A pathetic old man who made his living ripping people off. The only thing you are good at is lying. It took me 15 minutes to make a website that looks better than your pos. 
+              You’re a sad, pathetic loser who has probably never even shot that gun. You get off on taking advantage of people and trying to intimidate them.
+              Sure, I get the extended magazine the small amount of use that gun gets, you’re going to need to run as many rounds as possible. You won't. you're a pussy.
+              A pathetic old man who made his living ripping people off. The only thing you are good at is lying. It took me 15 minutes to make a website that looks better than your pos.
             </p>
             <img src="https://90dolllarspice-collab.github.io/Real gun.PNG" alt="Screenshot of review / owner response" />
           </div>
@@ -1111,45 +937,41 @@
             <h3>Public Reply Analysis</h3>
             <p>
               We're starting to see a clear pattern here. I've shared a couple of excerpts that reveal exactly how this guy operates. It's obvious he's just trying to intimidate, because in truth, he has no real power to back it up. His only real talent is lying. He dreams up these elaborate fantasies where he's going to sue you into oblivion, but let's face it, someone whose website looks like it was slapped together with the free tier of ChatGPT isn't equipped to chase down anyone over a bruised ego.
-No, he'll fall back on the same tired playbook Flint always uses: spin up an LLC with a name ripped straight from Atlas Shrugged maybe "Steve Kaufmann, Esq."and register it under his wife's name because he's too spineless to do it himself, or funnel it through one of his shady shell companies in Iowa. Then he'll impersonate a lawyer again. The guy's got about three tricks in his bag, and he's gotten just barely passable at them. These episodes are nearly a decade apart, yet even the threats follow the exact same script.
+              No, he'll fall back on the same tired playbook Flint always uses: spin up an LLC with a name ripped straight from Atlas Shrugged maybe "Steve Kaufmann, Esq."and register it under his wife's name because he's too spineless to do it himself, or funnel it through one of his shady shell companies in Iowa. Then he'll impersonate a lawyer again. The guy's got about three tricks in his bag, and he's gotten just barely passable at them. These episodes are nearly a decade apart, yet even the threats follow the exact same script.
             </p>
           </div>
         </div>
+      </section>
 
+      <section class="graph-section graph-section--incompetence" id="graph">
+        <div class="graph-container">
+          <div class="graph-header">
+            <h2 class="graph-title">Flint's History</h2>
+            <p class="graph-subtitle"></p>
+          </div>
 
-  <!-- Graph Section -->
-  <section class="graph-section graph-section--incompetence" id="graph">
-    <div class="graph-container">
-      <div class="graph-header">
-        <h2 class="graph-title">Flint's History</h2>
-        <p class="graph-subtitle">
-          
-        </p>
-      </div>
+          <div class="graph-canvas-wrapper">
+            <canvas id="graphCanvas" class="graph-canvas"></canvas>
+            <div class="graph-phase-indicator">
+              <div class="graph-phase-label" id="phaseLabel">PHASE I: INCOMPETENCE</div>
+              <div class="graph-phase-description" id="phaseDescription">Poor practices that create the foundation for abuse</div>
+            </div>
+          </div>
 
-      <div class="graph-canvas-wrapper">
-        <canvas id="graphCanvas" class="graph-canvas"></canvas>
-        <div class="graph-phase-indicator">
-          <div class="graph-phase-label" id="phaseLabel">PHASE I: INCOMPETENCE</div>
-          <div class="graph-phase-description" id="phaseDescription">Poor practices that create the foundation for abuse</div>
+          <div class="graph-points" id="graphPoints"></div>
         </div>
-      </div>
-
-      <div class="graph-points" id="graphPoints">
-        <!-- Points will be inserted here by JavaScript -->
-      </div>
+      </section>
     </div>
-  </section>
+  </main>
 
-  <!-- Footer -->
   <footer class="whr-footer" id="disclaimer">
     <div class="whr-footer-wrap">
       <h3>Disclaimer</h3>
       <p>
-        This is all publicly available information, you dumbass. These are things you did to yourself. It is not my fault you have a record. You decided to make your living scamming people. You have done some fucked up things and had judgments against you. All of it is public information, you fucktard. This is not doxing. Nothing here includes your personal information. If your phone number or address came from fucking documents the government made public to warn people about you, that is because of choices you have made. Everything stated on this page was resurched   People’s cars have not fucking moved for years as part of your fucked up way of making money. You are clearly not stupid, just narcissistic as fuck if you can sleep at night, but why the fuck do you choose such a niche to exploit? Even worse, it seems like you have attempted to expand into music equipment. If you are taking musicians’ amps and gear, there is a special place in hell for you where you are going to be buttfucked by Satan with an alternator. 
+        This is all publicly available information, you dumbass. These are things you did to yourself. It is not my fault that you have a record. You chose to make your living by scamming people. You have done some fucked up things and had judgments entered against you. All of it is public information, you fucktard. This is not doxing. Nothing here includes your private personal information. If your phone number or address came from documents the government made public to warn people about you, that is the result of choices you made. Everything stated on this page was researched, cited, and confirmed as fact. People’s cars have not moved for years because of your fucked up way of making money. You are clearly narcissistic as fuck, and the lengths you go to in order to intimidate people are honestly hilarious. The way you joined forums in the past just to self advertise is beyond fucked up. I have not proven it yet, but it appears you have attempted to expand into music equipment and art. If you are doing the same thing to paintings, amps, and guitars, there is a special place in hell waiting for you.
       </p>
       <p>
-        This website presents documented patterns of conduct based on actual correspondence, contracts, and business practices. All statements are made in good faith and supported by available evidence. The purpose is consumer education and public awareness. Nothing on this site should be construed as legal advice. Individuals with concerns about similar practices should consult with a qualified attorney in their jurisdiction. 
+        This website presents documented patterns of conduct based on actual correspondence, contracts, and business practices. All statements are made in good faith and supported by available evidence. The purpose is consumer education and public awareness. Nothing on this site should be construed as legal advice. Individuals with concerns about similar practices should consult with a qualified attorney in their jurisdiction.
       </p>
       <div class="whr-footer-legal">
         © 2026 Consumer Awareness Initiative. All rights reserved. This site is maintained for informational purposes only.
@@ -1259,20 +1081,17 @@ No, he'll fall back on the same tired playbook Flint always uses: spin up an LLC
       }
     };
 
-    // State
     let scrollProgress = 0;
 
-    // Elements
     const canvas = document.getElementById('graphCanvas');
     const graphSection = document.querySelector('.graph-section');
     const phaseLabel = document.getElementById('phaseLabel');
     const phaseDescription = document.getElementById('phaseDescription');
     const graphPoints = document.getElementById('graphPoints');
 
-    // Initialize graph points
     function initializeGraphPoints() {
       let prevPhase = null;
-      
+
       dataPoints.forEach((point, index) => {
         if (prevPhase !== null && prevPhase !== point.phase) {
           const phaseBreak = document.createElement('div');
@@ -1311,17 +1130,17 @@ No, he'll fall back on the same tired playbook Flint always uses: spin up an LLC
       });
     }
 
-    // Draw canvas
     function drawCanvas() {
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
 
       const dpr = window.devicePixelRatio || 1;
       const rect = canvas.getBoundingClientRect();
-      
+
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
-      
+
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.scale(dpr, dpr);
 
       const width = rect.width;
@@ -1334,10 +1153,9 @@ No, he'll fall back on the same tired playbook Flint always uses: spin up an LLC
       const marginTop = 40;
       const marginBottom = 60;
 
-      // Grid lines
       ctx.strokeStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.lineWidth = 1;
-      
+
       for (let i = 0; i <= 5; i++) {
         const y = marginTop + ((height - marginTop - marginBottom) / 5) * i;
         ctx.beginPath();
@@ -1354,10 +1172,9 @@ No, he'll fall back on the same tired playbook Flint always uses: spin up an LLC
         ctx.stroke();
       }
 
-      // Calculate points
       const numPoints = dataPoints.length;
       const points = [];
-      
+
       const startX = marginLeft;
       const endX = width - marginRight;
       const startY = height - marginBottom;
@@ -1366,18 +1183,14 @@ No, he'll fall back on the same tired playbook Flint always uses: spin up an LLC
       for (let i = 0; i < numPoints; i++) {
         const progress = i / (numPoints - 1);
         const x = startX + (endX - startX) * progress;
-        
         const baseY = startY - (startY - endY) * Math.pow(progress, 1.8);
-        
         const variation = Math.sin(i * 0.7) * 12;
         const y = baseY + variation;
-        
         points.push({ x, y, phase: dataPoints[i].phase });
       }
 
       const visiblePoints = Math.ceil(scrollProgress * numPoints);
-      
-      // Draw curve
+
       if (visiblePoints > 1) {
         ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
         ctx.shadowBlur = 25;
@@ -1385,44 +1198,36 @@ No, he'll fall back on the same tired playbook Flint always uses: spin up an LLC
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
 
+        const phaseColors = {
+          incompetence: '#1b74e4',
+          deception: '#ff8c00',
+          coercion: '#e63946',
+          fraud: '#a4161a'
+        };
+
         for (let i = 1; i < visiblePoints && i < points.length; i++) {
           const prevPoint = points[i - 1];
           const currentPoint = points[i];
-          
-          const phaseColors = {
-            incompetence: '#1b74e4',
-            deception: '#ff8c00',
-            coercion: '#e63946',
-            fraud: '#a4161a'
-          };
-          
+
           ctx.strokeStyle = phaseColors[currentPoint.phase];
-          
+
           const cpX = (prevPoint.x + currentPoint.x) / 2;
           const cpY = (prevPoint.y + currentPoint.y) / 2;
-          
+
           ctx.beginPath();
           ctx.moveTo(prevPoint.x, prevPoint.y);
           ctx.quadraticCurveTo(prevPoint.x, prevPoint.y, cpX, cpY);
           ctx.stroke();
         }
-        
-        // Partial line
+
         if (visiblePoints < points.length) {
           const lastFullPoint = points[visiblePoints - 1];
           const nextPoint = points[visiblePoints];
           const partialProgress = (scrollProgress * numPoints) - (visiblePoints - 1);
-          
+
           const partialX = lastFullPoint.x + (nextPoint.x - lastFullPoint.x) * partialProgress;
           const partialY = lastFullPoint.y + (nextPoint.y - lastFullPoint.y) * partialProgress;
-          
-          const phaseColors = {
-            incompetence: '#1b74e4',
-            deception: '#ff8c00',
-            coercion: '#e63946',
-            fraud: '#a4161a'
-          };
-          
+
           ctx.strokeStyle = phaseColors[nextPoint.phase];
           ctx.beginPath();
           ctx.moveTo(lastFullPoint.x, lastFullPoint.y);
@@ -1432,38 +1237,30 @@ No, he'll fall back on the same tired playbook Flint always uses: spin up an LLC
 
         ctx.shadowBlur = 0;
 
-        // Draw points
         for (let i = 0; i < visiblePoints && i < points.length; i++) {
           const point = points[i];
           const isLatest = i === visiblePoints - 1;
-          
-          const phaseColors = {
-            incompetence: '#1b74e4',
-            deception: '#ff8c00',
-            coercion: '#e63946',
-            fraud: '#a4161a'
-          };
-          
+
           const pointColor = phaseColors[point.phase];
-          
+
           if (isLatest) {
             ctx.shadowColor = pointColor;
             ctx.shadowBlur = 20;
           } else {
             ctx.shadowBlur = 0;
           }
-          
+
           ctx.fillStyle = '#ffffff';
           ctx.beginPath();
           ctx.arc(point.x, point.y, isLatest ? 12 : 9, 0, Math.PI * 2);
           ctx.fill();
-          
+
           ctx.shadowBlur = 0;
           ctx.fillStyle = pointColor;
           ctx.beginPath();
           ctx.arc(point.x, point.y, isLatest ? 7 : 5, 0, Math.PI * 2);
           ctx.fill();
-          
+
           if (isLatest) {
             ctx.strokeStyle = pointColor;
             ctx.lineWidth = 2;
@@ -1476,7 +1273,6 @@ No, he'll fall back on the same tired playbook Flint always uses: spin up an LLC
 
       ctx.shadowBlur = 0;
 
-      // Axis labels
       ctx.save();
       ctx.translate(25, height / 2);
       ctx.rotate(-Math.PI / 2);
@@ -1492,53 +1288,45 @@ No, he'll fall back on the same tired playbook Flint always uses: spin up an LLC
       ctx.fillText('FUCK AROUND', width / 2, height - 20);
     }
 
-    // Update scroll progress
     function handleScroll() {
       if (!graphSection) return;
 
       const rect = graphSection.getBoundingClientRect();
       const graphHeight = graphSection.scrollHeight;
       const viewportHeight = window.innerHeight;
-      
+
       const scrollTop = -rect.top;
       const scrollableHeight = graphHeight - viewportHeight;
-      
-      if (scrollTop < 0) {
-        scrollProgress = 0;
-      } else if (scrollTop > scrollableHeight) {
-        scrollProgress = 1;
-      } else {
-        scrollProgress = scrollTop / scrollableHeight;
-      }
 
-      // Update canvas
+      if (scrollTop < 0) scrollProgress = 0;
+      else if (scrollTop > scrollableHeight) scrollProgress = 1;
+      else scrollProgress = scrollTop / scrollableHeight;
+
       drawCanvas();
 
-      // Update phase
       const currentIndex = Math.floor(scrollProgress * dataPoints.length);
-      const currentPhase = currentIndex >= dataPoints.length ? 
-        dataPoints[dataPoints.length - 1].phase : 
+      const currentPhase = currentIndex >= dataPoints.length ?
+        dataPoints[dataPoints.length - 1].phase :
         (dataPoints[currentIndex]?.phase || 'incompetence');
-      
+
       const phaseInfo = phaseConfig[currentPhase];
-      
+
       graphSection.className = `graph-section graph-section--${currentPhase}`;
       phaseLabel.textContent = phaseInfo.label;
       phaseLabel.style.color = phaseInfo.color;
       phaseDescription.textContent = phaseInfo.description;
 
-      // Update point visibility
       const points = document.querySelectorAll('.graph-point, .phase-break');
-      points.forEach((point, index) => {
-        const pointIndex = parseInt(point.getAttribute('data-index'));
+      points.forEach((point) => {
+        const pointIndex = parseInt(point.getAttribute('data-index'), 10);
         const pointProgress = pointIndex / (dataPoints.length - 1);
-        
+
         if (scrollProgress >= pointProgress) {
           point.style.opacity = '1';
           point.style.transform = 'translateY(0)';
         } else if (scrollProgress >= pointProgress - 0.05) {
           const localProgress = (scrollProgress - (pointProgress - 0.05)) / 0.05;
-          point.style.opacity = localProgress;
+          point.style.opacity = String(localProgress);
           point.style.transform = `translateY(${(1 - localProgress) * 30}px)`;
         } else {
           point.style.opacity = '0';
@@ -1547,28 +1335,19 @@ No, he'll fall back on the same tired playbook Flint always uses: spin up an LLC
       });
     }
 
-    // Smooth scroll for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
 
-    // Initialize
     initializeGraphPoints();
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', () => {
-      drawCanvas();
-    });
-
-    // Initial render
+    window.addEventListener('resize', drawCanvas);
     handleScroll();
   </script>
 </body>
