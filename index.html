@@ -1274,4 +1274,153 @@
           ctx.strokeStyle = phaseColors[currentPoint.phase];
 
           const cpX = (prevPoint.x + currentPoint.x) / 2;
-          const cpY =
+          const cpY = (prevPoint.y + currentPoint.y) / 2;
+
+          ctx.beginPath();
+          ctx.moveTo(prevPoint.x, prevPoint.y);
+          ctx.quadraticCurveTo(prevPoint.x, prevPoint.y, cpX, cpY);
+          ctx.stroke();
+        }
+
+        // Partial line
+        if (visiblePoints < points.length) {
+          const lastFullPoint = points[visiblePoints - 1];
+          const nextPoint = points[visiblePoints];
+          const partialProgress = (scrollProgress * numPoints) - (visiblePoints - 1);
+
+          const partialX = lastFullPoint.x + (nextPoint.x - lastFullPoint.x) * partialProgress;
+          const partialY = lastFullPoint.y + (nextPoint.y - lastFullPoint.y) * partialProgress;
+
+          ctx.strokeStyle = phaseColors[nextPoint.phase];
+          ctx.beginPath();
+          ctx.moveTo(lastFullPoint.x, lastFullPoint.y);
+          ctx.lineTo(partialX, partialY);
+          ctx.stroke();
+        }
+
+        ctx.shadowBlur = 0;
+
+        // Draw points
+        for (let i = 0; i < visiblePoints && i < points.length; i++) {
+          const point = points[i];
+          const isLatest = i === visiblePoints - 1;
+          const pointColor = phaseColors[point.phase];
+
+          if (isLatest) {
+            ctx.shadowColor = pointColor;
+            ctx.shadowBlur = 20;
+          } else {
+            ctx.shadowBlur = 0;
+          }
+
+          ctx.fillStyle = "#ffffff";
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, isLatest ? 12 : 9, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.shadowBlur = 0;
+          ctx.fillStyle = pointColor;
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, isLatest ? 7 : 5, 0, Math.PI * 2);
+          ctx.fill();
+
+          if (isLatest) {
+            ctx.strokeStyle = pointColor;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(point.x, point.y, 16, 0, Math.PI * 2);
+            ctx.stroke();
+          }
+        }
+      }
+
+      ctx.shadowBlur = 0;
+
+      // Axis labels
+      ctx.save();
+      ctx.translate(25, height / 2);
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillStyle = "#333";
+      ctx.font = "700 13px system-ui";
+      ctx.textAlign = "center";
+      ctx.fillText("FIND OUT", 0, 0);
+      ctx.restore();
+
+      ctx.fillStyle = "#333";
+      ctx.font = "700 13px system-ui";
+      ctx.textAlign = "center";
+      ctx.fillText("FUCK AROUND", width / 2, height - 20);
+    }
+
+    // Update scroll progress
+    function handleScroll() {
+      if (!graphSection) return;
+
+      const rect = graphSection.getBoundingClientRect();
+      const graphHeight = graphSection.scrollHeight;
+      const viewportHeight = window.innerHeight;
+
+      const scrollTop = -rect.top;
+      const scrollableHeight = graphHeight - viewportHeight;
+
+      if (scrollTop < 0) {
+        scrollProgress = 0;
+      } else if (scrollTop > scrollableHeight) {
+        scrollProgress = 1;
+      } else {
+        scrollProgress = scrollTop / scrollableHeight;
+      }
+
+      drawCanvas();
+
+      const currentIndex = Math.floor(scrollProgress * dataPoints.length);
+      const currentPhase = currentIndex >= dataPoints.length
+        ? dataPoints[dataPoints.length - 1].phase
+        : (dataPoints[currentIndex]?.phase || "incompetence");
+
+      const phaseInfo = phaseConfig[currentPhase];
+
+      graphSection.className = `graph-section graph-section--${currentPhase}`;
+      phaseLabel.textContent = phaseInfo.label;
+      phaseLabel.style.color = phaseInfo.color;
+      phaseDescription.textContent = phaseInfo.description;
+
+      const points = document.querySelectorAll(".graph-point, .phase-break");
+      points.forEach((point) => {
+        const pointIndex = parseInt(point.getAttribute("data-index"), 10);
+        const pointProgress = pointIndex / (dataPoints.length - 1);
+
+        if (scrollProgress >= pointProgress) {
+          point.style.opacity = "1";
+          point.style.transform = "translateY(0)";
+        } else if (scrollProgress >= pointProgress - 0.05) {
+          const localProgress = (scrollProgress - (pointProgress - 0.05)) / 0.05;
+          point.style.opacity = String(localProgress);
+          point.style.transform = `translateY(${(1 - localProgress) * 30}px)`;
+        } else {
+          point.style.opacity = "0";
+          point.style.transform = "translateY(30px)";
+        }
+      });
+    }
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    // Initialize
+    initializeGraphPoints();
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", drawCanvas);
+
+    handleScroll();
+  </script>
+</body>
+</html>
