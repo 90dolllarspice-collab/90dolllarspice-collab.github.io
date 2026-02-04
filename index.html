@@ -275,7 +275,6 @@
       color: #111;
     }
 
-    /* Make images inside review text responsive */
     .review-text img {
       width: 100%;
       height: auto;
@@ -321,18 +320,26 @@
       display: flex;
       gap: 24px;
       align-items: flex-start;
-      flex-wrap: wrap; /* prevents overflow if an image is present */
+      flex-wrap: wrap;
     }
 
     .case-summary.split .case-text { flex: 1 1 60%; }
-    .case-summary.split .case-image { flex: 1 1 40%; text-align: right; }
+    .case-summary.split .case-image { flex: 1 1 40%; }
+
+    /* Ensure img1 + img2 are side-by-side within the case-image container */
+    .case-summary.split .case-image {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
 
     .case-summary.split .case-image img {
-      max-width: 100%;
+      width: 100%;
       height: auto;
       border: 1px solid var(--line);
       border-radius: 14px;
-      display: inline-block;
+      display: block;
     }
 
     /* =========================================================
@@ -479,7 +486,7 @@
       top: 120px;
       padding: 20px 0 40px;
       z-index: 10;
-      background: transparent; /* avoids odd overlap artifacts */
+      background: transparent;
     }
 
     .graph-title {
@@ -767,6 +774,9 @@
       .graph-point-title { font-size: 20px; }
       .graph-point-description { font-size: 15px; }
       .graph-point-legal { font-size: 12px; padding: 10px 14px; }
+
+      /* Keep img1/img2 side-by-side down to 900px */
+      .case-summary.split .case-image { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 600px) {
@@ -788,12 +798,14 @@
       .graph-point-title { font-size: 18px; }
       .graph-point-description { font-size: 14px; }
       .graph-point-legal { font-size: 11px; }
+
+      /* On very small screens, stack img1/img2 */
+      .case-summary.split .case-image { grid-template-columns: 1fr; }
     }
 
     /* Case Summary responsive */
     @media (max-width: 768px) {
       .case-summary.split { flex-direction: column; }
-      .case-summary.split .case-image { text-align: left; }
       .image-row { grid-template-columns: 1fr; }
       .review-block { grid-template-columns: 1fr; }
       .dl-grid { grid-template-columns: 1fr; }
@@ -863,7 +875,6 @@
         </div>
       </section>
 
-      <!-- Image + note (fixed: keep image inside a proper section and use correct wrapper) -->
       <section aria-label="Additional note and image" style="margin-top:18px;">
         <p class="fine">
           At one point, Darren claimed that high school students were helping after school. He would offer discounts, but said it would take longer because of this.
@@ -873,16 +884,14 @@
         <div class="case-summary split" aria-label="Inline image block" style="margin-top:16px; padding-top:0; border-top:0;">
           <div class="case-text"></div>
           <div class="case-image">
-        <img src="https://90dolllarspice-collab.github.io/img1.png" alt="Processing visualization 1" />
-        <img src="https://90dolllarspice-collab.github.io/img2.png" alt="Processing visualization 2" 
+            <img src="https://90dolllarspice-collab.github.io/img1.png" alt="Processing visualization 1" />
+            <img src="https://90dolllarspice-collab.github.io/img2.png" alt="Processing visualization 2" />
           </div>
         </div>
       </section>
 
       <section class="image-row" id="deliverables" aria-label="Deliverables images">
         <img src="Scumbag Darren.jpeg" alt="Scumbag Darren" />
-
-/>
       </section>
 
       <!-- Case Summary -->
@@ -1429,4 +1438,3 @@
   </script>
 </body>
 </html>
-
