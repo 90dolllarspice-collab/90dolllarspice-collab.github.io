@@ -3,22 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wiring harness Restoration</title>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4VRPCLLWX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J4VRPCLLWX');
-</script>
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wiring Harness Restoration - Consumer Warning</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4VRPCLLWX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J4VRPCLLWX');
+  </script>
+
   <style>
     :root {
       --blue: #1b74e4;
@@ -280,6 +275,15 @@
       color: #111;
     }
 
+    /* Make images inside review text responsive */
+    .review-text img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid #e6e6e6;
+    }
+
     /* =========================================================
        Case Summary
     ========================================================= */
@@ -317,6 +321,7 @@
       display: flex;
       gap: 24px;
       align-items: flex-start;
+      flex-wrap: wrap; /* prevents overflow if an image is present */
     }
 
     .case-summary.split .case-text { flex: 1 1 60%; }
@@ -326,7 +331,7 @@
       max-width: 100%;
       height: auto;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 14px;
       display: inline-block;
     }
 
@@ -441,8 +446,7 @@
     .donate-box a:hover { text-decoration: underline; }
 
     /* =========================================================
-       Graph Section (FIXED LAYOUT)
-       Goal: statements on left, graph on right (desktop)
+       Graph Section (statements left, graph right)
     ========================================================= */
     .graph-section {
       padding: 100px 20px 200px;
@@ -475,6 +479,7 @@
       top: 120px;
       padding: 20px 0 40px;
       z-index: 10;
+      background: transparent; /* avoids odd overlap artifacts */
     }
 
     .graph-title {
@@ -495,7 +500,6 @@
       letter-spacing: 0.01em;
     }
 
-    /* Two-column grid: left statements, right graph */
     .graph-body {
       display: grid;
       grid-template-columns: minmax(420px, 1fr) minmax(420px, 1fr);
@@ -503,7 +507,6 @@
       align-items: start;
     }
 
-    /* Left: points list */
     .graph-points {
       position: relative;
       z-index: 20;
@@ -513,9 +516,9 @@
       gap: 160px;
       padding-top: 60px;
       padding-right: 6px;
+      min-width: 0;
     }
 
-    /* Right: sticky canvas card */
     .graph-canvas-wrapper {
       position: sticky;
       top: 280px;
@@ -526,6 +529,7 @@
       padding: 24px;
       z-index: 5;
       align-self: start;
+      min-width: 0;
     }
 
     .graph-section--fraud .graph-canvas-wrapper {
@@ -641,7 +645,7 @@
       background: rgba(255, 255, 255, 0.98);
     }
 
-    .graph-point-content { flex: 1; position: relative; z-index: 1; }
+    .graph-point-content { flex: 1; position: relative; z-index: 1; min-width: 0; }
 
     .graph-point-title {
       font-size: 24px;
@@ -728,7 +732,6 @@
       .graph-title { font-size: 36px; }
       .graph-subtitle { font-size: 16px; }
 
-      /* Stack: graph first, statements below for smaller screens */
       .graph-body {
         grid-template-columns: 1fr;
         gap: 22px;
@@ -798,6 +801,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- Top Navigation Bar -->
   <header class="whr-topbar" role="banner">
@@ -820,7 +824,7 @@
     <div class="whr-hero-overlay"></div>
   </section>
 
-  <!-- Goal Section + Everything else inside main so margins stay consistent -->
+  <!-- Main content -->
   <main class="whr-structured" id="intake">
     <div class="whr-structured-wrap">
       <p class="kicker">Wiring Harness Restoration • When incompetence finds a business model.™</p>
@@ -859,25 +863,27 @@
         </div>
       </section>
 
-      <!-- ===================================================
-           Images
-      =================================================== -->
-      <p class="fine" style="margin-top:18px;">
-        At one point, Darren claimed that high school students were helping after school. He would offer discounts, but said it would take longer because of this.
-        This was a completely fabricated lie. Just immagine this fucking idiot with high school kids hanging out in some dude in his late 50's house. Obviously, no school nor parrent in their right mind would knowingly allow this fucking idot within 100 feet of their child.  
-          </p>
-        <div class="case-image">
-          <img src="Scumbag Darren.jpeg" alt="Scumbag Darren" />
-          
+      <!-- Image + note (fixed: keep image inside a proper section and use correct wrapper) -->
+      <section aria-label="Additional note and image" style="margin-top:18px;">
+        <p class="fine">
+          At one point, Darren claimed that high school students were helping after school. He would offer discounts, but said it would take longer because of this.
+          This was a completely fabricated lie. Just immagine this fucking idiot with high school kids hanging out in some dude in his late 50's house. Obviously, no school nor parrent in their right mind would knowingly allow this fucking idot within 100 feet of their child.
+        </p>
+
+        <div class="case-summary split" aria-label="Inline image block" style="margin-top:16px; padding-top:0; border-top:0;">
+          <div class="case-text"></div>
+          <div class="case-image">
+            <img src="Scumbag Darren.jpeg" alt="Scumbag Darren" />
+          </div>
         </div>
+      </section>
+
       <section class="image-row" id="deliverables" aria-label="Deliverables images">
         <img src="https://90dolllarspice-collab.github.io/img1.png" alt="Processing visualization 1" />
         <img src="https://90dolllarspice-collab.github.io/img2.png" alt="Processing visualization 2" />
       </section>
 
-      <!-- ===================================================
-           Case Summary
-      =================================================== -->
+      <!-- Case Summary -->
       <section class="case-summary split" id="case" aria-label="Public Records">
         <div class="case-text">
           <h2>Utah Division of Consumer Protection Case</h2>
@@ -896,16 +902,10 @@
             Source documents: Records made public by Utah Division of Consumer Protection Administrative Citation (Dec 2017) and
             Settlement Agreement (Mar 2018).
           </p>
-
-
         </div>
-
-
       </section>
 
-      <!-- ===================================================
-           Downloads
-      =================================================== -->
+      <!-- Downloads -->
       <section class="downloads" id="downloads" aria-label="Downloads">
         <h2>Downloads</h2>
 
@@ -951,9 +951,7 @@
           </div>
         </div>
 
-        <!-- ===================================================
-             Meme + Donate
-        =================================================== -->
+        <!-- Meme + Donate -->
         <div class="donate" aria-label="Donate and meme">
           <div class="donate-grid">
             <img src="meme1.jpeg" alt="Meme" />
@@ -970,9 +968,7 @@
         </div>
       </section>
 
-      <!-- ===================================================
-           Reviews
-      =================================================== -->
+      <!-- Reviews -->
       <section id="reviews" aria-label="Reviews">
         <div class="review-block" id="notice">
           <img src="https://90dolllarspice-collab.github.io/flint3.PNG" alt="Screenshot of review / owner response" />
@@ -984,7 +980,7 @@
               Sure, I get the extended magazine the small amount of use that gun gets, you’re going to need to run as many rounds as possible. You won't. you're a pussy.
               A pathetic old man who made his living ripping people off. The only thing you are good at is lying. It took me 15 minutes to make a website that looks better than your pos.
             </p>
-            <img src="https://90dolllarspice-collab.github.io/Real gun.PNG" alt="Screenshot of review / owner response" style="margin-top:14px;" />
+            <img src="https://90dolllarspice-collab.github.io/Real%20gun.PNG" alt="Screenshot of review / owner response" style="margin-top:14px;" />
           </div>
         </div>
 
@@ -1002,18 +998,17 @@
     </div>
   </main>
 
-  <!-- Graph Section (outside main intentionally for full-width background) -->
-<section class="graph-section graph-section--incompetence" id="graph">
-  <div class="graph-container">
-    <div class="graph-header">
-      <h2 class="graph-title">Flint's History</h2>
-      <p class="graph-subtitle"></p>
-    </div>
+  <!-- Graph Section (full-width background) -->
+  <section class="graph-section graph-section--incompetence" id="graph">
+    <div class="graph-container">
+      <div class="graph-header">
+        <h2 class="graph-title">Flint's History</h2>
+        <p class="graph-subtitle"></p>
+      </div>
+
       <div class="graph-body">
         <!-- LEFT: statements -->
-        <div class="graph-points" id="graphPoints">
-          <!-- Points inserted by JavaScript -->
-        </div>
+        <div class="graph-points" id="graphPoints"></div>
 
         <!-- RIGHT: graph -->
         <div class="graph-canvas-wrapper">
@@ -1420,9 +1415,7 @@
       anchor.addEventListener("click", function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
 
@@ -1430,16 +1423,7 @@
     initializeGraphPoints();
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", drawCanvas);
-
     handleScroll();
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
