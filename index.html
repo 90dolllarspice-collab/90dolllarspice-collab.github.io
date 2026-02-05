@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -626,7 +627,7 @@
       gap: 24px;
       align-items: flex-start;
       background: #ffffff;
-      padding: 40px;
+      padding: 28px;
       border-radius: 16px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       transition: opacity 0.7s ease, transform 0.7s ease;
@@ -654,38 +655,15 @@
 
     .graph-point-content { flex: 1; position: relative; z-index: 1; min-width: 0; }
 
-    .graph-point-title {
-      font-size: 24px;
-      font-weight: 800;
-      line-height: 1.25;
-      margin: 0 0 16px;
-      color: #111;
-      letter-spacing: -0.01em;
+    /* NEW: image-only point cards */
+    .graph-point-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: #fff;
     }
-
-    .graph-point-description {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #444;
-      margin: 0 0 20px;
-      word-break: break-word;
-    }
-
-    .graph-point-legal {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      padding: 12px 18px;
-      background: rgba(0, 0, 0, 0.04);
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-
-    .graph-point-legal-icon { font-size: 18px; }
 
     /* Footer */
     .whr-footer {
@@ -770,10 +748,7 @@
       .phase-break-title { font-size: 22px; white-space: normal; }
       .phase-break-description { font-size: 14px; }
 
-      .graph-point { padding: 28px; max-width: 100%; }
-      .graph-point-title { font-size: 20px; }
-      .graph-point-description { font-size: 15px; }
-      .graph-point-legal { font-size: 12px; padding: 10px 14px; }
+      .graph-point { padding: 22px; max-width: 100%; }
 
       /* Keep img1/img2 side-by-side down to 900px */
       .case-summary.split .case-image { grid-template-columns: 1fr 1fr; }
@@ -794,10 +769,7 @@
       .phase-break-title { font-size: 18px; }
       .phase-break-description { font-size: 13px; }
 
-      .graph-point { padding: 24px; }
-      .graph-point-title { font-size: 18px; }
-      .graph-point-description { font-size: 14px; }
-      .graph-point-legal { font-size: 11px; }
+      .graph-point { padding: 18px; }
 
       /* On very small screens, stack img1/img2 */
       .case-summary.split .case-image { grid-template-columns: 1fr; }
@@ -1050,78 +1022,15 @@
   </footer>
 
   <script>
-    // Data Points
+    // Data Points (7 total, image-only)
     const dataPoints = [
-      {
-        id: 1,
-        title: "Darren Flint’s pathetic existence",
-        description: "Darren Flint’s entire existence as a business operator is rudimentary. He gets people to mail him a wiring harness, then sits on it. Time is never defined, because time is the leverage. The longer he keeps your property, the more pressure he can apply to extract additional money. His website is careful to talk about craftsmanship, process, and quality, but it avoids the one thing that actually matters to a customer. How long the job will take. Once the harness is in his possession, he shields himself behind contracts designed to slow, frustrate, and exhaust anyone who tries to recover their property or their money. At that point the transaction stops being a service and becomes a holding pattern engineered to favor him alone.",
-        legalNote: "This is a minor fuck around",
-        phase: "incompetence"
-      },
-      {
-        id: 2,
-        title: "Posing as an attorney",
-        description: "Flint created and operated an entity called “John Galt Esquire, LLC”, billed customers under “JOHN GALT ESQU.”, and used it to process credit card payments. There is no attorney licensed in Utah named John Galt, and Flint himself is not an attorney. “John Galt” is a fictional character from Atlas Shrugged. This is deliberate deception designed to intimidate customers and lend false legal authority to his demands. The Utah Division of Consumer Protection explicitly identifies this as a deceptive practice and a statutory violation.",
-        legalNote: "committing fuckery",
-        phase: "incompetence"
-      },
-      {
-        id: 3,
-        title: "Flint-n-switch",
-        description: "Flint verbally quoted a wiring harness restoration one price with a 6–8 week timeline. After receiving the harness, he sent a written estimate jumping the price much higher, plus add-ons, including a laughably unethical “discount” if local high school students performed the work. This occurred only after the customer’s property was already in Flint’s possession.",
-        legalNote: "Lying is fuckery",
-        phase: "incompetence"
-      },
-      {
-        id: 4,
-        title: "Taking payment and then not doing the work within the promised timeframe",
-        description: "Flint rutinely takes deposits, then fails to meaningfully perform the work for over months to years, far beyond the promised 1-3 months, He never complets the job nor offered a refund or definite completion date as required by law. This was formally charged as a deceptive trade practice.",
-        legalNote: "Illegal fucking around",
-        phase: "deception"
-      },
-      {
-        id: 5,
-        title: "Unilateral modification of agreements",
-        description: "Discounts are revoked, fees added, or work scope altered without customer authorization. These changes are presented as faits accomplis rather than negotiated amendments. This constitutes deceptive trade behavior in many regulatory frameworks.",
-        legalNote: "Violates Utah Consumer Sales Practices Act",
-        phase: "deception"
-      },
-      {
-        id: 6,
-        title: "Misrepresentation of dispute status",
-        description: "Statements are made implying disputes are \"resolved,\" \"final,\" or already adjudicated when no judgment or final determination exists. This is designed to create false inevitability and suppress customer resistance.",
-        legalNote: "Fraudulent misrepresentation",
-        phase: "deception"
-      },
-      {
-        id: 7,
-        title: "Use of false or misleading authority signals",
-        description: "Communications are sent under the banner of a \"legal department\" or purported legal agent without clear disclosure of licensing or authority. When questioned directly, clarification is avoided. This is a classic intimidation tactic and potentially unlawful.",
-        legalNote: "Unauthorized practice of law (UPL)",
-        phase: "deception"
-      },
-      {
-        id: 8,
-        title: "Harassment after objection or dispute",
-        description: "Once a customer pushes back, communications escalate in frequency, tone, and threat level rather than de-escalating. Continued contact after explicit requests to stop moves this into harassment territory.",
-        legalNote: "Violates FDCPA and harassment statutes",
-        phase: "coercion"
-      },
-      {
-        id: 9,
-        title: "Retaliatory financial escalation",
-        description: "Additional charges, expedited fees, or threats of increased liability appear only after disputes or chargebacks are initiated. This strongly suggests retaliation rather than legitimate cost recovery.",
-        legalNote: "Retaliatory business practices",
-        phase: "coercion"
-      },
-      {
-        id: 10,
-        title: "Misrepresentation to third parties",
-        description: "Statements to courts or financial institutions characterize provisional or pending outcomes as definitive wins. This misleads decision-makers and strengthens coercive leverage against the customer.",
-        legalNote: "Fraud upon the court or financial institutions",
-        phase: "coercion"
-      }
+      { id: 1, image: "f1.png", phase: "incompetence" },
+      { id: 2, image: "f2.png", phase: "incompetence" },
+      { id: 3, image: "f3.png", phase: "incompetence" },
+      { id: 4, image: "f4.png", phase: "deception" },
+      { id: 5, image: "f5.png", phase: "deception" },
+      { id: 6, image: "f6.png", phase: "deception" },
+      { id: 7, image: "f7.png", phase: "deception" }
     ];
 
     const phaseConfig = {
@@ -1161,35 +1070,14 @@
     const phaseDescription = document.getElementById("phaseDescription");
     const graphPoints = document.getElementById("graphPoints");
 
-    // --- NEW: point marker images (f1.png - f7.png) ---
-    const markerSrcs = ["f1.png","f2.png","f3.png","f4.png","f5.png","f6.png","f7.png"];
-    const markerImgs = [];
-    let markersReady = false;
+    // Preload point images for the canvas
+    const pointImages = dataPoints.map((p) => {
+      const img = new Image();
+      img.src = p.image;
+      return img;
+    });
 
-    function loadMarkers() {
-      let loaded = 0;
-      markerSrcs.forEach((src, idx) => {
-        const img = new Image();
-        img.onload = () => {
-          loaded++;
-          if (loaded === markerSrcs.length) {
-            markersReady = true;
-            drawCanvas();
-          }
-        };
-        img.onerror = () => {
-          loaded++;
-          if (loaded === markerSrcs.length) {
-            markersReady = true;
-            drawCanvas();
-          }
-        };
-        img.src = src;
-        markerImgs[idx] = img;
-      });
-    }
-
-    // Initialize graph points
+    // Initialize graph points (LEFT column) as images only
     function initializeGraphPoints() {
       let prevPhase = null;
 
@@ -1215,18 +1103,14 @@
         pointElement.className = `graph-point graph-point--${point.phase}`;
         pointElement.setAttribute("data-index", index);
         pointElement.style.borderLeftColor = phaseConfig[point.phase].color;
+
         pointElement.innerHTML = `
           <div class="graph-point-content">
-            <h3 class="graph-point-title">${point.title}</h3>
-            <p class="graph-point-description">${point.description}</p>
-            <div class="graph-point-legal" style="color: ${phaseConfig[point.phase].color}">
-              <span class="graph-point-legal-icon">⚖</span>
-              ${point.legalNote}
-            </div>
+            <img class="graph-point-image" src="${point.image}" alt="Graph point ${point.id}" />
           </div>
         `;
-        graphPoints.appendChild(pointElement);
 
+        graphPoints.appendChild(pointElement);
         prevPhase = point.phase;
       });
     }
@@ -1275,6 +1159,13 @@
         ctx.stroke();
       }
 
+      const phaseColors = {
+        incompetence: "#1b74e4",
+        deception: "#ff8c00",
+        coercion: "#e63946",
+        fraud: "#a4161a"
+      };
+
       // Calculate points
       const numPoints = dataPoints.length;
       const points = [];
@@ -1292,10 +1183,10 @@
         const variation = Math.sin(i * 0.7) * 12;
         const y = baseY + variation;
 
-        points.push({ x, y, phase: dataPoints[i].phase });
+        points.push({ x, y, phase: dataPoints[i].phase, idx: i });
       }
 
-      const visiblePoints = Math.ceil(scrollProgress * numPoints);
+      const visiblePoints = Math.max(0, Math.min(numPoints, Math.ceil(scrollProgress * numPoints)));
 
       // Draw curve
       if (visiblePoints > 1) {
@@ -1304,13 +1195,6 @@
         ctx.lineWidth = 8;
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
-
-        const phaseColors = {
-          incompetence: "#1b74e4",
-          deception: "#ff8c00",
-          coercion: "#e63946",
-          fraud: "#a4161a"
-        };
 
         for (let i = 1; i < visiblePoints && i < points.length; i++) {
           const prevPoint = points[i - 1];
@@ -1328,7 +1212,7 @@
         }
 
         // Partial line
-        if (visiblePoints < points.length) {
+        if (visiblePoints < points.length && visiblePoints > 0) {
           const lastFullPoint = points[visiblePoints - 1];
           const nextPoint = points[visiblePoints];
           const partialProgress = (scrollProgress * numPoints) - (visiblePoints - 1);
@@ -1345,50 +1229,63 @@
 
         ctx.shadowBlur = 0;
 
-        // --- CHANGED: draw image markers instead of circles ---
-        const baseSize = 28;       // normal marker size in CSS pixels
-        const latestSize = 40;     // latest marker size
-        const fallbackRadius = 9;  // used only if image missing
-
+        // Draw point images (fallback to circles if image not loaded yet)
         for (let i = 0; i < visiblePoints && i < points.length; i++) {
           const point = points[i];
           const isLatest = i === visiblePoints - 1;
-          const size = isLatest ? latestSize : baseSize;
+          const pointColor = phaseColors[point.phase];
 
-          // Only first 7 points get f1-f7. If more than 7 points, remaining use last image.
-          const imgIndex = Math.min(i, markerImgs.length - 1);
-          const img = markerImgs[imgIndex];
+          const img = pointImages[point.idx];
+          const imgReady = img && img.complete && img.naturalWidth > 0;
 
-          if (img && img.complete && img.naturalWidth > 0) {
+          const size = isLatest ? 46 : 40;
+          const half = size / 2;
+
+          if (imgReady) {
             if (isLatest) {
-              ctx.shadowColor = "rgba(0,0,0,0.35)";
+              ctx.shadowColor = pointColor;
               ctx.shadowBlur = 18;
             } else {
               ctx.shadowBlur = 0;
             }
 
-            ctx.drawImage(img, point.x - size / 2, point.y - size / 2, size, size);
+            ctx.drawImage(img, point.x - half, point.y - half, size, size);
             ctx.shadowBlur = 0;
 
+            if (isLatest) {
+              ctx.strokeStyle = pointColor;
+              ctx.lineWidth = 2;
+              ctx.beginPath();
+              ctx.arc(point.x, point.y, half + 8, 0, Math.PI * 2);
+              ctx.stroke();
+            }
           } else {
-            // Fallback: small dot if image failed to load
-            const phaseColors = {
-              incompetence: "#1b74e4",
-              deception: "#ff8c00",
-              coercion: "#e63946",
-              fraud: "#a4161a"
-            };
-            const pointColor = phaseColors[point.phase];
+            // Fallback: original circles
+            if (isLatest) {
+              ctx.shadowColor = pointColor;
+              ctx.shadowBlur = 20;
+            } else {
+              ctx.shadowBlur = 0;
+            }
 
             ctx.fillStyle = "#ffffff";
             ctx.beginPath();
-            ctx.arc(point.x, point.y, fallbackRadius, 0, Math.PI * 2);
+            ctx.arc(point.x, point.y, isLatest ? 12 : 9, 0, Math.PI * 2);
             ctx.fill();
 
+            ctx.shadowBlur = 0;
             ctx.fillStyle = pointColor;
             ctx.beginPath();
-            ctx.arc(point.x, point.y, Math.max(4, fallbackRadius - 4), 0, Math.PI * 2);
+            ctx.arc(point.x, point.y, isLatest ? 7 : 5, 0, Math.PI * 2);
             ctx.fill();
+
+            if (isLatest) {
+              ctx.strokeStyle = pointColor;
+              ctx.lineWidth = 2;
+              ctx.beginPath();
+              ctx.arc(point.x, point.y, 16, 0, Math.PI * 2);
+              ctx.stroke();
+            }
           }
         }
       }
@@ -1437,7 +1334,7 @@
         ? dataPoints[dataPoints.length - 1].phase
         : (dataPoints[currentIndex]?.phase || "incompetence");
 
-      const phaseInfo = phaseConfig[currentPhase];
+      const phaseInfo = phaseConfig[currentPhase] || phaseConfig.incompetence;
 
       graphSection.className = `graph-section graph-section--${currentPhase}`;
       phaseLabel.textContent = phaseInfo.label;
@@ -1473,11 +1370,17 @@
     });
 
     // Initialize
-    loadMarkers();
     initializeGraphPoints();
+
+    // Redraw once images are ready (canvas)
+    pointImages.forEach((img) => {
+      img.onload = () => drawCanvas();
+    });
+
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", drawCanvas);
     handleScroll();
   </script>
 </body>
 </html>
+```
