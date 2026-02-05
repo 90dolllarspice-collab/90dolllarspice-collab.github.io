@@ -1161,6 +1161,34 @@
     const phaseDescription = document.getElementById("phaseDescription");
     const graphPoints = document.getElementById("graphPoints");
 
+    // --- NEW: point marker images (f1.png - f7.png) ---
+    const markerSrcs = ["f1.png","f2.png","f3.png","f4.png","f5.png","f6.png","f7.png"];
+    const markerImgs = [];
+    let markersReady = false;
+
+    function loadMarkers() {
+      let loaded = 0;
+      markerSrcs.forEach((src, idx) => {
+        const img = new Image();
+        img.onload = () => {
+          loaded++;
+          if (loaded === markerSrcs.length) {
+            markersReady = true;
+            drawCanvas();
+          }
+        };
+        img.onerror = () => {
+          loaded++;
+          if (loaded === markerSrcs.length) {
+            markersReady = true;
+            drawCanvas();
+          }
+        };
+        img.src = src;
+        markerImgs[idx] = img;
+      });
+    }
+
     // Initialize graph points
     function initializeGraphPoints() {
       let prevPhase = null;
@@ -1317,36 +1345,50 @@
 
         ctx.shadowBlur = 0;
 
-        // Draw points
+        // --- CHANGED: draw image markers instead of circles ---
+        const baseSize = 28;       // normal marker size in CSS pixels
+        const latestSize = 40;     // latest marker size
+        const fallbackRadius = 9;  // used only if image missing
+
         for (let i = 0; i < visiblePoints && i < points.length; i++) {
           const point = points[i];
           const isLatest = i === visiblePoints - 1;
-          const pointColor = phaseColors[point.phase];
+          const size = isLatest ? latestSize : baseSize;
 
-          if (isLatest) {
-            ctx.shadowColor = pointColor;
-            ctx.shadowBlur = 20;
-          } else {
+          // Only first 7 points get f1-f7. If more than 7 points, remaining use last image.
+          const imgIndex = Math.min(i, markerImgs.length - 1);
+          const img = markerImgs[imgIndex];
+
+          if (img && img.complete && img.naturalWidth > 0) {
+            if (isLatest) {
+              ctx.shadowColor = "rgba(0,0,0,0.35)";
+              ctx.shadowBlur = 18;
+            } else {
+              ctx.shadowBlur = 0;
+            }
+
+            ctx.drawImage(img, point.x - size / 2, point.y - size / 2, size, size);
             ctx.shadowBlur = 0;
-          }
 
-          ctx.fillStyle = "#ffffff";
-          ctx.beginPath();
-          ctx.arc(point.x, point.y, isLatest ? 12 : 9, 0, Math.PI * 2);
-          ctx.fill();
+          } else {
+            // Fallback: small dot if image failed to load
+            const phaseColors = {
+              incompetence: "#1b74e4",
+              deception: "#ff8c00",
+              coercion: "#e63946",
+              fraud: "#a4161a"
+            };
+            const pointColor = phaseColors[point.phase];
 
-          ctx.shadowBlur = 0;
-          ctx.fillStyle = pointColor;
-          ctx.beginPath();
-          ctx.arc(point.x, point.y, isLatest ? 7 : 5, 0, Math.PI * 2);
-          ctx.fill();
-
-          if (isLatest) {
-            ctx.strokeStyle = pointColor;
-            ctx.lineWidth = 2;
+            ctx.fillStyle = "#ffffff";
             ctx.beginPath();
-            ctx.arc(point.x, point.y, 16, 0, Math.PI * 2);
-            ctx.stroke();
+            ctx.arc(point.x, point.y, fallbackRadius, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = pointColor;
+            ctx.beginPath();
+            ctx.arc(point.x, point.y, Math.max(4, fallbackRadius - 4), 0, Math.PI * 2);
+            ctx.fill();
           }
         }
       }
@@ -1431,6 +1473,7 @@
     });
 
     // Initialize
+    loadMarkers();
     initializeGraphPoints();
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", drawCanvas);
