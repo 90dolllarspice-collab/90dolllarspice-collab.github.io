@@ -1227,27 +1227,7 @@ This is all a matter of public record, you absolute incompetent. These are the c
           const size = isLatest ? 46 : 40;
           const half = size / 2;
 
-          if (imgReady) {
-            if (isLatest) {
-              ctx.shadowColor = pointColor;
-              ctx.shadowBlur = 18;
-            } else {
-              ctx.shadowBlur = 0;
-            }
-
-            ctx.drawImage(img, point.x - half, point.y - half, size, size);
-            ctx.shadowBlur = 0;
-
-            if (isLatest) {
-              ctx.strokeStyle = pointColor;
-              ctx.lineWidth = 2;
-              ctx.beginPath();
-              ctx.arc(point.x, point.y, half + 8, 0, Math.PI * 2);
-              ctx.stroke();
-            }
-          } else {
-            // Fallback: original circles
-            if (isLatest) {
+          if (isLatest) {
               ctx.shadowColor = pointColor;
               ctx.shadowBlur = 20;
             } else {
@@ -1370,6 +1350,7 @@ This is all a matter of public record, you absolute incompetent. These are the c
 </body>
 </html>
 ```
+
 
 
 
