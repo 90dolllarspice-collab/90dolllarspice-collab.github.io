@@ -1056,10 +1056,10 @@ This is all a matter of public record, you absolute incompetent. These are the c
     const phaseDescription = document.getElementById("phaseDescription");
     const graphPoints = document.getElementById("graphPoints");
 
-    // Preload point images for the canvas
-    const pointImages = dataPoints.map((p) => {
+    // Preload a single marker image for all canvas points
+    const pointImages = dataPoints.map(() => {
       const img = new Image();
-      img.src = p.image;
+      img.src = "Jeep.png";
       return img;
     });
 
@@ -1370,6 +1370,7 @@ This is all a matter of public record, you absolute incompetent. These are the c
 </body>
 </html>
 ```
+
 
 
 
