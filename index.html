@@ -4,6 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wiring Harness Restoration - Consumer Warning</title>
+  <meta name="description" content="Consumer awareness documentation about wiring harness restoration business practices, timelines, and public records." />
+  <link rel="canonical" href="https://90dolllarspice-collab.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Wiring Harness Restoration - Consumer Warning" />
+  <meta property="og:description" content="Consumer awareness documentation about wiring harness restoration business practices, timelines, and public records." />
+  <meta property="og:url" content="https://90dolllarspice-collab.github.io/" />
+  <meta property="og:image" content="https://90dolllarspice-collab.github.io/head.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Wiring Harness Restoration - Consumer Warning" />
+  <meta name="twitter:description" content="Consumer awareness documentation about wiring harness restoration business practices, timelines, and public records." />
+  <meta name="twitter:image" content="https://90dolllarspice-collab.github.io/head.png" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4VRPCLLWX"></script>
@@ -457,7 +468,7 @@
     ========================================================= */
     .graph-section {
       padding: 100px 20px 200px;
-      min-height: 500vh;
+      min-height: 280vh;
       position: relative;
       transition: background-color 1s ease;
     }
@@ -709,7 +720,7 @@
 
       .graph-section {
         padding: 60px 20px 150px;
-        min-height: 450vh;
+        min-height: 240vh;
       }
 
       .graph-header { top: 80px; margin-bottom: 50px; }
@@ -821,7 +832,7 @@
           </p>
 
           <p>
-            The true nature of the strategy is revealed only when the work authorization contract is presented a dense, multi thousand word legal document drafted by a separate entity to insulate the business. Upon signing, the customer’s experience shifts abruptly from a service oriented interaction to an adversarial one. The previously accessible phone support is terminated, replaced by a strict clause mandating that all future communication occur solely through email, with the company obligated to provide updates only once every six months. Buried within this agreement is a provision granting the company a twenty four month window to complete the work, along with a stipulation that failure to meet this extended deadline results only in store credit rather than a cash refund. The customer is thus legally virtually silenced and their property held in limbo for up to two years.
+            The true nature of the strategy is revealed only when the work authorization contract is presented a dense, multi thousand word legal document drafted by a separate entity to insulate the business. Upon signing, the customer's experience shifts abruptly from a service oriented interaction to an adversarial one. The previously accessible phone support is terminated, replaced by a strict clause mandating that all future communication occur solely through email, with the company obligated to provide updates only once every six months. Buried within this agreement is a provision granting the company a twenty four month window to complete the work, along with a stipulation that failure to meet this extended deadline results only in store credit rather than a cash refund. The customer is thus legally virtually silenced and their property held in limbo for up to two years.
           </p>
 
           <p class="warning__callout">
@@ -883,7 +894,7 @@
           <div class="dl">
             <div class="meta">
               <div class="title">Administrative Citation (PDF)</div>
-              <p class="desc">Utah Division of Consumer Protection — Administrative Citation.</p>
+              <p class="desc">Utah Division of Consumer Protection - Administrative Citation.</p>
             </div>
             <a href="https://90dolllarspice-collab.github.io/00003C3F.pdf" download>Download</a>
           </div>
@@ -891,7 +902,7 @@
           <div class="dl">
             <div class="meta">
               <div class="title">Settlement Agreement (PDF)</div>
-              <p class="desc">Utah Division of Consumer Protection — Settlement Agreement.</p>
+              <p class="desc">Utah Division of Consumer Protection - Settlement Agreement.</p>
             </div>
             <a href="https://90dolllarspice-collab.github.io/00003C3E.pdf" download>Download</a>
           </div>
@@ -1002,7 +1013,7 @@ This is all a matter of public record, you absolute incompetent. These are the c
         This website presents documented patterns of conduct based on actual correspondence, contracts, and business practices. All statements are made are based on how fucked this individual is . The purpose is consumer education and public awareness. Nothing on this site should be construed as legal advice. Individuals with concerns about similar practices should consult with a qualified attorney in their jurisdiction.
       </p>
       <div class="whr-footer-legal">
-        © 2026 Consumer Awareness Initiative. All rights reserved. This site is maintained for informational purposes only.
+        (c) 2026 Consumer Awareness Initiative. All rights reserved. This site is maintained for informational purposes only.
       </div>
     </div>
   </footer>
@@ -1362,22 +1373,19 @@ This is all a matter of public record, you absolute incompetent. These are the c
     pointImages.forEach((img) => {
       img.onload = () => drawCanvas();
     });
+    let scrollRaf = null;
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", drawCanvas);
+    window.addEventListener("scroll", () => {
+      if (scrollRaf !== null) return;
+      scrollRaf = requestAnimationFrame(() => {
+        handleScroll();
+        scrollRaf = null;
+      });
+    }, { passive: true });
+    window.addEventListener("resize", () => handleScroll(), { passive: true });
     handleScroll();
   </script>
 </body>
 </html>
-```
-
-
-
-
-
-
-
-
-
 
 
