@@ -345,7 +345,8 @@
       align-items: start;
     }
 
-    .case-summary.split .case-image img {
+    .case-summary.split .case-image img,
+    .case-summary.split .case-image video {
       width: 100%;
       height: auto;
       border: 1px solid var(--line);
@@ -855,7 +856,9 @@
           <div class="case-text"></div>
           <div class="case-image">
             <img src="https://90dolllarspice-collab.github.io/img1.png" alt="Processing visualization 1" />
-            <img src="https://90dolllarspice-collab.github.io/img2.png" alt="Processing visualization 2" />
+            <video autoplay muted controls playsinline aria-label="Processing visualization 2">
+              <source src="https://90dolllarspice-collab.github.io/Never%20gonna%20get%20your%20shit.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </section>
