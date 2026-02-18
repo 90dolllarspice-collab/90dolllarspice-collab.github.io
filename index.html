@@ -169,6 +169,52 @@
       color: #856404;
     }
 
+    .content-with-clips {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(260px, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .content-main { min-width: 0; }
+
+    .process-clips {
+      border: 1px solid #e6e6e6;
+      border-radius: 14px;
+      padding: 16px;
+      background: #fafafa;
+    }
+
+    .process-clips h2 {
+      margin: 0 0 14px;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #444;
+    }
+
+    .process-clips-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .clip-card p {
+      margin: 0 0 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .clip-card video {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      display: block;
+      background: #000;
+    }
+
     .fine {
       font-size: 13px;
       line-height: 1.7;
@@ -718,6 +764,7 @@
       .whr-structured { padding: 60px 20px 40px; }
       .warning__title { font-size: 30px; }
       .warning__content p { font-size: 15px; }
+      .content-with-clips { grid-template-columns: 1fr; }
 
       .graph-section {
         padding: 60px 20px 150px;
@@ -824,6 +871,8 @@
     <div class="whr-structured-wrap">
       <p class="kicker">Wiring Harness Restoration • When incompetence finds a business model.™</p>
 
+      <div class="content-with-clips">
+        <div class="content-main">
       <section class="warning" aria-label="Goal of this site">
         <h2 class="warning__title">Goal Of This Site</h2>
 
@@ -849,7 +898,7 @@
       <section aria-label="Additional note and image" style="margin-top:18px;">
         <p class="fine">
           At one point, Darren claimed that high school students were helping after school. He would offer discounts, but said it would take longer because of this.
-          This was a completely fabricated lie. Just immagine this fucking idiot with high school kids hanging out in some dude in his late 50's house. Obviously, no school nor parrent in their right mind would knowingly allow this fucking idiot within 100 feet of their child.
+          This was a completely fabricated lie. Just imagine this fucking idiot with high school kids hanging out in some dude in his late 50's house. Obviously, no school nor parent in their right mind would knowingly allow this fucking idiot within 100 feet of their child.
         </p>
 
         <div class="case-summary split" aria-label="Inline image block" style="margin-top:16px; padding-top:0; border-top:0;">
@@ -862,6 +911,35 @@
           </div>
         </div>
       </section>
+
+        </div>
+
+        <aside class="process-clips" aria-label="Process clips">
+          <h2>Process Clips</h2>
+          <div class="process-clips-list">
+            <div class="clip-card">
+              <p>Step 1</p>
+              <video controls playsinline aria-label="Step clip">
+                <source src="https://90dolllarspice-collab.github.io/Steps.mp4" type="video/mp4" />
+              </video>
+            </div>
+
+            <div class="clip-card">
+              <p>Step 2</p>
+              <video controls playsinline aria-label="Free prices clip">
+                <source src="https://90dolllarspice-collab.github.io/Free prices.mp4" type="video/mp4" />
+              </video>
+            </div>
+
+            <div class="clip-card">
+              <p>Step 3</p>
+              <video controls playsinline aria-label="As is clip">
+                <source src="https://90dolllarspice-collab.github.io/3 as is.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </aside>
+      </div>
 
       <section class="image-row" id="deliverables" aria-label="Deliverables images">
         <img src="Scumbag Darren.jpeg" alt="Scumbag Darren" />
