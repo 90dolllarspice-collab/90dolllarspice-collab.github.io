@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://wiringharnessrestoration.net/sitemap.xml
