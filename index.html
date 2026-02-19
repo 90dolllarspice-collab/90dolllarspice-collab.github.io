@@ -712,8 +712,8 @@
 
     .graph-point-content { flex: 1; position: relative; z-index: 1; min-width: 0; }
 
-    /* NEW: image-only point cards */
-    .graph-point-image {
+    /* Point card media (image/video) */
+    .graph-point-media {
       width: 100%;
       height: auto;
       display: block;
@@ -721,6 +721,8 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
       background: #fff;
     }
+
+    .graph-point-video { background: #000; }
 
     /* Footer */
     .whr-footer {
@@ -869,7 +871,7 @@
   <!-- Main content -->
   <main class="whr-structured" id="intake">
     <div class="whr-structured-wrap">
-      <p class="kicker">Wiring Harness Restoration â€¢ When incompetence finds a business model.â„¢</p>
+      <p class="kicker">Wiring Harness Restoration - When incompetence finds a business model. (TM)</p>
 
       <div class="content-with-clips">
         <div class="content-main">
@@ -1037,9 +1039,9 @@
           <div class="review-text">
             <h3>Response to his threats</h3>
             <p>
-              Darren, it looks like a toy. It looks like you max-upgraded a gun in a video game. Itâ€™s like a fifth graderâ€™s version of â€œa cool gun.â€
-              Youâ€™re a sad, pathetic loser who has probably never even shot that gun. You get off on taking advantage of people and trying to intimidate them.
-              Sure, I get the extended magazine the small amount of use that gun gets, youâ€™re going to need to run as many rounds as possible. You won't. you're a pussy.
+              Darren, it looks like a toy. It looks like you max-upgraded a gun in a video game. It's like a fifth grader's version of "a cool gun."
+              You're a sad, pathetic loser who has probably never even shot that gun. You get off on taking advantage of people and trying to intimidate them.
+              Sure, I get the extended magazine the small amount of use that gun gets, you're going to need to run as many rounds as possible. You won't. you're a pussy.
               A pathetic old man who made his living ripping people off. The only thing you are good at is lying. It took me 15 minutes to make a website that looks better than your pos.
             </p>
             <img src="https://wiringharnessrestoration.net/Real%20gun.PNG" alt="Screenshot of review / owner response" style="margin-top:14px;" />
@@ -1089,7 +1091,7 @@
     <div class="whr-footer-wrap">
       <h3>Disclaimer</h3>
       <p>
-This is all a matter of public record, you absolute incompetent. These are the consequences of your own catastrophic failures. Do not mistake my documentation for the cause of your ruin; you decided to build a life on the pathetic foundation of swindling others, and now you are suffocating under the weight of your own history. You seem to labor under the delusion that filing paperwork for a new LLC acts as a magical eraser for your past indiscretions. It does not. That is simply not how reality functions. Every single data point here is available to anyone with an internet connection and a few brain cells. This isnâ€™t doxxing; it is a mirror. If your phone number or address appears here, it is only because the government deemed it necessary to publish them as a warning label to innocent bystanders. Why? Because the public deserves protection from your deep-seated, parasitic lifestyle. Everything stated on this page has been meticulously researched, cited, and confirmed as undeniable fact There are vehicles that have sat rotting for years solely because of your predatory business model. You are a text-book narcissist, and your clumsy attempts at intimidation are not frightening they are laughable. The way you infiltrated forums in the past just to shamelessly promote your own filth displays a lack of shame that would make a normal human being physically ill. I have not fully authenticated it yet, but it appears you are attempting to infect the world of music equipment and art with this same inexcusable incompetence. If you are applying this corrosive strategy to paintings, amplifiers, and guitars, you are carving out a legacy of absolute disgrace that no amount of rebranding will ever wash away.      </p>
+This is all a matter of public record, you absolute incompetent. These are the consequences of your own catastrophic failures. Do not mistake my documentation for the cause of your ruin; you decided to build a life on the pathetic foundation of swindling others, and now you are suffocating under the weight of your own history. You seem to labor under the delusion that filing paperwork for a new LLC acts as a magical eraser for your past indiscretions. It does not. That is simply not how reality functions. Every single data point here is available to anyone with an internet connection and a few brain cells. This isn't doxxing; it is a mirror. If your phone number or address appears here, it is only because the government deemed it necessary to publish them as a warning label to innocent bystanders. Why? Because the public deserves protection from your deep-seated, parasitic lifestyle. Everything stated on this page has been meticulously researched, cited, and confirmed as undeniable fact There are vehicles that have sat rotting for years solely because of your predatory business model. You are a text-book narcissist, and your clumsy attempts at intimidation are not frightening they are laughable. The way you infiltrated forums in the past just to shamelessly promote your own filth displays a lack of shame that would make a normal human being physically ill. I have not fully authenticated it yet, but it appears you are attempting to infect the world of music equipment and art with this same inexcusable incompetence. If you are applying this corrosive strategy to paintings, amplifiers, and guitars, you are carving out a legacy of absolute disgrace that no amount of rebranding will ever wash away.      </p>
       <p>
         This website presents documented patterns of conduct based on actual correspondence, contracts, and business practices. All statements are made are based on how fucked this individual is . The purpose is consumer education and public awareness. Nothing on this site should be construed as legal advice. Individuals with concerns about similar practices should consult with a qualified attorney in their jurisdiction.
       </p>
@@ -1102,7 +1104,7 @@ This is all a matter of public record, you absolute incompetent. These are the c
   <script>
     // Data Points (7 total, image-only)
     const dataPoints = [
-      { id: 1, image: "f1.png", phase: "incompetence" },
+      { id: 1, image: "f1.mp4", phase: "incompetence" },
       { id: 2, image: "f2.png", phase: "incompetence" },
       { id: 3, image: "f3.png", phase: "incompetence" },
       { id: 4, image: "f4.png", phase: "deception" },
@@ -1182,9 +1184,16 @@ This is all a matter of public record, you absolute incompetent. These are the c
         pointElement.setAttribute("data-index", index);
         pointElement.style.borderLeftColor = phaseConfig[point.phase].color;
 
+        const isVideo = /\.mp4($|\?)/i.test(point.image);
+        const mediaMarkup = isVideo
+          ? `<video class="graph-point-media graph-point-video" controls muted playsinline preload="metadata" aria-label="Graph point ${point.id} video">
+               <source src="${point.image}" type="video/mp4" />
+             </video>`
+          : `<img class="graph-point-media" src="${point.image}" alt="Graph point ${point.id}" />`;
+
         pointElement.innerHTML = `
           <div class="graph-point-content">
-            <img class="graph-point-image" src="${point.image}" alt="Graph point ${point.id}" />
+            ${mediaMarkup}
           </div>
         `;
 
@@ -1438,6 +1447,38 @@ This is all a matter of public record, you absolute incompetent. These are the c
       });
     }
 
+    function initializeGraphPointVideoAutoplay() {
+      const videos = document.querySelectorAll(".graph-point-video");
+      if (!videos.length) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting || entry.intersectionRatio < 0.6) return;
+
+          const video = entry.target;
+          if (video.dataset.autoplayDone === "true") return;
+
+          video.muted = true;
+          video.defaultMuted = true;
+          video.dataset.autoplayDone = "true";
+          observer.unobserve(video);
+
+          const playAttempt = video.play();
+          if (playAttempt && typeof playAttempt.catch === "function") {
+            playAttempt.catch(() => {
+              // Ignore autoplay failures; user can still use controls.
+            });
+          }
+        });
+      }, { threshold: [0.6] });
+
+      videos.forEach((video) => {
+        video.muted = true;
+        video.defaultMuted = true;
+        observer.observe(video);
+      });
+    }
+
     // Smooth scroll for navigation
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
@@ -1449,6 +1490,7 @@ This is all a matter of public record, you absolute incompetent. These are the c
 
     // Initialize
     initializeGraphPoints();
+    initializeGraphPointVideoAutoplay();
 
     // Redraw once images are ready (canvas)
     pointImages.forEach((img) => {
